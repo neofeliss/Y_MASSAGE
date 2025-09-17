@@ -80,9 +80,8 @@ img {
 
 .header-container {
     display: flex;
-    justify-content:center;
+    justify-content: space-between;
     align-items: center;
-    position: relative;
 }
 .header-nav {
     display: flex;
@@ -91,25 +90,21 @@ img {
 }
 
 .header-logo {
-   position: absolute;
-   left:30px;
-   display: flex;
-   align-items: center;
-   text-decoration: none;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    margin-right: auto;
+    /* толкает всё остальное вправо */
 }
 
 .logo-icon {
-    width: 120px;
-    margin-right: 0px;
+    width: 40px;
+    height: auto;
+    margin-right: 4px;
     /* уменьшенный отступ между иконкой и текстом */
 }
 
-.logo-text {
-    font-size: 24px;
-    font-weight: bold;
-    color: #000;
-    /* подгони под свой стиль */
-}
+
 
 .span-logo {
     color: #123456;
@@ -155,7 +150,7 @@ img {
     color: #2F4F4F;
 }
 
- .header-link-studio::after {
+.header-link-studio::after {
     content: "";
     border-radius: 2px;
     width: 48px;

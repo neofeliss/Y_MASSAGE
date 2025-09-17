@@ -80,42 +80,26 @@ img {
 
 .header-container {
     display: flex;
-    justify-content:center;
     align-items: center;
-    position: relative;
+color: #2e2f42
 }
+
 .header-nav {
     display: flex;
-    justify-content: space-between;
     align-items: center;
+   color: #696969;
 }
 
 .header-logo {
-   position: absolute;
-   left:30px;
-   display: flex;
-   align-items: center;
-   text-decoration: none;
+    font-family: "Raleway", sans-serif;
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 1.17;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    color: #2F4F4F;
+    margin-right: 76px;
 }
-
-.logo-icon {
-    width: 120px;
-    margin-right: 0px;
-    /* уменьшенный отступ между иконкой и текстом */
-}
-
-.logo-text {
-    font-size: 24px;
-    font-weight: bold;
-    color: #000;
-    /* подгони под свой стиль */
-}
-
-.span-logo {
-    color: #123456;
-    /* фирменный тёмно-синий или другой */
-}
-
 
 .header-link-studio:after {
     content: "";
@@ -133,7 +117,6 @@ img {
 }
 
 .header-list {
-    padding-left: 30px;
     display: flex;
     gap: 40px;
 }
@@ -155,7 +138,7 @@ img {
     color: #2F4F4F;
 }
 
- .header-link-studio::after {
+.header-link-studio::after {
     content: "";
     border-radius: 2px;
     width: 48px;
@@ -384,8 +367,10 @@ section {
     align-items: center;
     justify-content: center;
 }
-.features-container{
     
+    
+}
+
 }
 .features-list {
     display: flex;

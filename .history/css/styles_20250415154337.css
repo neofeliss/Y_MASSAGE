@@ -80,43 +80,45 @@ img {
 
 .header-container {
     display: flex;
-    justify-content:center;
     align-items: center;
-    position: relative;
-}
-.header-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+color: #2e2f42;
+
 }
 
-.header-logo {
-   position: absolute;
-   left:30px;
-   display: flex;
-   align-items: center;
-   text-decoration: none;
+.header-nav {
+    display: flex;
+    align-items: center;
+   color: #696969;
+padding-right: 15px;
+
+}
+
+header-logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
 }
 
 .logo-icon {
-    width: 120px;
-    margin-right: 0px;
-    /* уменьшенный отступ между иконкой и текстом */
+    width: 40px;
+    /* или размер под твой логотип */
+    height: auto;
+    margin-right: 10px;
+   
 }
 
 .logo-text {
     font-size: 24px;
+    /* или подгони под нужный стиль */
     font-weight: bold;
     color: #000;
-    /* подгони под свой стиль */
+    /* замени на нужный цвет */
 }
 
 .span-logo {
     color: #123456;
-    /* фирменный тёмно-синий или другой */
+    /* твой фирменный цвет */
 }
-
-
 .header-link-studio:after {
     content: "";
     border-radius: 2px;
@@ -133,7 +135,6 @@ img {
 }
 
 .header-list {
-    padding-left: 30px;
     display: flex;
     gap: 40px;
 }
@@ -155,7 +156,7 @@ img {
     color: #2F4F4F;
 }
 
- .header-link-studio::after {
+.header-link-studio::after {
     content: "";
     border-radius: 2px;
     width: 48px;

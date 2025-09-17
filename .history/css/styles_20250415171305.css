@@ -70,9 +70,8 @@ img {
 }
 
 .container {
-    width: 1158px;
-    padding-left: 15px;
-    padding-right: 15px;
+    width: 1155px;
+    padding: 0 20 px;
     margin: 0 auto;
    
 

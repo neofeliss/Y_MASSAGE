@@ -80,9 +80,8 @@ img {
 
 .header-container {
     display: flex;
-    justify-content:center;
+    justify-content: space-between;
     align-items: center;
-    position: relative;
 }
 .header-nav {
     display: flex;
@@ -91,24 +90,25 @@ img {
 }
 
 .header-logo {
-   position: absolute;
-   left:30px;
-   display: flex;
-   align-items: center;
-   text-decoration: none;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    margin-right: auto;
+    /* перемещает логотип влево */
 }
 
 .logo-icon {
     width: 120px;
-    margin-right: 0px;
-    /* уменьшенный отступ между иконкой и текстом */
+    /* или подгони под нужный размер */
+    height: auto;
+    margin-right:1px;
 }
 
 .logo-text {
     font-size: 24px;
     font-weight: bold;
     color: #000;
-    /* подгони под свой стиль */
+    /* поменяй под свой стиль */
 }
 
 .span-logo {
@@ -155,7 +155,7 @@ img {
     color: #2F4F4F;
 }
 
- .header-link-studio::after {
+.header-link-studio::after {
     content: "";
     border-radius: 2px;
     width: 48px;

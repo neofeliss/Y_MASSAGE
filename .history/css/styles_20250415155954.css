@@ -71,7 +71,7 @@ img {
 
 .container {
     width: 1158px;
-    padding-left: 15px;
+    padding-left: 0;
     padding-right: 15px;
     margin: 0 auto;
    
@@ -80,9 +80,8 @@ img {
 
 .header-container {
     display: flex;
-    justify-content:center;
+    justify-content: space-between;
     align-items: center;
-    position: relative;
 }
 .header-nav {
     display: flex;
@@ -91,15 +90,16 @@ img {
 }
 
 .header-logo {
-   position: absolute;
-   left:30px;
-   display: flex;
-   align-items: center;
-   text-decoration: none;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    margin-right: auto;
+    /* толкает всё остальное вправо */
 }
 
 .logo-icon {
     width: 120px;
+    height: auto;
     margin-right: 0px;
     /* уменьшенный отступ между иконкой и текстом */
 }
@@ -155,7 +155,7 @@ img {
     color: #2F4F4F;
 }
 
- .header-link-studio::after {
+.header-link-studio::after {
     content: "";
     border-radius: 2px;
     width: 48px;
