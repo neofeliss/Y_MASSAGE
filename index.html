@@ -156,84 +156,26 @@ Un geste simple qui fait toujours plaisir, à offrir pour un anniversaire, une f
 
 </section>
 <!-- ========== /FEATURES ========== -->
-      <!-- section 3 -->
-      <section class="section-team-name">
-        <div class="container">
-          <h2 class="main-titles team-title">Services</h2>
-          <ul class="main-team-list">
-            <li class="section-team-item delay-1">
-              <img
-                class="main-team-image"
-                src="./images/dzhak.jpg"
-                alt="Photo"
-                width="264"
-                height="260"
-              />
+      <section class="gallery-section" aria-label="Galerie du salon">
+  <h2 class="gallery-title">Galerie</h2>
 
-              <div class="worker">
-                <h3 class="section-team-subtitle-name">Jacuzzi</h3>
-                <p class="section-team-text-name">Les propriétés thérapeutiques de l'eau chaude sont utiles pour tout type de corps et à tout niveau de stress. Les effets curatifs de l'hydrothérapie sont capables de bien plus encore, par exemple, elles soulagent les symptômes de l'arthrite, procurant un soulagement temporaire de la douleur chronique.</p>
-                
-              </div>
-            </li>
-
-            <li class="section-team-item delay-2">
-              <img
-                class="main-team-image"
-                src="./images/Best Massage Spas in Chiang Mai_ reviews & pictures.jpg"
-                alt="Photo"
-                width="264"
-                height="260"
-              />
-              <div class="worker">
-                <h3 class="section-team-subtitle-name">Phytosauna</h3>
-                <p class="section-team-text-name">Le traitement aide à lutter contre la névrite, la névralgie et d'autres processus neuro-inflammatoires. La vapeur dilate les vaisseaux sanguins et les ingrédients curatifs présents dans les mélanges d'herbes pénètrent dans la circulation sanguine, dissolvant les plaques d'athérosclérose, augmentant l'élasticité des parois vasculaires et augmentant leur tonus.</p>
-              </div>
-            </li>
-
-            <li class="section-team-item delay-3">
-              <img
-                class="main-team-image"
-                src="./images/qqqq.jpg"
-                alt="Photo"
-                width="264"
-                height="260"
-              />
-              <div class="worker">
-                <h3 class="section-team-subtitle-name">Sauna infrarouge</h3>
-                <p class="section-team-text-name">L’impact positif de la procédure est le suivant :
-
-ouvrir les pores, éliminer les toxines, activer le métabolisme ;
-
-amélioration de la turgescence et de la couleur de la peau ;
-
-amélioration de la circulation sanguine et lymphatique;
-
-accélération de la récupération musculaire et articulaire après une activité physique ;
-
-normalisation de l'état mental.</p>
-                
-              </div>
-            </li>
-            <li class="section-team-item delay-4">
-              <img
-                class="main-team-image"
-                src="./images/liwo.jpg"
-                alt="Photo"
-                width="264"
-                height="260"
-              />
-              <div class="worker">
-                <h3 class="section-team-subtitle-name">Massage</h3>
-                <p class="section-team-text-name">Tout d’abord, le massage améliore la circulation sanguine et lymphatique. Cela favorise une nutrition plus efficace des cellules et des tissus, accélère l'élimination des déchets et des toxines du corps. En conséquence, le gonflement diminue et le métabolisme s’améliore.
-
-De plus, le massage affecte le système nerveux, réduisant le stress et renforçant l'équilibre psycho-émotionnel.</p>
-                
-              </div>
-            </li>
-          </ul>
-        </div>
-      </section>
+  <div class="gallery-viewport">
+    <div class="gallery-track" id="galleryTrack">
+      <!-- заменяй src на свои пути; можно 11+ фото -->
+      <figure class="gallery-slide"><img src="./images/gallery01.jpg" alt="Massage – photo 1"></figure>
+      <figure class="gallery-slide"><img src="./images/gallery02.jpg" alt="Massage – photo 2"></figure>
+      <figure class="gallery-slide"><img src="./images/gallery03.jpg" alt="Massage – photo 3"></figure>
+      <figure class="gallery-slide"><img src="./images/gallery04.jpg" alt="Massage – photo 4"></figure>
+      <figure class="gallery-slide"><img src="./images/gallery05.jpg" alt="Massage – photo 5"></figure>
+      <figure class="gallery-slide"><img src="./images/gallery06.jpg" alt="Massage – photo 6"></figure>
+      <figure class="gallery-slide"><img src="./images/gallery07.jpg" alt="Massage – photo 7"></figure>
+      <figure class="gallery-slide"><img src="./images/gallery08.jpg" alt="Massage – photo 8"></figure>
+      <figure class="gallery-slide"><img src="./images/gallery09.jpg" alt="Massage – photo 9"></figure>
+      <figure class="gallery-slide"><img src="./images/gallery10.jpg" alt="Massage – photo 10"></figure>
+      <figure class="gallery-slide"><img src="./images/gallery11.jpg" alt="Massage – photo 11"></figure>
+    </div>
+  </div>
+</section>
       <!-- section 4 -->
       <section class="portfolio">
   <div class="container">
@@ -1418,61 +1360,50 @@ box-shadow:0 4px 8px rgba(0,0,0,0.2);max-width:250px;z-index:999;">
 </div>
 
 <script>
-  // Расставляем направления анимации автоматически (шахматкой)
-  (function(){
-    const cards = document.querySelectorAll('.features .feature');
-    cards.forEach((card, i) => {
-      const media = card.querySelector('.feature__media');
-      const content = card.querySelector('.feature__content');
-      if(!media || !content) return;
+/* Шахматка: назначаем направления и запускаем IntersectionObserver */
+(function () {
+  const rows = document.querySelectorAll('.offer');
+  if (!rows.length) return;
 
-      // очищаем возможные старые классы
-      media.classList.remove('from-left','from-right','reveal','is-visible');
-      content.classList.remove('from-left','from-right','reveal','is-visible');
+  // задаём стартовые классы (откуда выезжает)
+  rows.forEach(row => {
+    const rev = row.classList.contains('is-reverse');
+    const media = row.querySelector('.offer-media');
+    const text  = row.querySelector('.offer-text');
+    if (media) media.classList.add(rev ? 'reveal-right' : 'reveal-left');
+    if (text)  text.classList.add(rev ? 'reveal-left'  : 'reveal-right');
+  });
 
-      // чётные (i=1,3,...) — картинка справа, текст слева
-      const reverse = (i % 2 === 1);
-      media.classList.add('reveal', reverse ? 'from-right' : 'from-left');
-      content.classList.add('reveal', reverse ? 'from-left'  : 'from-right');
-    });
-  })();
-
-  // Плавное появление при скролле
-  (function(){
-    const items = document.querySelectorAll('.reveal');
-    if(!('IntersectionObserver' in window)){
-      items.forEach(el=>el.classList.add('is-visible'));
-      return;
-    }
-    const io = new IntersectionObserver((ents,obs)=>{
-      ents.forEach(en=>{
-        if(en.isIntersecting){
-          en.target.classList.add('is-visible');
-          obs.unobserve(en.target);
-        }
-      });
-    },{threshold:0.2});
-    items.forEach(el=>io.observe(el));
-  })();
-</script>
-<script>
-(function(){
-  const items = document.querySelectorAll('.ym-reveal');
-  if(!('IntersectionObserver' in window)){
-    items.forEach(el => el.classList.add('ym-visible'));
-    return;
-  }
-  const io = new IntersectionObserver((entries, obs)=>{
-    entries.forEach(en=>{
-      if(en.isIntersecting){
-        en.target.classList.add('ym-visible');
-        obs.unobserve(en.target);
+  // включаем появление при прокрутке
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('in-view');
+        io.unobserve(e.target);
       }
     });
   }, { threshold: 0.2 });
-  items.forEach(el => io.observe(el));
+
+  document.querySelectorAll('.reveal-left, .reveal-right').forEach(el => io.observe(el));
 })();
 </script>
-
+<script>
+  (function(){
+    const items = document.querySelectorAll('.reveal, .ym-reveal');
+    if (!('IntersectionObserver' in window)) {
+      items.forEach(el => el.classList.add('in'));
+      return;
+    }
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{
+        if (e.isIntersecting){
+          e.target.classList.add('in');
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.2 });
+    items.forEach(el=>io.observe(el));
+  })();
+</script>
   </body>
 </html>
