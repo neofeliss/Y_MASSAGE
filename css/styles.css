@@ -414,107 +414,109 @@ font-weight: 500;
 
 /*Section 2*/
 
-.main-second-section {
-    font-weight: 500;
-    font-size: 20px;
-    line-height: 1.2;
-    line-height: 1.2;
-    letter-spacing: 0.02em;
-    color: #1d1d27;
-    margin-bottom: 12px;
-    text-align: center;
-
-}
-
-
-.main-second-section-text {
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 24px;
-    line-height: 1.5;
-    letter-spacing: 0.02em;
-    color: #141414;
-
-    text-align: center;
-    margin-bottom: 16px;
-}
-
-.section-team-item {
-    background-color: #ffffff;
-    border-radius: 0 0 4px 4px;
-    box-shadow: 0 2px 1px 0 rgba(46, 47, 66, 0.08),
-        0 1px 1px 0 rgba(46, 47, 66, 0.16), 0 1px 6px 0 rgba(46, 47, 66, 0.08);
-    width: calc((100% - 72) / 4);
-}
-
-.main-team-list {
-    display: flex;
-    gap: 24px;
-
-}
-
-
-section {
-    padding-top: 120px;
-    padding-bottom: 120px;
-}
-
-.visually-hidden {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    margin: -1px;
-    border: 0;
-    padding: 0;
-    white-space: nowrap;
-    clip-path: inset(100%);
-    clip: rect(0 0 0 0);
-    overflow: hidden;
-}
-
+/* ==== Features Section ==== */
 .features {
-    padding: 120px 150px;
-}
-
-.section-fea {
-    padding-top: 120px;
-    padding-bottom: 120px;
-    margin-bottom: 120px;
     display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.features-container{
-    
-}
-.features-list {
-    display: flex;
-    gap: 24px;
-}
-
-.features-item {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
     flex-direction: column;
-    width: calc((100% - 72px) / 4);
-    height: 180px;
+    gap: 80px;
+    padding: 80px 10%;
+    background: #f9f9f9;
+    /* светлый фон для контраста */
 }
 
-/*.visually-item-icon{
- border: 1px solid #8e8f99;
- border-radius: 4px;
- width: 264px;
- height: 112px;
-background: #f4f4fd;
- padding-top: 24px;
- padding-bottom: 24px;
- display: flex;
- justify-content: center;
- align-items: center;
- margin-bottom: 8px;
-}*/
+.feature {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    flex-wrap: wrap;
+}
+/* Чередование — для 2-го и 4-го блока */
+.feature--reverse {
+    flex-direction: row-reverse;
+}
 
+/* На телефонах все в колонку */
+@media (max-width: 900px) {
+
+    .feature,
+    .feature--reverse {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+/* Картинка */
+.feature__media {
+    flex: 1 1 45%;
+}
+
+.feature__media img {
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    object-fit: cover;
+}
+
+/* Текстовый блок */
+.feature__content {
+    flex: 1 1 45%;
+}
+
+.feature__title {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 16px;
+    color: #2c2c2c;
+}
+
+.feature__text {
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    color: #555;
+}
+
+.feature__btn {
+    display: inline-block;
+    padding: 12px 28px;
+    background: linear-gradient(135deg, #a67c52, #d4af37);
+    /* золотистая кнопка */
+    color: #fff;
+    font-weight: 600;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.feature__btn:hover {
+    background: linear-gradient(135deg, #d4af37, #a67c52);
+    transform: translateY(-3px);
+}
+
+/* ==== Анимации ==== */
+.reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 1s ease;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.from-left {
+    transform: translateX(-80px);
+}
+
+.from-right {
+    transform: translateX(80px);
+}
+
+.reveal.active.from-left,
+.reveal.active.from-right {
+    transform: translateX(0);
+}
 
 /* section 3 */
 
@@ -736,159 +738,189 @@ padding: 32px 16px;
         }
 
 /*footer*/
+/* === Footer clean === */
+.footer {
+    background: #696969;
+    /* твой серый фон */
+    padding: 60px 0;
+    color: #f4f4f4;
+    font-family: inherit;
+}
 
-.footer-dark-bg {
-    background-color:#696969;
-    padding: 100px 0;
-   
+.footer__container {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 0 16px;
+    display: grid;
+    grid-template-columns: 1.1fr .8fr 1.1fr;
+    /* три колонки */
+    gap: 32px;
+    align-items: start;
+}
 
+.footer__col {
+    min-width: 0;
 }
-.footer-block {
-display: flex;
-align-items: baseline;
-justify-content: flex-start;
-}
-.footer-container {
-   
-    margin-right: 120px;
-}
-.footer-logo {
+
+.footer__logo {
+    text-decoration: none;
     display: inline-block;
-    margin-bottom: 16px;
-    font-family: "Raleway", sans-serif;
-    font-weight: 700;
-    font-size: 18px;
-    line-height: 21px;
-    line-height: 1.17;
-    letter-spacing: 0.03em;
-    text-transform: uppercase;
-    color: #000000;
-    margin-bottom: 16px;
-    display: inline-block;
+    margin-bottom: 10px;
 }
-.logo-footer {
-    display: inline-block;
-    margin-bottom: 16px;
-}
-.logo-studio {
+
+.footer__brand {
     color: #a7813c;
-}
-.footer-dark-bg-text {
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 1.5;
-    letter-spacing: 0.02em;
-    color: #f4f4fd;
-    max-width: 264px;
+    font-weight: 700;
+    letter-spacing: .03em;
 }
 
-.box-footer-link {
-    
-} 
-
-
-.text-link {
-    font-weight: 500;
-    font-size: 16px;
+.footer__text {
+    color: #f4f4f4;
+    opacity: .9;
     line-height: 1.5;
-    letter-spacing: 0.02em;
+    margin: 0;
+}
+
+.footer__title {
+    font-weight: 600;
+    margin: 0 0 12px 0;
     color: #fff;
-    margin-bottom: 16px;
-} 
+}
 
-.icon-link-li-footer {
-    width: 100%;
-    height: 100%;
-background: linear-gradient(to right, #b38846, #d9b678, #f1e1c1);
-    border-radius: 50%;
+.footer__icons {
     display: flex;
-    justify-content: center;
+    gap: 14px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer__icons a {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: inline-flex;
     align-items: center;
-    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);}
-
-        .icon-link-li-footer:hover {
-            background-color: #31d0aa;
-        }
-
-        .icon-link-box {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-        }
-        .icon-link-footer {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 16px;
-        }
-.icon-link-footer:focus {
-    background-color: #31d0aa;
+    justify-content: center;
+    background: linear-gradient(to right, #b38846, #d9b678, #f1e1c1);
+    color: #1d0aa3;
+    /* иконка */
+    text-decoration: none;
+    transition: transform .2s ease, filter .2s ease;
 }
 
-.icon-link-footer {
-    fill: #f4f4fd;
+.footer__icons a:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.05);
 }
-    .icon-link-footer:hover {
-            background-color: #31d0aa;
-        }
-    
-        .icon-link-li-footer:focus {
-            background-color: #31d0aa;
-        }
-    
-        .footer-subscribe {
-            margin-left: 80px;
-        }
-    
-        .subscribe-text {
-            margin-bottom: 16px;
-            font-weight: 500;
-            font-size: 16px;
-            line-height: 1.5;
-            letter-spacing: 0.02em;
-            color: #ffffff;
-        }
-    
-        .footer-form {
-            display: flex;
-            gap: 24px;
-        }
-    
-        .footer-input {
-            width: 264px;
-            height: 40px;
-            border: 1px solid #ffffff;
-            background-color: transparent;
-            font-size: 12px;
-            line-height: 2;
-            letter-spacing: 0.04em;
-            padding-left: 16px;
-            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
-            border-radius: 4px;
-            color: #ffffff;
-        }
-    
-        .footer-form-button {
-            min-width: 165px;
-            height: 40px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 16px;
-            font-weight: 500;
-            line-height: 1.5;
-            letter-spacing: 0.04em;
-            color: #ffffff;
-            cursor: pointer;
-            background-color: #4d5ae5;
-            border: none;
-            border-radius: 4px;
-        }
-    
-        .footer-icon-button {
-            margin-left: 16px;
-            fill: #f4f4fd;
-        }
+
+.footer__form {
+    display: flex;
+    gap: 10px;
+}
+
+.footer__input {
+    flex: 1 1 auto;
+    min-width: 160px;
+    height: 40px;
+    padding: 0 12px;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+}
+
+.footer__btn {
+    height: 40px;
+    padding: 0 14px;
+    border-radius: 8px;
+    border: none;
+    background: #31d0aa;
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.footer__btn:hover {
+    filter: brightness(1.05);
+}
+
+/* Адаптив: на планшет 2 колонки, на мобилу в столбик */
+@media (max-width: 992px) {
+    .footer__container {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .footer__subscribe {
+        grid-column: 1 / -1;
+    }
+}
+
+@media (max-width: 640px) {
+    .footer__container {
+        grid-template-columns: 1fr;
+        gap: 22px;
+    }
+
+    .footer {
+        padding: 40px 0;
+    }
+
+    .footer__form {
+        flex-direction: column;
+    }
+
+    .footer__btn {
+        width: 100%;
+    }
+}
+/* === Footer clean === */
+.footer {
+    background-color: #333;
+    /* тёмный фон */
+    color: #fff;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.footer-container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.footer-logo a {
+    font-size: 20px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #fff;
+}
+
+.footer-logo span {
+    color: #a7813c;
+    /* золотой акцент */
+}
+
+.footer-logo p {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #ccc;
+}
+
+.footer-social {
+    margin-top: 20px;
+}
+
+.footer-social a {
+    margin: 0 15px;
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    transition: color 0.3s ease;
+}
+
+.footer-social a:hover {
+    color: #a7813c;
+    /* золотой при наведении */
+}
 
 /*Section 4*/
 .portfolio {
@@ -2414,4 +2446,550 @@ a:hover {
         bottom: 10px;
         width: min(95vw, 360px);
     }
+}
+/* Палитра футера */
+.site-footer,
+.footer-dark-bg {
+  --footer-bg: #2b2f36;
+  --footer-text: #eef2f5;
+  --footer-accent: #f0b3ff;       /* цвет при наведении */
+  --footer-muted: #cfd6de;
+  background: var(--footer-bg);
+  color: var(--footer-text);
+}
+
+/* Бренд: крупнее логотип и слоган */
+.footer-brand { text-align: center; margin-bottom: 16px; }
+.footer-logo {
+  font-family: "Raleway", system-ui, sans-serif;
+  font-weight: 800;
+  letter-spacing: .04em;
+  font-size: clamp(22px, 3.2vw, 32px);
+  line-height: 1.15;
+  color:#ffffff;
+}
+.footer-logo .brand-accent { color: var(--footer-accent); }
+.footer-slogan {
+  margin-top: 8px;
+  font-size: clamp(14px, 2.2vw, 18px);
+  line-height: 1.5;
+  color: #a7813c;
+}
+
+/* Социальные ссылки: иконки + текст, красятся вместе */
+.footer-social {
+  display: flex;
+  justify-content: center;
+  gap: 18px;           /* расстояние между кнопками */
+  margin-top: 14px;
+  flex-wrap: wrap;
+}
+.social-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  color: var(--footer-text);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color .25s ease, background-color .25s ease, transform .15s ease;
+}
+.social-link svg {
+  width: 22px;
+  height: 22px;
+  flex: 0 0 22px;
+}
+v-form button:hover {
+    background: #b67f4f;
+    color: #fff;
+}
+/* ==== Luxe footer polish ==== */
+:root {
+    --footer-bg1: #2a2f36;
+    /* верх футера */
+    --footer-bg2: #1f2328;
+    /* низ футера */
+    --footer-edge: rgba(255, 255, 255, .08);
+    --muted: #c9cdd3;
+    --gold: #c9a14a;
+    /* основной «золото» */
+    --gold-strong: #e1b74e;
+    /* яркий блик при hover */
+}
+
+.footer-dark-bg {
+    position: relative;
+    padding: 56px 16px 68px;
+    /* больше «воздуха» */
+    background: linear-gradient(180deg, var(--footer-bg1), var(--footer-bg2));
+    border-top: 1px solid var(--footer-edge);
+    color: var(--muted);
+    text-align: center;
+    overflow: clip;
+    animation: footer-fade .6s ease both;
+    /* мягкое появление */
+}
+
+/* легкая текстура/виниьетка */
+.footer-dark-bg::before {
+    content: "";
+    position: absolute;
+    inset: -40% -20% auto -20%;
+    height: 160%;
+    background: radial-gradient(60% 50% at 50% 0%, rgba(255, 255, 255, .06), transparent 60%);
+    pointer-events: none;
+}
+
+/* логотип */
+.footer-dark-bg .footer-logo,
+.footer-dark-bg h3 {
+    margin: 0 0 10px;
+    font-size: clamp(24px, 2.5vw, 34px);
+    line-height: 1.2;
+    color: #fff;
+    letter-spacing: .4px;
+    transition: color .25s ease, text-shadow .25s ease;
+}
+
+/* золотая буква Y */
+.footer-dark-bg .footer-logo .brand-y {
+    color: var(--gold);
+    text-shadow: 0 0 0 transparent;
+    transition: color .25s ease, text-shadow .25s ease;
+}
+
+/* слоган */
+.footer-dark-bg .footer-slogan,
+.footer-dark-bg p {
+    margin: 0 0 18px;
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--muted);
+    opacity: .95;
+}
+
+/* соцсети */
+.footer-dark-bg .footer-social {
+    display: inline-flex;
+    gap: 22px;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer-dark-bg .footer-social a {
+    display: inline-flex;
+    gap: 10px;
+    align-items: center;
+    font-weight: 600;
+    font-size: 15px;
+    color: #e7e9ee;
+    text-decoration: none;
+    padding: 10px 14px;
+    border-radius: 999px;
+    transition: color .25s ease, background-color .25s ease, filter .25s ease;
+}
+
+.footer-dark-bg .footer-social a svg {
+    width: 18px;
+    height: 18px;
+    fill: currentColor;
+    /* иконка красится как текст */
+    opacity: .95;
+    transition: opacity .25s ease;
+}
+
+/* hover — золотой акцент + мягкое свечение */
+.footer-dark-bg .footer-social a:hover {
+    color: var(--gold-strong);
+    background: rgba(201, 161, 74, .08);
+    filter: drop-shadow(0 0 8px rgba(201, 161, 74, .35));
+}
+
+.footer-dark-bg .footer-social a:hover svg {
+    opacity: 1;
+}
+
+/* небольшой эффект при фокусе с клавиатуры */
+.footer-dark-bg .footer-social a:focus-visible {
+    outline: 2px solid var(--gold);
+    outline-offset: 2px;
+    background: rgba(201, 161, 74, .10);
+}
+
+/* при hover всю надпись YMassage подсвечиваем мягко */
+.footer-dark-bg:hover .footer-logo .brand-y {
+    color: var(--gold-strong);
+    text-shadow: 0 0 14px rgba(201, 161, 74, .35);
+}
+
+/* адаптив: чуть компактнее на телефонах */
+@media (max-width: 540px) {
+    .footer-dark-bg {
+        padding: 44px 14px 54px;
+    }
+
+    .footer-dark-bg .footer-social {
+        gap: 14px;
+    }
+
+    .footer-dark-bg .footer-social a {
+        padding: 8px 12px;
+        font-size: 14px;
+    }
+}
+
+/* анимация появления */
+@keyframes footer-fade {
+    from {
+        opacity: 0;
+        transform: translateY(6px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.footer-social .social-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 600;
+    font-size: 18px;
+    /* было меньше — теперь крупнее */
+    color: #f4f4fd;
+    text-decoration: none;
+    transition: color .25s ease, transform .2s ease;
+    padding: 6px 12px;
+}
+
+.footer-social .social-link svg {
+    width: 24px;
+    /* увеличили иконки */
+    height: 24px;
+    fill: currentColor;
+    transition: opacity .25s ease;
+}
+/* ==== Увеличение размера соцсетей в футере ==== */
+.footer-social .social-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 600;
+    font-size: 20px !important;
+    /* 🔥 делаем крупнее текст */
+    color: #f4f4fd;
+    text-decoration: none;
+    transition: color .25s ease, transform .2s ease;
+    padding: 6px 12px;
+}
+
+.footer-social .social-link svg {
+    width: 26px !important;
+    /* 🔥 увеличили иконки */
+    height: 26px !important;
+    fill: currentColor;
+    transition: opacity .25s ease;
+}
+/* ===== Шахматный порядок для .features > .feature ===== */
+.features {
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+}
+
+/* базовая раскладка блока */
+.features .feature {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    flex-wrap: wrap;
+    margin: 0;
+    /* чтобы не плодились отступы из старых стилей */
+}
+
+/* шахматка: у чётных карточек меняем порядок сторон */
+.features>.feature:nth-child(even) {
+    flex-direction: row-reverse !important;
+}
+
+/* колонки */
+.features .feature__media,
+.features .feature__content {
+    flex: 1 1 45%;
+}
+
+/* картинка */
+.features .feature__media img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    object-fit: cover;
+}
+
+/* текст */
+.features .feature__title {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 16px;
+    color: #2c2c2c;
+}
+
+.features .feature__text {
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    color: #555;
+}
+
+/* кнопка (если есть) */
+.features .feature__btn {
+    display: inline-block;
+    padding: 12px 28px;
+    background: linear-gradient(135deg, #a67c52, #d4af37);
+    color: #fff;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+}
+
+.features .feature__btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 22px rgba(0, 0, 0, .18);
+    background: linear-gradient(135deg, #d4af37, #a67c52);
+}
+
+/* адаптив: на телефонах всё в колонку и центр */
+@media (max-width: 900px) {
+
+    .features .feature,
+    .features>.feature:nth-child(even) {
+        flex-direction: column !important;
+        text-align: center;
+    }
+}
+
+/* ===== Анимации (плавное появление) ===== */
+.reveal {
+    opacity: 0;
+    transform: translateY(14px);
+    transition: transform .7s ease, opacity .7s ease;
+}
+
+.from-left {
+    transform: translateX(-60px);
+}
+
+.from-right {
+    transform: translateX(60px);
+}
+
+.reveal.is-visible {
+    opacity: 1;
+    transform: translateX(0) translateY(0);
+}
+/* Разворот только для блоков, где фото должно быть справа */
+.feature--right {
+    flex-direction: row-reverse;
+}
+
+/* На мобильных всё в колонку */
+@media (max-width: 900px) {
+    .feature--right {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+/* Заголовки секций */
+section.feature .feature__title {
+    font-size: 2.4rem !important;
+    font-weight: 700;
+    margin-bottom: 15px;
+    line-height: 1.3;
+}
+
+/* Тексты секций */
+section.feature .feature__text {
+    font-size: 1.3rem !important;
+    line-height: 1.8;
+    color: #f0f0f0;
+}
+/* ===== Y Massage: Features ===== */
+.ym-features {
+    display: flex;
+    flex-direction: column;
+    gap: 72px;
+    padding: 40px 5% 20px;
+}
+
+.ym-feature {
+    display: flex;
+    align-items: center;
+    gap: 48px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.ym-feature--right {
+    flex-direction: row-reverse;
+}
+
+/* колонки */
+.ym-feature__media,
+.ym-feature__content {
+    flex: 1 1 0;
+}
+
+/* картинка */
+.ym-feature__media img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 14px;
+    box-shadow: 0 10px 28px rgba(0, 0, 0, .18);
+}
+
+/* заголовок/текст — КРУПНЕЕ и читаемо */
+.ym-feature__title {
+    font-size: clamp(24px, 3.2vw, 36px);
+    font-weight: 800;
+    line-height: 1.25;
+    margin: 0 0 14px;
+    color: #222;
+    /* если фон светлый; на тёмном переопределим ниже */
+}
+
+.ym-feature__text {
+    font-size: clamp(16px, 2.2vw, 20px);
+    line-height: 1.75;
+    color: #333;
+    margin: 0;
+}
+
+/* Кнопка (если понадобится) */
+.ym-feature__btn {
+    display: inline-block;
+    margin-top: 16px;
+    padding: 12px 22px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 700;
+    background: linear-gradient(135deg, #a67c52, #d4af37);
+    color: #fff;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, .18);
+    transition: transform .15s ease, box-shadow .2s ease, background .2s ease;
+}
+
+.ym-feature__btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 22px rgba(0, 0, 0, .22);
+}
+
+/* Адаптив */
+@media (max-width: 900px) {
+
+    .ym-feature,
+    .ym-feature--right {
+        flex-direction: column;
+        text-align: center;
+        gap: 24px;
+    }
+}
+
+/* ===== Анимации появления ===== */
+.ym-reveal {
+    opacity: 0;
+    transform: translateY(14px);
+    transition: transform .7s ease, opacity .7s ease;
+    will-change: transform, opacity;
+}
+
+.ym-from-left {
+    transform: translateX(-60px);
+}
+
+.ym-from-right {
+    transform: translateX(60px);
+}
+
+.ym-reveal.ym-visible {
+    opacity: 1;
+    transform: translateX(0) translateY(0);
+}
+
+/* Тёмная секция? — сделай светлый текст точечно (пример) */
+/* #feature-massage .ym-feature__title, #feature-massage .ym-feature__text { color:#f3f3f3; } */
+/* Заголовки секций — ещё больше */
+.ym-feature__title {
+    font-size: clamp(28px, 3.8vw, 42px) !important;
+    font-weight: 800;
+    line-height: 1.3;
+    margin-bottom: 18px;
+    color: #222;
+}
+
+/* Текст описания — крупнее и удобнее для чтения */
+.ym-feature__text {
+    font-size: clamp(18px, 2.6vw, 22px) !important;
+    line-height: 1.8 !important;
+    color: #333;
+}
+/* Стиль заголовка */
+.ym-section-title {
+    font-size: clamp(28px, 4vw, 42px);
+    font-weight: 800;
+    text-align: center;
+    margin-bottom: 60px;
+    color: #d4af37;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    opacity: 0;
+    /* изначально скрыт */
+    transform: translateY(40px);
+    /* смещен вниз */
+    transition: opacity 1.2s ease, transform 1.2s ease;
+}
+
+/* Когда активирован */
+.ym-section-title.ym-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+.ym-section-title {
+    font-size: clamp(28px, 4vw, 42px);
+    font-weight: 800;
+    text-align: center;
+    margin-bottom: 60px;
+    color: #d4af37;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+
+    opacity: 0;
+    /* скрыт */
+    transform: translateY(40px);
+    /* сдвинут вниз */
+    transition: opacity 1.2s ease, transform 1.2s ease;
+}
+
+.ym-section-title.ym-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+.ym-section-title {
+    font-size: clamp(28px, 4vw, 42px);
+    font-weight: 800;
+    text-align: center;
+    margin-bottom: 60px;
+    color: #222;
+    /* тёмно-серый/почти чёрный */
+    text-transform: uppercase;
+    letter-spacing: 2px;
+
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 1.2s ease, transform 1.2s ease;
 }
