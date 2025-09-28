@@ -1441,6 +1441,7 @@ font-weight: 300;
     border-radius: 10px;
     overflow: hidden;
 }
+
 .instagram-widget {
     margin-top: 40px;
     text-align: center;
@@ -3319,76 +3320,464 @@ section.feature .feature__text {
     color: #d4a017;
     /* золотистый */
 }
+
+/* Цены */
+.price-box {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    margin-top: 8px;
+    padding: 8px 10px;
+    border: 1px solid #edf2f7;
+    border-radius: 8px;
+    background: #f9fbfd;
+    font-weight: 600;
+    color: #0d3b66;
+}
+
+.price-box .time {
+    font-weight: 500;
+    color: #627d98;
+}
+
+.price-box .price {
+    font-weight: 700;
+}
+
+/* Комбо-список */
+.combo-list {
+    margin: 10px 0 0;
+    padding-left: 18px;
+    color: #334e68;
+}
+
+.combo-list li {
+    margin: 6px 0;
+}
+/* =========================
+   Saunas & Jacuzzi — GRID
+   ========================= */
+.spa-equipements {
+    padding: 80px 20px;
+    background: #ffffff;
+    /* при желании поменяй фон секции */
+}
+
+.spa-equipements .section-title {
+    text-align: center;
+    font-size: 32px;
+    color: #0d3b66;
+    margin: 0 0 8px;
+}
+
+.spa-equipements .section-subtitle {
+    text-align: center;
+    color: #66788a;
+    margin: 0 0 32px;
+}
+
 .equipements-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
 }
 
+/* =========================
+   CARD
+   ========================= */
 .equipement-card {
-    position: relative;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
     background: #fff;
+    border-radius: 12px;
+    text-align: center;
+    padding: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, .08);
+    transition: transform .25s ease, box-shadow .25s ease;
 }
 
+.equipement-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, .12);
+}
+
+/* вертикальное фото сверху */
 .equipement-card img {
     width: 100%;
-    height: 200px;
+    height: 320px;
+    /* вертикальный вид */
     object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 14px;
+    transition: transform .5s ease;
 }
 
-.card-content {
-    padding: 20px;
-    text-align: center;
+.equipement-card:hover img {
+    transform: scale(1.04);
 }
 
-/* Кнопка */
+/* заголовок и описание */
+.equipement-card h3 {
+    margin: 4px 0 6px;
+    color: #0d3b66;
+    font-size: 20px;
+}
+
+.equip-desc {
+    margin: 0 0 16px;
+    color: #486581;
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+/* =========================
+   OFFER (описание + цена + кнопка)
+   ========================= */
+.offer {
+    margin: 10px 0;
+    padding: 12px;
+    border: 1px solid #edf2f7;
+    border-radius: 8px;
+    background: #f9fbfd;
+    text-align: left;
+    /* лучше читается длинный текст */
+}
+
+.offer p {
+    margin: 0 0 8px;
+    font-weight: 500;
+    color: #334e68;
+    font-size: 15px;
+    line-height: 1.45;
+}
+
+.offer strong {
+    color: #0d3b66;
+}
+
+/* кнопка под каждой ценой */
 .btn-tarif {
     display: inline-block;
-    margin-top: 12px;
-    padding: 10px 18px;
+    padding: 8px 18px;
     background: #0d3b66;
     color: #fff;
     border-radius: 6px;
     text-decoration: none;
-    transition: 0.3s ease;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: background .3s ease, transform .2s ease, box-shadow .2s ease;
 }
 
 .btn-tarif:hover {
     background: #145ea8;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 14px rgba(0, 0, 0, .12);
 }
 
-/* === АНИМАЦИИ === */
-
-/* Jacuzzi: лёгкое увеличение */
-.equipement-card.jacuzzi:hover {
-    transform: scale(1.05);
-    transition: transform 0.4s ease;
+/* подпись "за одного человека" */
+.equipement-card .note {
+    margin-top: 12px;
+    font-size: .85rem;
+    color: #829ab1;
+    font-style: italic;
 }
 
-/* Sauna: поднятие вверх */
-.equipement-card.sauna:hover {
-    transform: translateY(-10px);
-    transition: transform 0.4s ease;
+/* =========================
+   ANIMATION: медленное плавное появление
+   ========================= */
+.reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 1.2s ease-out, transform 1.2s ease-out;
+    will-change: opacity, transform;
 }
 
-/* Vapeur: мягкий "пульс" */
-.equipement-card.vapeur:hover {
-    animation: pulse 1s infinite;
+.reveal.in-view {
+    opacity: 1;
+    transform: none;
 }
 
-@keyframes pulse {
-    0% {
-        transform: scale(1);
+/* Ступенчатое появление карточек (stagger) */
+.equipements-grid .reveal:nth-child(1) {
+    transition-delay: .15s;
+}
+
+.equipements-grid .reveal:nth-child(2) {
+    transition-delay: .35s;
+}
+
+.equipements-grid .reveal:nth-child(3) {
+    transition-delay: .55s;
+}
+
+/* =========================
+   ACCESSIBILITY: respect reduce motion
+   ========================= */
+@media (prefers-reduced-motion: reduce) {
+    .reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
     }
 
-    50% {
-        transform: scale(1.03);
+    .equipement-card,
+    .equipement-card:hover {
+        transform: none;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, .08);
     }
 
-    100% {
-        transform: scale(1);
+    .equipement-card img,
+    .equipement-card:hover img {
+        transform: none;
     }
 }
+
+/* =========================
+   RESPONSIVE TWEAKS
+   ========================= */
+@media (max-width: 480px) {
+    .equipement-card img {
+        height: 260px;
+    }
+
+    .btn-tarif {
+        width: 100%;
+        text-align: center;
+    }
+
+    /* удобнее тапать на телефоне */
+}
+
+/* Делает текст и блоки точно видимыми */
+#spa-equipements .equipement-card {
+    color: #0d3b66 !important;
+}
+
+#spa-equipements .equipement-card p,
+#spa-equipements .equipement-card .equip-desc {
+    color: #486581 !important;
+}
+
+/* Offer (цена + кнопка) */
+#spa-equipements .offer {
+    display: block !important;
+    margin: 10px 0 !important;
+    padding: 12px !important;
+    border: 1px solid #edf2f7 !important;
+    border-radius: 8px !important;
+    background: #f9fbfd !important;
+    text-align: left !important;
+}
+
+#spa-equipements .offer p {
+    margin: 0 0 8px !important;
+}
+
+/* Кнопка — точно видимая */
+#spa-equipements .btn-tarif {
+    display: inline-block !important;
+    padding: 8px 18px !important;
+    background: #0d3b66 !important;
+    color: #fff !important;
+    border-radius: 6px !important;
+    text-decoration: none !important;
+    font-weight: 600 !important;
+    font-size: 0.9rem !important;
+}
+
+/* На случай, если где-то обнулялись ссылки */
+#spa-equipements a {
+    color: inherit;
+    text-decoration: none;
+}
+/* Общий фон для всех 4 блоков */
+.massage,
+.sauna,
+.visage,
+.gift-cards {
+    background-image: url("images/fon3");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 40px 20px;
+    border-radius: 12px;
+    color: white;
+}
+
+/* Если захочешь разные фоны для каждого */
+.massage {
+    /* background-image: url("images/massage-bg.jpg"); */
+}
+
+.sauna {
+    /* background-image: url("images/sauna-bg.jpg"); */
+}
+
+.visage {
+    /* background-image: url("images/visage-bg.jpg"); */
+}
+
+.gift-cards {
+    /* background-image: url("images/giftcards-bg.jpg"); */
+}
+/* ===== SPA (новые классы) ===== */
+.yg-spa {
+    padding: 80px 0;
+}
+
+.yg-container {
+    width: min(1100px, 92%);
+    margin: 0 auto;
+}
+
+.yg-section-title {
+    font-size: clamp(24px, 3.2vw, 34px);
+    margin: 0 0 28px;
+}
+
+.yg-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 28px;
+}
+
+.yg-card {
+    grid-column: span 4;
+    background: #ffffff;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 10px 28px rgba(0, 0, 0, .08);
+    display: flex;
+    flex-direction: column;
+}
+
+@media (max-width: 1024px) {
+    .yg-card {
+        grid-column: span 6;
+    }
+}
+
+@media (max-width: 680px) {
+    .yg-card {
+        grid-column: span 12;
+    }
+}
+
+/* Вертикальные изображения */
+.yg-media {
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    overflow: hidden;
+}
+
+.yg-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transform: scale(1.02);
+}
+
+.yg-body {
+    padding: 18px 18px 20px;
+}
+
+.yg-title {
+    font-size: 20px;
+    margin: 4px 0 6px;
+}
+
+.yg-desc {
+    margin: 0 0 12px;
+    opacity: .85;
+    line-height: 1.45;
+}
+
+.yg-offers {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 14px;
+    display: grid;
+    gap: 8px;
+}
+
+.yg-offers li {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: baseline;
+    gap: 12px;
+    padding-bottom: 8px;
+    border-bottom: 1px dashed rgba(0, 0, 0, .14);
+}
+
+.yg-offers li strong {
+    font-weight: 700;
+}
+
+.yg-btn {
+    display: inline-block;
+    padding: 10px 18px;
+    border-radius: 999px;
+    text-decoration: none;
+    background: #0d2a5a;
+    /* тёмно-синий бренда */
+    color: #fff;
+    /* белый текст */
+    font-weight: 600;
+    transition: color .25s ease, background .25s ease, transform .25s ease, opacity .25s ease;
+}
+
+.yg-btn:hover {
+    color: #d4af37;
+    /* золотой при наведении */
+    background: #0d2a5a;
+    /* фон остаётся синим */
+    transform: translateY(-2px);
+    opacity: .95;
+}
+
+.yg-note {
+    margin: 10px 0 0;
+    font-size: 13px;
+    opacity: .7;
+}
+
+/* Плавное появление */
+.yg-reveal {
+    opacity: 0;
+    transform: translateY(16px);
+    animation: ygFadeUp .8s ease .1s both;
+}
+
+.yg-card:nth-child(2).yg-reveal {
+    animation-delay: .2s;
+}
+
+.yg-card:nth-child(3).yg-reveal {
+    animation-delay: .3s;
+}
+
+@keyframes ygFadeUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+/* Кнопка-картинка с e-mail */
+.email-img-btn {
+    border: 0;
+    padding: 0;
+    background: none;
+    cursor: pointer;
+    line-height: 0;
+}
+
+.email-img-btn img {
+    display: block;
+    height: auto;
+    transition: transform .2s ease, opacity .2s ease;
+}
+
+.email-img-btn:hover img {
+    transform: translateY(-1px);
+    opacity: .95;
+}
+
