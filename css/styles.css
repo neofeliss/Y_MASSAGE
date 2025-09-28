@@ -7,9 +7,9 @@ body {
 
 main{
 
-background-image: linear-gradient(rgba(191, 165, 136, 0.5),
+/*background-image: linear-gradient(rgba(191, 165, 136, 0.5),
             rgba(161, 134, 111, 0.7)),
-     url(../images/fon3.JPG);
+     url(../images/fon3.JPG);*/
     margin: 0 auto;
         max-width: 1440px;
        
@@ -303,7 +303,83 @@ body {
 
 /*main*/
 /*Section 1*/
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+}
+
+.hero {
+    position: relative;
+    min-height: 100vh;
+    overflow: hidden;
+    /* Удаляем старые фоновые картинки/цвета */
+    background: none !important;
+}
+
+.bg-video {
+    position: absolute;
+    inset: 0;
+    /* top:0; right:0; bottom:0; left:0 */
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -2;
+}
+
+.overlay {
+    position: absolute;
+    inset: 0;
+    /* лёгкий градиент + затемнение, чтобы логотип читался */
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.10), rgba(0, 0, 0, 0.38));
+    z-index: -1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    min-height: 100vh;
+    padding: 100px 16px 40px;
+    /* запас под фикс-хедер */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #fff;
+}
+
 .logo-emblem {
+    max-width: 320px;
+    width: 80%;
+    margin-bottom: 20px;
+}
+
+/* кнопка */
+.main-button {
+    margin-top: 18px;
+    padding: 14px 34px;
+    font-size: 18px;
+    font-weight: 600;
+    border: 2px solid #fff;
+    background: transparent;
+    color: #fff;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: transform .25s ease, background .25s ease, color .25s ease, box-shadow .25s ease;
+    box-shadow: 0 0 0 rgba(255, 255, 255, 0);
+}
+
+.main-button:hover {
+    background: #fff;
+    color: #000;
+    transform: scale(1.05);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, .25);
+}
+
+
+/*.logo-emblem {
    
     max-width: 100%;
     margin: 0 auto 20px;
@@ -406,7 +482,7 @@ font-weight: 500;
 
 .main-button:hover,.main-button:focus {
     background-color:#838488 ;
-}
+}*/
 
 
      
@@ -3067,5 +3143,252 @@ section.feature .feature__text {
 
     .offer-text {
         text-align: center;
+    }
+}
+.hero {
+    position: relative;
+    min-height: 100vh;
+    overflow: hidden;
+    background: none !important;
+    /* убираем мрамор */
+}
+
+.bg-video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -2;
+}
+
+.overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.35);
+    z-index: -1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #fff;
+}
+.about,
+.offers {
+    background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)),
+        url("../images/fon3.JPG") no-repeat center center;
+    background-size: cover;
+    padding: 80px 20px;
+}
+.header-logo {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    /* расстояние между лого и текстом */
+    text-decoration: none;
+    color: inherit;
+    font-weight: bold;
+    white-space: nowrap;
+    /* не переносить Y Massage */
+}
+
+/* Зарезервированное место под картинку */
+.header-logo__img-wrapper {
+    display: inline-block;
+    width: 40px;
+    /* фиксированная ширина под лого */
+    height: 40px;
+    /* фиксированная высота под лого */
+    flex-shrink: 0;
+    /* не даст сжиматься */
+}
+
+/* Лого внутри */
+.header-logo__img {
+    height: 50px;
+    /* подгони под размер текста */
+    width: auto;
+    display: block;
+    margin-right: 16px;
+    position: relative;
+    top:-2px;
+    /* чуть опустить вниз, если нужно */
+}
+.footer-logo {
+    text-align: center;
+    margin: 20px 0 10px;
+    /* сверху 20px, снизу 10px */
+}
+
+.footer-logo img {
+    height: 50px;
+    /* размер логотипа */
+    width: auto;
+    opacity: 0.9;
+    /* лёгкая прозрачность, если хочешь элегантный эффект */
+}
+.footer-logo {
+    display: flex;
+    justify-content: center;
+    /* центрируем по горизонтали */
+    margin-top: 2px;
+}
+
+.footer-logo img {
+    height: 60px;
+    width: auto;
+}
+.footer-logo {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    color: #fff;
+}
+
+.footer-logo .brand-y {
+    margin-right: -18px;
+}
+.btn-tarif {
+    display: inline-block;
+    margin-top: 12px;
+    padding: 10px 18px;
+    background-color: #0d3b66;
+    /* твой тёмно-синий */
+    color: #fff;
+    font-size: 14px;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+
+.btn-tarif:hover {
+    background-color: #145ea8;
+    /* подсветка при наведении */
+}
+.spa-group {
+    padding: 80px 20px;
+    background: #f8f8f8;
+    text-align: center;
+}
+
+.group-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+    margin-top: 40px;
+}
+
+.group-card {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    transition: transform 0.3s ease;
+}
+
+.group-card:hover {
+    transform: translateY(-6px);
+}
+
+.group-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 15px;
+   
+}
+
+.group-card h3 {
+    margin: 10px 0;
+    color: #0d3b66;
+}
+
+.group-card .price {
+    display: block;
+    margin: 12px 0;
+    font-size: 20px;
+    font-weight: bold;
+    color: #d4a017;
+    /* золотистый */
+}
+.equipements-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.equipement-card {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    background: #fff;
+}
+
+.equipement-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.card-content {
+    padding: 20px;
+    text-align: center;
+}
+
+/* Кнопка */
+.btn-tarif {
+    display: inline-block;
+    margin-top: 12px;
+    padding: 10px 18px;
+    background: #0d3b66;
+    color: #fff;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: 0.3s ease;
+}
+
+.btn-tarif:hover {
+    background: #145ea8;
+}
+
+/* === АНИМАЦИИ === */
+
+/* Jacuzzi: лёгкое увеличение */
+.equipement-card.jacuzzi:hover {
+    transform: scale(1.05);
+    transition: transform 0.4s ease;
+}
+
+/* Sauna: поднятие вверх */
+.equipement-card.sauna:hover {
+    transform: translateY(-10px);
+    transition: transform 0.4s ease;
+}
+
+/* Vapeur: мягкий "пульс" */
+.equipement-card.vapeur:hover {
+    animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.03);
+    }
+
+    100% {
+        transform: scale(1);
     }
 }

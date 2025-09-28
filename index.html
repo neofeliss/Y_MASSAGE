@@ -25,13 +25,19 @@
    <header class="header">
   <div class="container header-container">
     <!-- Логотип -->
-    <a class="header-logo" href="./index.html">Y Massage</a>
+    
+<a class="header-logo" href="./index.html">
+  <span class="header-logo__img-wrapper">
+    <img src="images/Y_MASSAGE_logo.png" alt="Logo" class="header-logo__img">
+  </span>
+  <span class="header-logo__text">Y Massage</span>
+</a>
 
     <!-- Меню -->
     <nav class="header-nav">
       <ul class="header-list">
         <li><a href="#services" class="header-link">Services</a></li>
-        <li><a href="#tarifs" class="header-link">Liste de prix</a></li>
+        <li><a href="#tarifs" class="header-link">Tarifs</a></li>
         <li><a href="#contacts" class="header-link">Contacts</a></li>
       </ul>
     </nav>
@@ -57,21 +63,18 @@
        
   
        <!-- Section1 -->
-     <section class="dark-bg">
-      <div class="content"></div>
-  <img src="./images/logo-transparent.jpg"
-  width="531"
-                height="297" alt="Logo" class="logo-emblem" />
-<div class="container-hero">
-    <h1 class="main-text">
-      Espace Bien-être<br>
-      <span class="sub-text">Chez Yuliia</span>
-    </h1>
+     <section class="hero">
+  <video autoplay muted loop playsinline class="bg-video">
+    <source src="videos/background.mp4" type="video/mp4">
+  </video>
+  <div class="overlay"></div>
+
+  <div class="hero-content">
+    <img src="images/logo-transparent.png" alt="Logo"  class="logo-emblem" style="width: 340px; height: auto;">
+    <h1 class="main-text">Espace Bien-être <span class="sub-text">Chez Yuliia</span></h1>
     <button type="button" class="main-button">Prendre rendez-vous</button>
   </div>
 </section>
-  
-
       <!-- Section2 -->
       <!-- ========== FEATURES (Y Massage) ========== -->
 <section class="ym-features" id="ym-features">
@@ -91,6 +94,7 @@
         Nous proposons différentes techniques selon vos envies&nbsp;: relaxant, énergétique, anti-cellulite, drainage, sportif,
         chiromassage,  massage pour enfants et bien d’autres.
       </p>
+      <a href="#spa" class="btn-tarif">Voir les tarifs</a>
       <!-- <a href="#tarifs" class="ym-feature__btn">Voir les tarifs</a> -->
     </div>
   </article>
@@ -179,7 +183,11 @@ Un geste simple qui fait toujours plaisir, à offrir pour un anniversaire, une f
       <!-- section 4 -->
       <section class="portfolio">
   <div class="container">
+    <section id="spa" class="spa-section">
+
     <h2 class="main-titles main-portfolio-title">Programmes SPA</h2>
+    
+
     <ul class="main-portfolio-list">
 
       <!-- SPA Lomi Lomi Nui -->
@@ -290,7 +298,7 @@ Un geste simple qui fait toujours plaisir, à offrir pour un anniversaire, une f
            
   </div>
   
-</li>
+
 <li class="main-portfolio-item">
   <div class="background-text">
     <img src="./images/stoun.jpg" alt="education" width="360" height="300" />
@@ -318,6 +326,94 @@ Un geste simple qui fait toujours plaisir, à offrir pour un anniversaire, une f
 
   </div>
 </section>
+ <section id="spa-equipements" class="spa-equipements">
+  <div class="container">
+    <h2 class="section-title">Saunas & Jacuzzi</h2>
+    <p class="section-subtitle">Accès uniquement aux équipements bien-être</p>
+
+    <div class="equipements-grid">
+      
+<!-- Jacuzzi -->
+      <article class="equipement-card jacuzzi">
+        <img src="images/jacuzzi.jpg" alt="Jacuzzi détente">
+        <div class="card-content">
+          <h3>Jacuzzi</h3>
+          <ul class="equip-list">
+            <li>20 min — <strong>20 €</strong></li>
+            <li>40 min — <strong>35 €</strong></li>
+            <li>60 min — <strong>50 €</strong></li>
+          </ul>
+          <a href="#contacts" class="btn-tarif">Réserver</a>
+        </div>
+      </article>
+
+      <!-- Sauna -->
+      <article class="equipement-card sauna">
+        <img src="images/sauna.jpg" alt="Sauna infrarouge">
+        <div class="card-content">
+          <h3>Sauna Infrarouge</h3>
+          <ul class="equip-list">
+            <li>20 min — <strong>20 €</strong></li>
+            <li>40 min — <strong>35 €</strong></li>
+            <li>60 min — <strong>50 €</strong></li>
+          </ul>
+          <a href="#contacts" class="btn-tarif">Réserver</a>
+        </div>
+      </article>
+
+      <!-- Fito-banya -->
+      <article class="equipement-card vapeur">
+        <img src="images/saunaif.jpg" alt="Fito-banya vapeur">
+        <div class="card-content">
+          <h3>La vapeur (Fito-banya)</h3>
+          <ul class="equip-list">
+            <li>20 min — <strong>30 €</strong></li>
+            <li>40 min — <strong>50 €</strong></li>
+          </ul>
+          <a href="#contacts" class="btn-tarif">Réserver</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+     
+
+    <section id="spa-group" class="spa-group">
+  <div class="container">
+    <h2 class="section-title">Formules Groupe</h2>
+    <div class="group-cards">
+      
+      <!-- Formule Duo -->
+      <div class="group-card">
+        <img src="images/formule-duo.jpg" alt="Formule Duo – Pour 2 personnes">
+        <h3>Formule Duo</h3>
+        <p>2 Massages relaxants (40 min chacun), jacuzzi, sauna infrarouge et fitobanya.</p>
+        <span class="price">200 €</span>
+        <a href="#contacts" class="btn-tarif">Réserver</a>
+      </div>
+
+      <!-- Formule Trio -->
+      <div class="group-card">
+        <img src="images/formule-trio.jpg" alt="Formule Trio – Pour 3 personnes">
+        <h3>Formule Trio</h3>
+        <p>3 Massages relaxants, jacuzzi, sauna infrarouge et fitobanya inclus.</p>
+        <span class="price">280 €</span>
+        <a href="#contacts" class="btn-tarif">Réserver</a>
+      </div>
+
+      <!-- Formule Quatro -->
+      <div class="group-card">
+        <img src="images/formule-quatro.jpg" alt="Formule Quatro – Pour 4 personnes">
+        <h3>Formule Quatro</h3>
+        <p>4 Massages relaxants, jacuzzi, sauna infrarouge et fitobanya inclus.</p>
+        <span class="price">360 €</span>
+        <a href="#contacts" class="btn-tarif">Réserver</a>
+      </div>
+
+    </div>
+  </div>
+</section> 
       <!-- Nous massage-->
     
       <!--Section 5
@@ -666,7 +762,7 @@ Un geste simple qui fait toujours plaisir, à offrir pour un anniversaire, une f
         <li>Fito-banya (20 min) + enveloppement — 55 €
           <button class="reserve-btn js-reserve" data-service="Fito-banya 20 min + enveloppement — 55 €">Réserver</button>
         </li>
-
+
 </ul>
     </article>
 
@@ -749,7 +845,10 @@ Un geste simple qui fait toujours plaisir, à offrir pour un anniversaire, une f
 
     <!-- КОПИРАЙТ -->
     <p class="footer-copy">© 2025 YMassage. Tous droits réservés.</p>
-
+<!-- ЛОГО В ФУТЕРЕ -->
+    <div class="footer-logo">
+      <img src="images/Y_MASSAGE_logo.png" alt="Logo YMassage">
+    </div>
   </div>
 </footer>
 
