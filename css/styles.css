@@ -137,18 +137,7 @@ img {
 .header-address a:hover {
     color: #6b4b8a;
 }
-.contact-pill {
-    font-family: 'Raleway', sans-serif;
-    font-size: 15px;
-    /* больше чем меню */
-    font-weight: 500;
-    color: #2a2a2a;
-    text-decoration: none;
-   
-    background: rgba(0, 0, 0, 0.05);
-    /* лёгкая плашка для читаемости */
-    transition: background 0.3s, color 0.3s;
-}
+
 .contact-pill.phone{
     font-size: 16px;
     font-weight: 600;
@@ -1793,7 +1782,7 @@ a:hover {
 }
 
 .booking-modal__title {
-     margin: 0 0 12px;
+     margin: 0 0 12px;
     font-family: 'Playfair Display', serif;
     color: var(--ink);
     font-size: 24px;
@@ -2314,14 +2303,14 @@ a:hover {
 
 
 /* плавающая кнопка "Tarifs" — поднять над корзиной */
-.
+
 
 
 
     /* растянуть корзину */
    
 /* Единый контейнер для Tarifs + корзины */
-.fixed-stack {
+ .fixed-stack {
     position: fixed;
     right: 20px;
     bottom: 80px;
@@ -3487,7 +3476,7 @@ section.feature .feature__text {
     opacity: 0;
     transform: translateY(40px);
     transition: opacity 1.2s ease-out, transform 1.2s ease-out;
-    will-change: opacity, transform;
+   
 }
 
 .reveal.in-view {
@@ -3602,23 +3591,7 @@ section.feature .feature__text {
     color: white;
 }
 
-/* Если захочешь разные фоны для каждого */
-.massage {
-    /* background-image: url("images/massage-bg.jpg"); */
-}
 
-.sauna {
-    /* background-image: url("images/sauna-bg.jpg"); */
-}
-
-.visage {
-    /* background-image: url("images/visage-bg.jpg"); */
-}
-
-.gift-cards {
-    /* background-image: url("images/giftcards-bg.jpg"); */
-}
-/* ===== SPA (новые классы) ===== */
 .yg-spa {
     padding: 80px 0;
 }
@@ -3781,3 +3754,124 @@ section.feature .feature__text {
     opacity: .95;
 }
 
+/* ---- Reveal animation ---- */
+.reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity .6s ease, transform .6s ease;
+}
+
+.reveal.in-view {
+    opacity: 1;
+    transform: none;
+}
+
+/* Показывать контент, если IO не сработал */
+.no-io .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+}
+/* ===== Y Massage Modal (изолировано по префиксу ym-) ===== */
+.ym-modal {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    display: none;
+    /* скрыто по умолчанию */
+    z-index: 9999;
+}
+
+.ym-modal.is-open {
+    display: grid;
+    place-items: center;
+}
+
+.ym-modal__backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, .45);
+}
+
+.ym-modal__content {
+    position: relative;
+    z-index: 1;
+    width: min(92vw, 520px);
+    max-height: 90vh;
+    overflow: auto;
+    background: #fff;
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, .2);
+    animation: ym-pop .25s ease;
+}
+
+.ym-modal__title {
+    margin: 0 0 12px;
+    text-align: center;
+}
+
+.ym-modal__form input,
+.ym-modal__form textarea {
+    width: 100%;
+    margin: 0 0 12px;
+    padding: 10px 12px;
+    border: 1px solid #d7d7d7;
+    border-radius: 8px;
+}
+
+.ym-modal__form textarea {
+    resize: vertical;
+    min-height: 88px;
+}
+
+.ym-modal__btn {
+    width: 100%;
+    padding: 12px 14px;
+    border: 0;
+    border-radius: 8px;
+    background: #1e3a8a;
+    color: #fff;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.ym-modal__btn:hover {
+    filter: brightness(.92);
+}
+
+.ym-modal__close {
+    position: absolute;
+    right: 10px;
+    top: 8px;
+    width: 34px;
+    height: 34px;
+    border: 0;
+    background: transparent;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+.ym-modal__msg {
+    margin: 10px 0 0;
+    text-align: center;
+    font-weight: 600;
+}
+
+@keyframes ym-pop {
+    from {
+        transform: scale(.97);
+        opacity: 0
+    }
+
+    to {
+        transform: none;
+        opacity: 1
+    }
+}
+
+/* Блокируем прокрутку фона только при открытой модалке */
+body.ym-modal-open {
+    overflow: hidden;
+}

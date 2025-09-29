@@ -44,8 +44,7 @@
 
     <!-- Контакты -->
     <address class="header-address">
-      <a href="mailto:contact@ymassage.fr" class="contact-pill">contact@ymassage.fr</a>
-      <a href="tel:0624359841" class="contact-pill phone">06 24 35 98 41</a>
+            <a href="tel:0624359841" class="contact-pill phone">06 24 35 98 41</a>
     </address>
     <!-- Cart icon in header -->
 <a href="#" class="header-cart" id="headerCartBtn" aria-label="Panier">
@@ -815,7 +814,8 @@ Un geste simple qui fait toujours plaisir, à offrir pour un anniversaire, une f
     <p><strong>Téléphone :</strong> <a href="tel:+3306224359841">+33 62 43 59 841</a></p>
    
  <p> <button type="button" class="email-img-btn" aria-controls="contact-modal" aria-expanded="false">
-    <img src="images/email-y-massage.png" width="260" height="64" alt="y.massage.fr@gmail.com">
+     <!-- Картинка-кнопка -->
+    <img src="images/email-y-massage.png" alt="Écrivez-nous" class="js-open-modal" width="260" height="64">
   </button>
 </p>
   </div>
@@ -972,17 +972,7 @@ Un geste simple qui fait toujours plaisir, à offrir pour un anniversaire, une f
     });
   });
  </script>
-<script>
-  const btn = document.querySelector('.floating-btn');
 
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 300) {
-      btn.classList.add('show');
-    } else {
-      btn.classList.remove('show');
-    }
-  });
-</script>
 
  <script>
   const btn = document.querySelector('.floating-btn');
@@ -997,62 +987,9 @@ Un geste simple qui fait toujours plaisir, à offrir pour un anniversaire, une f
 
 </script>
 
-<script>
-  const items = document.querySelectorAll('.section-team-item');
 
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('animate');
-        observer.unobserve(entry.target);
-      }
-    });
-  }, {
-    threshold: 0.2
-  });
 
-  items.forEach(item => {
-    observer.observe(item);
-  });
-</script>
 
-<script>
-  const items = document.querySelectorAll('.section-team-item');
-
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('animate');
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.2 });
-
-  items.forEach(item => observer.observe(item));
-</script>
-<script>
-  // Находим все элементы с классом .features-item
-  const features = document.querySelectorAll('.features-item');
-  
-  // Настраиваем IntersectionObserver
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        // Добавляем класс .animate, чтобы включить анимацию
-        entry.target.classList.add('animate');
-        // После появления элемент больше не отслеживаем
-        observer.unobserve(entry.target);
-      }
-    });
-  }, {
-    threshold: 0.2 // элемент считается "видимым", когда 20% его высоты в зоне просмотра
-  });
-
-  // "Наблюдаем" за каждым элементом
-  features.forEach((item) => {
-    observer.observe(item);
-  });
-</script>
 <!-- Скрипт Intersection Observer -->
 <script>
   // Находим все элементы .features-item
@@ -1076,471 +1013,91 @@ Un geste simple qui fait toujours plaisir, à offrir pour un anniversaire, une f
   features.forEach(item => observer.observe(item));
 </script>
 
+
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 <script>
-  (function(){
-    const header = document.querySelector('.header');
-    const onScroll = () => {
-      if (window.scrollY > 50) header.classList.add('scrolled');
-      else header.classList.remove('scrolled');
-    };
-    onScroll();
-    window.addEventListener('scroll', onScroll, {passive:true});
-  })();
-</script>
-<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
-<script>
-  // === 0) EmailJS: вставь свои ключи ===
-  // Получишь в EmailJS: Account → API Keys, и в Email Services/Templates
-  const EMAILJS_PUBLIC_KEY = 'PUBLIC_KEY_ЗДЕСЬ';
-  const EMAILJS_SERVICE_ID = 'SERVICE_ID_ЗДЕСЬ';
-  const EMAILJS_TEMPLATE_ID = 'TEMPLATE_ID_ЗДЕСЬ';
-  emailjs.init(EMAILJS_PUBLIC_KEY);
+document.addEventListener('DOMContentLoaded', () => {
+  // Инициализация ТОЛЬКО один раз
+  emailjs.init({ publicKey: 'aqrhOxZ6Ff0JM7PZP' });  // ← твой Public Key
 
-  // === 1) Открытие модалки и подстановка услуги ===
-  const modal = document.getElementById('bookingModal');
-  const serviceInput = document.getElementById('bf-service');
-  const msg = document.getElementById('bookingMsg');
-  document.querySelectorAll('.js-reserve').forEach(btn=>{
-    btn.addEventListener('click', ()=>{
-      serviceInput.value = btn.dataset.service || '';
-      modal.classList.add('is-open');
-      msg.textContent = '';
-    });
-  });
-  // Закрытие модалки
-  modal.addEventListener('click', (e)=>{
-    if (e.target.classList.contains('js-close') || e.target === modal.querySelector('.booking-modal__backdrop')){
-      modal.classList.remove('is-open');
-    }
-  });
+  const form = document.getElementById('ym-booking-form');
+  const msg  = document.getElementById('ym-modal-msg');
 
-  // === 2) Отправка формы через EmailJS ===
-  document.getElementById('bookingForm').addEventListener('submit', async (e)=>{
-    e.preventDefault();
-    const form = e.currentTarget;
-    const data = Object.fromEntries(new FormData(form).entries());
-    if (data.hp_field) return; // honeypot
-
-    const summary =
-      `Nouvelle réservation:\n`+
-      `Service: ${data.service}\n`+
-      `Date/Heure: ${data.date} à ${data.time}\n`+
-      `Client: ${data.name}\n`+
-      `Téléphone: ${data.phone}\n`+
-      `Email: ${data.email}\n`+
-      (data.notes ? Notes: ${data.notes}\n : '');
-
-    msg.style.color = '#333';
-    msg.textContent = 'Envoi en cours…';
-
-    try{
-      await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
-        service: data.service,
-        date: data.date,
-        time: data.time,
-        name: data.name,
-        phone: data.phone,
-        email: data.email,
-        notes: data.notes || '',
-        summary: summary
-      });
-      msg.style.color = '#2a7a2a';
-      msg.textContent = 'Réservation envoyée. Merci !';
-      form.reset();
-      setTimeout(()=> modal.classList.remove('is-open'), 900);
-    }catch(err){
-      console.error(err);
-      msg.style.color =
-      <script>
-  const selected = [];
-
-  const basketEl   = document.getElementById('basket');
-  const countEl    = document.getElementById('basketCount');
-  const totalEl    = document.getElementById('basketTotal');
-  const btnClear   = document.getElementById('basketClear');
-  const btnBook    = document.getElementById('basketBook');
-
-  const modal      = document.getElementById('bookingModal');
-  const bfList     = document.getElementById('bf-list');
-  const bfTotal    = document.getElementById('bf-total');
-  const bfSelected = document.getElementById('bf-selected-services');
-  const bfTotalPrice = document.getElementById('bf-total-price');
-  const msg        = document.getElementById('bookingMsg');
-
-  // --- Кнопки Réserver у SPA ---
-  document.querySelectorAll('.spa-head .js-reserve').forEach(btn=>{
-    btn.addEventListener('click', (e)=>{
+  if (form) {
+    form.addEventListener('submit', (e) => {
       e.preventDefault();
-      const service = btn.dataset.service || '';
-      const price   = Number(btn.dataset.price || 0);
-      selected.push({service, price});
-      updateBasket();
 
-      // микро-анимация обратной связи
-      const old = btn.textContent;
-      btn.textContent = 'Ajouté';
-      setTimeout(()=> btn.textContent = old, 800);
+      emailjs.sendForm('service_n7wjnjb', 'template_0pyxm1v', form)
+        .then(() => {
+          msg.textContent = '✅ Message envoyé !';
+          form.reset();
+        })
+        .catch(err => {
+          console.error('EmailJS error:', err);
+          msg.textContent = "❌ Erreur d’envoi : " + (err?.text || err);
+        });
     });
-  });
-
-  function updateBasket(){
-    const total = selected.reduce((s,x)=> s + (x.price||0), 0);
-    countEl.textContent = selected.length;
-    totalEl.textContent = ${total} €;
-    basketEl.hidden = selected.length === 0;
   }
+});
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const modal = document.getElementById('ym-modal');
+  const msg   = document.getElementById('ym-modal-msg');
 
-  btnClear.addEventListener('click', ()=>{
-    selected.length = 0;
-    updateBasket();
-  });
-
-  btnBook.addEventListener('click', ()=>{
-    if (!selected.length) return;
-    bfList.innerHTML = selected.map(x=>`<li>${x.service} — ${x.price} €</li>`).join('');
-    const total = selected.reduce((s,x)=> s + (x.price||0), 0);
-    bfTotal.textContent = Total: ${total} €;
-    bfSelected.value = selected.map(x=>`${x.service} — ${x.price} €`).join('\n');
-    bfTotalPrice.value = ${total} €;
-    msg.textContent = '';
+  function openModal(){
+    if (!modal) return;
     modal.classList.add('is-open');
-  });
-
-  modal.addEventListener('click', (e)=>{
-    if (e.target.classList.contains('js-close') || e.target === modal.querySelector('.booking-modal__backdrop')){
-      modal.classList.remove('is-open');
-    }
-  });
-
-  document.getElementById('bookingForm').addEventListener('submit', async (e)=>{
-    e.preventDefault();
-    const form = e.currentTarget;
-    const data = Object.fromEntries(new FormData(form).entries());
-    if (data.hp_field) return;
-
-    if (!selected.length){
-      msg.style.color = '#b00020';
-      msg.textContent = 'Ajoutez au moins un service.';
-      return;
-    }
-
-    const summary =
-      Nouvelle réservation (multi-services):\n +
-      ${selected.map(x=>`• ${x.service} — ${x.price} €`).join('\n')}\n +
-      Total: ${selected.reduce((s,x)=> s + (x.price||0), 0)} €\n +
-      Date/Heure: ${data.date} à ${data.time}\n +
-      Client: ${data.name}\n +
-      Téléphone: ${data.phone}\n +
-      Email: ${data.email}\n +
-      (data.notes ? Notes: ${data.notes}\n : '');
-
-    try{
-      msg.style.color = '#2a7a2a';
-      msg.textContent = 'Réservation envoyée. Merci !';
-      form.reset();
-      selected.length = 0; updateBasket();
-      setTimeout(()=> modal.classList.remove('is-open'), 900);
-    }catch(err){
-      console.error(err);
-      msg.style.color = '#b00020';
-      msg.textContent = "Erreur d'envoi. Réessayez, s'il vous plaît.";
-    }
-  });
-</script>
-<!-- Корзина -->
-<div id="cart" style="position:fixed;bottom:20px;right:20px;
-background:#fff;border:1px solid #ccc;padding:15px;border-radius:8px;
-box-shadow:0 4px 8px rgba(0,0,0,0.2);max-width:250px;z-index:999;">
-  <h4>🛒 Votre réservation</h4>
-  <ul id="cart-items" style="list-style:none;padding:0;margin:0;font-size:14px;"></ul>
-  <p><strong>Total: <span id="cart-total">0 €</span></strong></p>
-  <button onclick="alert('Réservation confirmée !')" 
-          style="margin-top:10px;padding:6px 10px;border:none;
-          background:#c08080;color:#fff;border-radius:6px;cursor:pointer;">
-    Confirmer
-  </button>
-</div>
-
-<!-- 🛒 Корзина -->
-<div id="cart" class="cart" hidden>
-  <div class="cart__head">
-    <strong>Votre réservation</strong>
-    <button id="cartClear" class="cart__clear" type="button" title="Effacer">Effacer</button>
-  </div>
-
-  <ul id="cartItems" class="cart__list"></ul>
-
-  <div class="cart__footer">
-    <div>Total: <strong id="cartTotal">0 €</strong> • <span id="cartCount">0</span> service(s)</div>
-    <button id="cartBook" class="cart__book" type="button">Réserver</button>
-  </div>
-</div>
-
-<style>
-  .cart{
-    position:fixed; right:20px; bottom:20px; z-index:9999;
-    max-width:310px; background:#fff; border:1px solid rgba(0,0,0,.12);
-    border-radius:10px; box-shadow:0 10px 25px rgba(0,0,0,.15);
-    padding:12px 12px 10px;
-    font: 14px/1.4 system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+    document.body.classList.add('ym-modal-open');
+    if (msg) msg.textContent = '';
   }
-  .cart[hidden]{ display:none; }
-  .cart__head{ display:flex; justify-content:space-between; align-items:center; margin-bottom:8px; }
-  .cart__clear{
-    background:#0E2A4A; color:#fff; border:0; border-radius:6px; padding:4px 8px; cursor:pointer;
-  }
-  .cart__list{ list-style:none; margin:0 0 8px; padding:0; max-height:220px; overflow:auto; }
-  .cart__item{ display:flex; align-items:center; gap:8px; padding:6px 2px; border-bottom:1px dashed rgba(0,0,0,.08); }
-  .cart__txt{ flex:1; }
-  .cart__price{ white-space:nowrap; font-weight:600; }
-  .cart__rm{
-    background:transparent; border:0; color:#b00020; font-size:16px; line-height:1; cursor:pointer;
-    padding:2px 6px;
-  }
-  .cart__footer{ display:flex; justify-content:space-between; align-items:center; gap:10px; }
-  .cart__book{
-    background:#c08080; color:#fff; border:0; border-radius:8px; padding:6px 12px; cursor:pointer;
-  }
-</style>
-<script>
-  // Собираем все кнопки "Réserver" (SPA и прайс-лист)
-  const reserveBtns = document.querySelectorAll('.js-reserve');
-
-  // Состояние корзины
-  const cart = []; // элементы: {service, price}
-  const cartEl = document.getElementById('cart');
-  const listEl = document.getElementById('cartItems');
-  const totalEl = document.getElementById('cartTotal');
-  const countEl = document.getElementById('cartCount');
-  const clearBtn = document.getElementById('cartClear');
-  const bookBtn  = document.getElementById('cartBook');
-
-  // Парсер цены: сначала из data-price, потом из строки (… 70 €)
-  function extractPrice(btn, service){
-    const d = btn.dataset;
-    if (d && d.price && !Number.isNaN(+d.price)) return +d.price;
-    const m = (service || '').match(/(\d+)\s*€/);
-    return m ? +m[1] : 0;
+  function closeModal(){
+    if (!modal) return;
+    modal.classList.remove('is-open');
+    document.body.classList.remove('ym-modal-open');
   }
 
-  function addToCart(service, price){
-    cart.push({service, price});
-    renderCart();
-  }
-
-  function removeFromCart(index){
-    cart.splice(index, 1);
-    renderCart();
-  }
-
-  function clearCart(){
-    cart.length = 0;
-    renderCart();
-  }
-
-  function renderCart(){
-    // Считаем сумму
-    const total = cart.reduce((s, x) => s + (x.price || 0), 0);
-
-    // Рендерим список
-    listEl.innerHTML = cart.map((x, i) => `
-      <li class="cart__item">
-        <div class="cart__txt">${x.service}</div>
-        <div class="cart__price">${x.price} €</div>
-        <button class="cart__rm" data-i="${i}" title="Supprimer">×</button>
-      </li>
-    `).join('');
-
-    // Навесим обработчики удаления
-    listEl.querySelectorAll('.cart__rm').forEach(btn => {
-      btn.addEventListener('click', () => removeFromCart(+btn.dataset.i));
-    });
-
-    // Обновим сумму/кол-во, показать/скрыть корзину
-    totalEl.textContent = ${total} €;
-    countEl.textContent = cart.length;
-    cartEl.hidden = cart.length === 0;
-  }
-
-  // Кнопки "Réserver" добавляют услугу в корзину
-  reserveBtns.forEach(btn => {
-    btn.addEventListener('click', (e) => {
+  // === ОТКРЫТИЕ: делегирование на весь документ ===
+  document.addEventListener('click', (e) => {
+    const trigger = e.target.closest('.js-open-modal');
+    if (trigger) {
       e.preventDefault();
-      const service = btn.getAttribute('data-service') || 'Service';
-      const price   = extractPrice(btn, service);
-      addToCart(service, price);
-
-      // маленькая обратная связь
-      const old = btn.textContent;
-      btn.textContent = 'Ajouté';
-      setTimeout(() => (btn.textContent = old), 700);
-    });
-  });
-
-  // Очистка и бронирование
-  clearBtn.addEventListener('click', clearCart);
-
-  bookBtn.addEventListener('click', () => {
-    if (!cart.length) return;
-
-    // Если у тебя есть модалка бронирования — заполняем её:
-    const modal = document.getElementById('bookingModal');
-    const list  = document.getElementById('bf-list');
-    const total = document.getElementById('bf-total');
-    const hiddenServices = document.getElementById('bf-selected-services');
-    const hiddenTotal    = document.getElementById('bf-total-price');
-
-    if (modal && list && total && hiddenServices && hiddenTotal) {
-      list.innerHTML = cart.map(x => `<li>${x.service} — ${x.price} €</li>`).join('');
-      const sum = cart.reduce((s, x) => s + x.price, 0);
-      total.textContent = Total: ${sum} €;
-      hiddenServices.value = cart.map(x => `${x.service} — ${x.price} €`).join('\n');
-      hiddenTotal.value = ${sum} €;
-      modal.classList.add('is-open');
-    } else {
-      // Временная заглушка, если модалки нет
-      alert(
-        'Vos services:\n' +
-        cart.map(x => `• ${x.service} — ${x.price} €`).join('\n') +
-        '\n\nTotal: ' + cart.reduce((s,x)=>s+x.price,0) + ' €'
-      );
+      openModal();
+    }
+    if (e.target.classList?.contains('js-close')) {
+      closeModal();
     }
   });
+
+  // ESC для закрытия
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal?.classList.contains('is-open')) closeModal();
+  });
+});
 </script>
-<script>
-  // DOM
-  const headerCartBtn   = document.getElementById('headerCartBtn');
-  const headerCartCount = document.getElementById('headerCartCount');
 
-  // Обновление счётчика в шапке — вызываем вместе с renderCart()
-  const _renderCart_original = renderCart; // сохраняем оригинал
-  renderCart = function(){
-    _renderCart_original(); // рендер списка и суммы
-    // обновить бейдж
-    try{
-      const count = document.getElementById('cartCount').textContent || '0';
-      headerCartCount.textContent = count;
-    }catch(e){}
-    // показать/скрыть панель с анимацией
-    const cartBox = document.getElementById('cart');
-    const hasItems = (Number(headerCartCount.textContent) > 0);
-    cartBox.hidden = false; // даём возможность анимировать
-    cartBox.classList.toggle('is-visible', hasItems);
-    if (!hasItems){
-      // плавно спрятать и затем скрыть визуально
-      setTimeout(()=>{ cartBox.hidden = true; }, 250);
-    }
-  };
 
-  // Клик по иконке в шапке — открыть/закрыть панель
-  headerCartBtn.addEventListener('click', (e)=>{
-    e.preventDefault();
-    const cartBox = document.getElementById('cart');
-    if (Number(headerCartCount.textContent) === 0) return; // если пусто — не открываем
-    const isOpen = cartBox.classList.contains('is-visible');
-    cartBox.hidden = false;
-    cartBox.classList.toggle('is-visible', !isOpen);
-    if (isOpen){
-      setTimeout(()=>{ cartBox.hidden = true; }, 250);
-    }
-  });
+ <!-- ========= Y Massage Modal ========= -->
+<div id="ym-modal" class="ym-modal" aria-hidden="true" role="dialog" aria-modal="true">
+  <div class="ym-modal__backdrop js-close" tabindex="-1"></div>
 
-  // Закрывать панель по Esc
-  document.addEventListener('keydown', (e)=>{
-    if (e.key === 'Escape'){
-      const cartBox = document.getElementById('cart');
-      cartBox.classList.remove('is-visible');
-      setTimeout(()=>{ cartBox.hidden = true; }, 250);
-    }
-  });
-</script>
-<div class="fixed-stack" id="fixedStack">
-  
+  <div class="ym-modal__content" role="document">
+    <button class="ym-modal__close js-close" type="button" aria-label="Fermer">×</button>
 
-  <!-- фиксированный блок справа внизу -->
-<div class="fixed-stack">
-  <!-- кнопка Tarifs -->
-  
-  <!-- корзина -->
-  <div id="cart" class="cart" hidden>
-    <div class="cart_head">
-      <strong>Votre réservation</strong>
-      <button id="cartClear" class="cart_clear" type="button" title="Effacer">✕</button>
-    </div>
-    <ul id="cartItems" class="cart_list"></ul>
-    <div class="cart_footer">
-      <strong id="cartTotal">Total: 0 €</strong>
-      <button id="cartBook" class="cart_book" type="button">Confirmer</button>
-    </div>
+    <h2 class="ym-modal__title">Contactez-nous</h2>
+
+    <form id="ym-booking-form" class="ym-modal__form">
+      <input type="text"  name="user_name"  placeholder="Votre prénom" required>
+      <input type="email" name="user_email" placeholder="Votre e-mail" required>
+      <input type="tel"   name="user_phone" placeholder="Téléphone" required>
+      <textarea name="message" placeholder="Votre message"></textarea>
+      <button type="submit" class="ym-modal__btn">Envoyer</button>
+    </form>
+
+    <p id="ym-modal-msg" class="ym-modal__msg" aria-live="polite"></p>
   </div>
 </div>
-<div class="fixed-stack" id="fixedStack">
- 
-  <div id="cart" class="cart" hidden>
-    <!-- содержимое корзины -->
-  </div>
-</div>
+<!-- ========= /Y Massage Modal ========= -->
 
-<script>
-/* Шахматка: назначаем направления и запускаем IntersectionObserver */
-(function () {
-  const rows = document.querySelectorAll('.offer');
-  if (!rows.length) return;
-
-  // задаём стартовые классы (откуда выезжает)
-  rows.forEach(row => {
-    const rev = row.classList.contains('is-reverse');
-    const media = row.querySelector('.offer-media');
-    const text  = row.querySelector('.offer-text');
-    if (media) media.classList.add(rev ? 'reveal-right' : 'reveal-left');
-    if (text)  text.classList.add(rev ? 'reveal-left'  : 'reveal-right');
-  });
-
-  // включаем появление при прокрутке
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.classList.add('in-view');
-        io.unobserve(e.target);
-      }
-    });
-  }, { threshold: 0.2 });
-
-  document.querySelectorAll('.reveal-left, .reveal-right').forEach(el => io.observe(el));
-})();
-</script>
-<script>
-  (function(){
-    const items = document.querySelectorAll('.reveal, .ym-reveal');
-    if (!('IntersectionObserver' in window)) {
-      items.forEach(el => el.classList.add('in'));
-      return;
-    }
-    const io = new IntersectionObserver((entries)=>{
-      entries.forEach(e=>{
-        if (e.isIntersecting){
-          e.target.classList.add('in');
-          io.unobserve(e.target);
-        }
-      });
-    }, { threshold: 0.2 });
-    items.forEach(el=>io.observe(el));
-  })();
-</script>
-<script>
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.classList.add('in-view');
-        io.unobserve(e.target);
-      }
-    });
-  }, { threshold: 0.15 });
-
-  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
-</script>
-
-
-
-  </body>
+</body>
 </html>
