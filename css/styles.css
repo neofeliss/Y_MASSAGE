@@ -478,7 +478,55 @@ font-weight: 500;
 
 
 /*Section 2*/
+/* ==== Features Section ==== */
 
+/* ==== Galerie – layout ==== */
+.gallery-section {
+    padding: 40px 0 28px;
+}
+
+.gallery-title {
+    text-align: center;
+    font-size: clamp(22px, 3.2vw, 34px);
+    letter-spacing: 0.06em;
+    margin: 0 0 18px;
+    opacity: .9;
+}
+
+.gallery-viewport {
+    /* центрируем и ограничиваем ширину (не на всю) */
+    width: min(62vw, 980px);
+    margin: 0 auto;
+    overflow: hidden;
+    position: relative;
+    border-radius: 14px;
+    box-shadow: 0 10px 28px rgba(0, 0, 0, .15), 0 2px 8px rgba(0, 0, 0, .08);
+    background: rgba(255, 255, 255, .06);
+}
+/* ==== Анимации ==== */
+.reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 1s ease;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.from-left {
+    transform: translateX(-80px);
+}
+
+.from-right {
+    transform: translateX(80px);
+}
+
+.reveal.active.from-left,
+.reveal.active.from-right {
+    transform: translateX(0);
+}
 /* ==== Features (шахматка) — поддержка двух схем классов ==== */
 
 /* Контейнер секции */
@@ -3874,4 +3922,118 @@ section.feature .feature__text {
 /* Блокируем прокрутку фона только при открытой модалке */
 body.ym-modal-open {
     overflow: hidden;
+}
+.ym-reveal,
+.reveal {
+    opacity: 1 !important;
+    transform: none !important;
+}
+.header {
+    position: fixed;
+    /* всегда наверху */
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px;
+    background-color: transparent;
+    /* прозрачный при загрузке */
+    transition: background-color 0.6s ease;
+    z-index: 1000;
+}
+
+.header.scrolled {
+    background-color: rgba(0, 0, 0, 0.8);
+    /* тёмный после скролла */
+}
+/* Текст в хедере всегда белый */
+.header,
+.header a,
+.header .header-logo__text,
+.header .header-link,
+.header .contact-pill {
+    color: #fff !important;
+}
+
+/* Чтобы при hover тоже был читаемый */
+.header .header-link:hover,
+.header .contact-pill:hover {
+    color: #e6d6be;
+    /* можешь выбрать свой оттенок */
+}
+.ym-features,
+.ym-features h2,
+.ym-features h3,
+.ym-features p {
+    color: #fff !important;
+}
+/* Базовое состояние секции (прозрачная) */
+.ym-features {
+    background-color: transparent;
+    transition: background-color 0.8s ease;
+    padding: 80px 10%;
+}
+
+/* Когда появляется при скролле — затемнение */
+.ym-features.scrolled {
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+/* Текст всегда белый */
+.ym-features,
+.ym-features h2,
+.ym-features h3,
+.ym-features p,
+.ym-features a {
+    color: #fff !important;
+}
+/* секция: сначала прозрачная, при скролле затемняется */
+.ym-features {
+    background-color: transparent;
+    transition: background-color .8s ease;
+    padding: 80px 10%;
+}
+
+.ym-features.scrolled {
+    background-color: rgba(0, 0, 0, .6);
+}
+
+/* текст всегда белый внутри секции */
+.ym-features,
+.ym-features h2,
+.ym-features h3,
+.ym-features p,
+.ym-features a {
+    color: #fff !important;
+}
+
+/* шахматная анимация элементов */
+.ym-feature_media,
+.ym-feature_content {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity .6s ease, transform .6s ease;
+}
+
+/* направление “слева/справа” */
+.ym-feature:not(.ym-feature--right) .ym-feature_media {
+    transform: translateX(-40px);
+}
+
+.ym-feature:not(.ym-feature--right) .ym-feature_content {
+    transform: translateX(40px);
+}
+
+.ym-feature--right .ym-feature_media {
+    transform: translateX(40px);
+}
+
+.ym-feature--right .ym-feature_content {
+    transform: translateX(-40px);
+}
+
+/* когда входит в зону видимости */
+.ym-feature_media.in,
+.ym-feature_content.in {
+    opacity: 1;
+    transform: none;
 }

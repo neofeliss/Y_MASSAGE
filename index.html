@@ -13,7 +13,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/2.0.0/modern-normalize.min.css">
 
   <!-- Твои стили -->
-  <link rel="stylesheet" href="./css/styles.css?v=4">
+  <link rel="stylesheet" href="./css/styles.css">
 
   <title>Y Massage - Bien-être</title>
 </head>
@@ -38,7 +38,7 @@
       <ul class="header-list">
         <li><a href="#services" class="header-link">Services</a></li>
         <li><a href="#tarifs" class="header-link">Tarifs</a></li>
-        <li><a href="#contacts" class="header-link">Contacts</a></li>
+        <li><a href="#contacts" class="header-link">Contact</a></li>
       </ul>
     </nav>
 
@@ -99,26 +99,23 @@
   </article>
 
   <!-- 2. Sauna — фото справа, текст слева -->
-  <article class="ym-feature ym-feature--right ym-feature sauna">
-    <div class="ym-feature__media ym-reveal ym-from-right">
-      <img src="images/sauna.jpg" alt="Sauna & hydratation aux herbes" loading="lazy">
-    </div>
-    <div class="ym-feature__content ym-reveal ym-from-left">
-      <h3 class="ym-feature__title">Sauna & Hydratation</h3>
-      <p class="ym-feature__text">
-        Découvrez l’art des rituels de chaleur et d’eau, pensés pour régénérer le corps et apaiser l’esprit.
-Plongez dans notre jacuzzi, où les bulles délicates dénouent les tensions et procurent une relaxation profonde.
-
-Nos séances en sauna infrarouge diffusent une chaleur douce et bienfaisante qui favorise l’élimination des toxines, stimule la circulation et apporte une agréable sensation de légèreté.
-
-Nous vous proposons également la phytosauna (fitobanya), une cabine traditionnelle à vapeur d’herbes.
-Proche de la sauna vapeur classique, elle s’en distingue par l’utilisation d’infusions naturelles qui enveloppent le corps d’arômes bienfaisants et renforcent l’effet de purification et de détente.
-
-Chaque rituel est une invitation à ralentir, purifier le corps et retrouver une harmonie intérieure.
-      </p>
-      <!-- <a href="#tarifs" class="ym-feature__btn">Voir les tarifs</a> -->
-    </div>
-  </article>
+  <article class="ym-feature ym-feature--right ym-feature_sauna">
+  <div class="ym-feature_media ym-reveal ym-from-right">
+    <img src="images/sauna.jpg" alt="Sauna & hydratation aux herbes" loading="lazy">
+  </div>
+  <div class="ym-feature_content ym-reveal ym-from-left">
+    <h3 class="ym-feature__title">Sauna & Hydratation</h3>
+    <p class="ym-feature__text">
+      Découvrez l’art des rituels de chaleur et d’eau, pensés pour régénérer le corps et apaiser l’esprit.
+      Plongez dans notre jacuzzi, où les bulles délicates dénouent les tensions et procurent une relaxation profonde.
+      Nos séances en sauna infrarouge diffusent une chaleur douce et bienfaisante qui favorise l’élimination des toxines,
+      stimule la circulation et apporte une agréable sensation de légèreté.
+      Nous vous proposons également la phytosauna (fitobanya), une cabine traditionnelle à vapeur d’herbes...
+    </p>
+    <!-- Кнопка, ведущая к тарифам -->
+    <a href="#spa-equipements" class="ym-feature__btn">Voir les tarifs</a>
+  </div>
+</article>
 
   <!-- 3. Для группы — фото слева, текст справа -->
   <article class="ym-feature group-sessions">
@@ -416,7 +413,7 @@ Un geste simple qui fait toujours plaisir, à offrir pour un anniversaire, une f
         <img src="images/formule-trio.jpg" alt="Formule Trio – Pour 3 personnes">
         <h3>Formule Trio</h3>
         <p>3 Massages relaxants, jacuzzi, sauna infrarouge et fitobanya inclus.</p>
-        <span class="price">280 €</span>
+        <span class="price">245 €</span>
         <a href="#contacts" class="btn-tarif">Réserver</a>
       </div>
 
@@ -425,7 +422,7 @@ Un geste simple qui fait toujours plaisir, à offrir pour un anniversaire, une f
         <img src="images/formule-quatro.jpg" alt="Formule Quatro – Pour 4 personnes">
         <h3>Formule Quatro</h3>
         <p>4 Massages relaxants, jacuzzi, sauna infrarouge et fitobanya inclus.</p>
-        <span class="price">360 €</span>
+        <span class="price">330 €</span>
         <a href="#contacts" class="btn-tarif">Réserver</a>
       </div>
 
@@ -740,10 +737,10 @@ Un geste simple qui fait toujours plaisir, à offrir pour un anniversaire, une f
       <h3 class="pricing-mini__name">Drainage lymphatique</h3>
       <p class="pricing-mini__desc">Stimule le système lymphatique, réduit les gonflements.</p>
       <ul class="pricing-mini__list">
-        <li>Dos et jambes arrière — 60 €
+        <li>Dos et jambes arrière 1h — 60 €
           <button class="reserve-btn js-reserve" data-service="Drainage lymphatique — dos & jambes arrière — 60 €">Réserver</button>
         </li>
-        <li>Corps entier — 90 €
+        <li>Corps entier 1h30 — 90 €
           <button class="reserve-btn js-reserve" data-service="Drainage lymphatique — corps entier — 90 €">Réserver</button>
         </li>
       </ul>
@@ -1075,8 +1072,82 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 </script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const elements = document.querySelectorAll('.ym-reveal, .reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in', 'active'); // <- добавляем нужные классы
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
 
+  elements.forEach(el => observer.observe(el));
+});
+</script>
+<script>
+window.addEventListener("scroll", () => {
+  const header = document.querySelector(".header");
+  if (window.scrollY > 50) { 
+    header.classList.add("scrolled");
+  } else {
+    header.classList.remove("scrolled");
+  }
+});
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const section = document.querySelector('.ym-features');
 
+  if (section) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          section.classList.add('scrolled');
+        } else {
+          section.classList.remove('scrolled');
+        }
+      });
+    }, { threshold: 0.2 }); // срабатывает при 20% видимости секции
+
+    observer.observe(section);
+  }
+});
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  // фон секции: прозрачный -> тёмный
+  const section = document.querySelector('.ym-features');
+  if (section){
+    const sectionIO = new IntersectionObserver(es=>{
+      es.forEach(e=> e.isIntersecting ? section.classList.add('scrolled')
+                                      : section.classList.remove('scrolled'));
+    }, {threshold:.2});
+    sectionIO.observe(section);
+  }
+
+  // шахматный выезд элементов с лёгкой задержкой
+  const features = document.querySelectorAll('.ym-features .ym-feature');
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(entry=>{
+      if(!entry.isIntersecting) return;
+
+      const media = entry.target.querySelector('.ym-feature_media');
+      const content = entry.target.querySelector('.ym-feature_content');
+
+      // ступенчатое появление: медиа -> текст
+      media && setTimeout(()=> media.classList.add('in'), 50);
+      content && setTimeout(()=> content.classList.add('in'), 200);
+
+      io.unobserve(entry.target);
+    });
+  }, {threshold:.2});
+
+  features.forEach(f=> io.observe(f));
+});
+</script>
  <!-- ========= Y Massage Modal ========= -->
 <div id="ym-modal" class="ym-modal" aria-hidden="true" role="dialog" aria-modal="true">
   <div class="ym-modal__backdrop js-close" tabindex="-1"></div>
