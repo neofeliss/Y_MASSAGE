@@ -4565,3 +4565,281 @@ body.ym-modal-open {
         min-height: 44px;
     }
 }
+/* ==========================
+   Адаптив секции Features — как в Saunas & Jacuzzi
+   ========================== */
+@media (max-width: 1024px) {
+
+    /* общий контейнер — аккуратные отступы */
+    .ym-feature,
+    .feature {
+        flex-direction: column;
+        align-items: center;
+        gap: 24px;
+        text-align: center;
+        padding: 40px 20px;
+    }
+
+    /* изображение — немного ниже и ровное */
+    .ym-feature_media img,
+    .feature_media img {
+        width: 100%;
+        max-width: 600px;
+        /* ограничим ширину, чтобы не растягивалось */
+        height: auto;
+        aspect-ratio: 4 / 3;
+        object-fit: cover;
+        border-radius: 14px;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    /* текст — центр и чуть меньше */
+    .ym-feature_content,
+    .feature_content {
+        flex: none;
+        max-width: 600px;
+    }
+
+    .ym-feature_content h2,
+    .feature_content h2 {
+        font-size: 24px;
+        margin-bottom: 10px;
+    }
+
+    .ym-feature_content p,
+    .feature_content p {
+        font-size: 15px;
+        line-height: 1.6;
+    }
+}
+
+/* Телефон ≤ 640px */
+@media (max-width: 640px) {
+
+    .ym-feature,
+    .feature {
+        padding: 32px 16px;
+        gap: 20px;
+    }
+
+    .ym-feature_media img,
+    .feature_media img {
+        aspect-ratio: 1 / 1;
+        max-width: 100%;
+        border-radius: 12px;
+        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+    }
+
+    .ym-feature_content h2,
+    .feature_content h2 {
+        font-size: 20px;
+    }
+
+    .ym-feature_content p,
+    .feature_content p {
+        font-size: 14px;
+        line-height: 1.5;
+    }
+}
+/* ====== Tablet ≤1024px ====== */
+@media (max-width: 1024px) {
+
+    /* 2 карточки в ряд, компактнее отступы */
+    .main-portfolio-list {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 16px;
+    }
+
+    /* фото ровные и не слишком высокие */
+    .background-text img {
+        aspect-ratio: 4 / 3;
+        height: auto;
+        /* если где-то задано height:300 — переопределим */
+        object-fit: cover;
+    }
+
+    /* overlay-текст и бейдж времени немного меньше */
+    .portfolio-tap-text {
+        padding: 12px;
+        font-size: 14px;
+    }
+
+    .main-portfolio-text {
+        padding: 6px 10px;
+        font-size: 12px;
+    }
+
+    /* кнопку на планшете лучше показывать сразу */
+    .reserve-inline {
+        opacity: 1;
+        transform: none;
+        pointer-events: auto;
+    }
+
+    .reserve-btn {
+        padding: 10px 14px;
+        font-size: 14px;
+        border-radius: 10px;
+    }
+}
+
+/* ====== Phone ≤640px ====== */
+@media (max-width: 640px) {
+
+    /* 1 карточка в ряд */
+    .main-portfolio-list {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+
+    /* делаем карточку “плоской”, чтобы меньше растягивалась по высоте */
+    .background-text img {
+        aspect-ratio: 16 / 10;
+        /* можно 4/3, если хочешь выше */
+        height: auto;
+        object-fit: cover;
+        border-radius: 10px;
+    }
+
+    /* overlay-текст переносим ПОД фото (на тач hover нет) */
+    .portfolio-tap-text {
+        position: static;
+        inset: auto;
+        opacity: 1;
+        background: transparent;
+        padding: 10px 0 0;
+        z-index: 1;
+        transition: none;
+    }
+
+    /* бейдж времени тоже переносим в поток */
+    .main-portfolio-text {
+        position: static;
+        margin-top: 6px;
+        padding: 6px 10px;
+        font-size: 12px;
+        backdrop-filter: none;
+        background: rgba(0, 0, 0, 0.04);
+        border-radius: 8px;
+    }
+
+    /* шапка с названием и кнопкой */
+    .spa-head {
+        gap: 8px;
+    }
+
+    /* кнопка всегда видима и удобна для тапа */
+    .reserve-inline {
+        opacity: 1;
+        transform: none;
+        pointer-events: auto;
+    }
+
+    .reserve-btn {
+        width: 100%;
+        min-height: 44px;
+        padding: 10px 12px;
+        border-radius: 10px;
+    }
+}
+/* ====== FEATURES — адаптив (ПК не трогаем) ====== */
+
+/* Планшет ≤ 1024px: компактнее, ровные картинки, центрируем текст */
+@media (max-width: 1024px) {
+    .ym-features {
+        padding: 60px 6%;
+        gap: 56px;
+    }
+
+    /* каждый ряд становится колонкой, даже “правые” развороты */
+    .ym-feature,
+    .ym-feature--right {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 22px;
+    }
+
+    /* медиа: не фикс. высота, аккуратная пропорция */
+    .ym-feature_media img {
+        width: 100%;
+        height: auto;
+        /* перекрываем height:360px */
+        aspect-ratio: 4 / 3;
+        /* можно 3/2 если хочешь выше */
+        object-fit: cover;
+        max-width: 880px;
+        /* чтобы не растягивалось на широких планшетах */
+        border-radius: 14px;
+        box-shadow: 0 10px 28px rgba(0, 0, 0, .14);
+    }
+
+    /* текстовый блок */
+    .ym-feature_content {
+        max-width: 880px;
+        flex: none;
+        margin: 0 auto;
+    }
+
+    .ym-feature_title {
+        font-size: clamp(24px, 2.4vw, 28px);
+        margin: 0 0 10px;
+    }
+
+    .ym-feature_text {
+        font-size: 16px;
+        line-height: 1.6;
+    }
+
+    /* кнопка */
+    .ym-feature_btn {
+        display: inline-block;
+        padding: 10px 16px;
+        border-radius: 10px;
+    }
+}
+
+/* Телефон ≤ 640px: ещё компактнее, удобные тап-таргеты */
+@media (max-width: 640px) {
+    .ym-features {
+        padding: 40px 16px;
+        gap: 40px;
+    }
+
+    .ym-feature,
+    .ym-feature--right {
+        gap: 18px;
+    }
+
+    .ym-feature_media img {
+        aspect-ratio: 1 / 1;
+        /* квадратные превью — выглядят чище на мобилке */
+        border-radius: 12px;
+        box-shadow: 0 6px 18px rgba(0, 0, 0, .10);
+    }
+
+    .ym-feature_title {
+        font-size: 20px;
+        margin-bottom: 8px;
+    }
+
+    .ym-feature_text {
+        font-size: 14px;
+        line-height: 1.5;
+    }
+
+    .ym-feature_btn {
+        width: 100%;
+        min-height: 44px;
+        text-align: center;
+        padding: 12px 14px;
+        border-radius: 12px;
+    }
+}
+
+/* На тач-устройствах ховеры не нужны — оставим мягкое появление */
+@media (hover: none) {
+    .ym-reveal {
+        transition: opacity .6s ease, transform .6s ease;
+    }
+}
