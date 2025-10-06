@@ -164,6 +164,8 @@ Un geste simple qui fait toujours plaisir, à offrir pour un anniversaire, une f
   <h2 class="gallery-title">Galerie</h2>
 
   <div class="gallery-viewport">
+    
+
     <div class="gallery-track" id="galleryTrack">
       <!-- заменяй src на свои пути; можно 11+ фото -->
       <figure class="gallery-slide"><img src="images/gallery01.jpg" alt="Massage – photo 1"></figure>
@@ -178,8 +180,11 @@ Un geste simple qui fait toujours plaisir, à offrir pour un anniversaire, une f
       <figure class="gallery-slide"><img src="images/gallery10.jpg" alt="Massage – photo 10"></figure>
       <figure class="gallery-slide"><img src="images/gallery11.jpg" alt="Massage – photo 11"></figure>
     </div>
-  </div>
+     <!-- стрелки -->
+   <button class="gallery-arrow gallery-prev" aria-label="Précédent">‹</button>
+<button class="gallery-arrow gallery-next" aria-label="Suivant">›</button>
 </section>
+ 
       <!-- section 4 -->
       <section class="portfolio">
   <div class="container">
@@ -698,7 +703,7 @@ Un geste simple qui fait toujours plaisir, à offrir pour un anniversaire, une f
       <h3 class="pricing-mini__name">Massage relaxant (Chiromassage)</h3>
       <p class="pricing-mini__desc">Soulage douleurs musculaires et articulaires, détente nerveuse.</p>
       <ul class="pricing-mini__list">
-
+
 <li>60 min — 55 €
           <button class="reserve-btn js-reserve" data-service="Chiromassage — 60 min — 55 €">Réserver</button>
         </li>
@@ -1185,14 +1190,121 @@ function onScroll(){
 onScroll();
 window.addEventListener('scroll', onScroll);
 
-burger?.addEventListener('click', () => {
-  burger.classList.toggle('open');
-  nav.classList.toggle('open');
-  header.classList.toggle('menu-open', nav.classList.contains('open'));
-});
+
 </script>
 
+<script>
+(function () {
+  var track = document.getElementById('galleryTrack');
+  if (!track) return;
 
+  var viewport = track.parentElement;
+  var slides   = Array.prototype.slice.call(track.querySelectorAll('.gallery-slide'));
+  var prevBtn  = viewport.querySelector('.gallery-prev') || document.querySelector('.gallery-prev');
+  var nextBtn  = viewport.querySelector('.gallery-next') || document.querySelector('.gallery-next');
 
+  function getVisible() {
+    var v = getComputedStyle(document.documentElement).getPropertyValue('--visible').trim();
+    var n = parseInt(v, 10);
+    return (isFinite(n) && n > 0) ? n : 1;
+  }
+
+  var index = 0;
+  function clamp() {
+    var max = Math.max(0, slides.length - getVisible());
+    if (index < 0) index = 0;
+    if (index > max) index = max;
+  }
+
+  function update() {
+    clamp();
+    var visible = getVisible();
+    var percentPerSlide = 100 / visible;
+    if (!track.style.transition) track.style.transition = 'transform .45s ease';
+    track.style.transform = 'translateX(-' + (index * percentPerSlide) + '%)';
+
+    var max = Math.max(0, slides.length - visible);
+    if (prevBtn){
+      if (index <= 0) prevBtn.setAttribute('disabled','');
+      else prevBtn.removeAttribute('disabled');
+    }
+    if (nextBtn){
+      if (index >= max) nextBtn.setAttribute('disabled','');
+      else nextBtn.removeAttribute('disabled');
+    }
+  }
+
+  function goNext(){ index += 1; update(); }
+  function goPrev(){ index -= 1; update(); }
+
+  if (nextBtn) nextBtn.addEventListener('click', function(e){ e.preventDefault(); goNext(); });
+  if (prevBtn) prevBtn.addEventListener('click', function(e){ e.preventDefault(); goPrev(); });
+
+  // ---- свайп ----
+  var startX = 0, currentX = 0, dragging = false, startIndex = 0;
+  var threshold = 40;
+
+  function down(e) {
+    dragging = true;
+    startX = (e.touches ? e.touches[0].clientX : e.clientX);
+    startIndex = index;
+    track.style.transition = 'none';
+    stopAuto(); // стопаем авто при свайпе
+  }
+  function move(e) {
+    if (!dragging) return;
+    currentX = (e.touches ? e.touches[0].clientX : e.clientX);
+    var dx = currentX - startX;
+    var visible = getVisible();
+    var slideW = viewport.clientWidth / visible;
+    var delta = dx / slideW;
+    var value = (startIndex - delta) * (100 / visible);
+    track.style.transform = 'translateX(-' + value + '%)';
+  }
+  function up() {
+    if (!dragging) return;
+    dragging = false;
+    track.style.transition = 'transform .45s ease';
+    var dx = currentX - startX;
+    if (Math.abs(dx) > threshold) index += (dx < 0 ? 1 : -1);
+    update();
+    startAuto(); // возвращаем авто после свайпа
+  }
+
+  track.addEventListener('pointerdown', down);
+  window.addEventListener('pointermove', move);
+  window.addEventListener('pointerup',   up);
+  track.addEventListener('touchstart', down,  {passive:true});
+  track.addEventListener('touchmove',  move,  {passive:true});
+  track.addEventListener('touchend',   up);
+
+  // ---- авто-прокрутка ----
+  var autoInterval = null;
+  var delay = 5000; // каждые 5 секунд
+  function startAuto() {
+    stopAuto(); // чтобы не дублировалось
+    autoInterval = setInterval(function() {
+      index += 1;
+      var max = Math.max(0, slides.length - getVisible());
+      if (index > max) index = 0;
+      update();
+    }, delay);
+  }
+  function stopAuto() {
+    if (autoInterval) clearInterval(autoInterval);
+    autoInterval = null;
+  }
+
+  // при наведении/уходе курсора
+  viewport.addEventListener('mouseenter', stopAuto);
+  viewport.addEventListener('mouseleave', startAuto);
+
+  window.addEventListener('resize', update);
+
+  // запускаем
+  update();
+  startAuto();
+})();
+</script>
 </body>
 </html>
