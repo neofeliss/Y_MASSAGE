@@ -32,6 +32,10 @@
   </span>
   <span class="header-logo__text">Y Massage</span>
 </a>
+<button class="header-burger" aria-label="Ouvrir le menu" aria-controls="headerMenu" aria-expanded="false">
+  <span></span><span></span><span></span>
+</button>
+
 
     <!-- Меню -->
     <nav class="header-nav">
@@ -1170,5 +1174,39 @@ document.addEventListener('DOMContentLoaded', () => {
 </div>
 <!-- ========= /Y Massage Modal ========= -->
 
+
+<script>
+  const header = document.querySelector('.header');
+  const burger = document.querySelector('.header-burger');
+  const nav    = document.querySelector('.header-nav');
+
+  // Прокрутка: добавить классы для тёмного фона
+  function onScroll(){
+    const scrolled = window.scrollY > 10;
+    header.classList.toggle('scrolled', scrolled);
+    header.classList.toggle('header_scrolled', scrolled); // под твои существующие правила
+  }
+  onScroll();
+  window.addEventListener('scroll', onScroll);
+
+  // Бургер: открыть/закрыть меню
+  function toggleMenu(e){
+    if (e) e.preventDefault();
+    burger.classList.toggle('open');
+    nav.classList.toggle('open');
+    header.classList.toggle('menu-open', nav.classList.contains('open'));
+    burger.setAttribute('aria-expanded', nav.classList.contains('open') ? 'true' : 'false');
+    document.body.classList.toggle('body-lock', nav.classList.contains('open'));
+  }
+  burger?.addEventListener('click', toggleMenu);
+
+  // Закрытие по клику вне/ESC
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && nav.classList.contains('open')) toggleMenu();
+  });
+  document.addEventListener('click', e => {
+    if (nav.classList.contains('open') && !nav.contains(e.target) && !burger.contains(e.target)) toggleMenu();
+  });
+</script>
 </body>
 </html>

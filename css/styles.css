@@ -4037,3 +4037,128 @@ body.ym-modal-open {
     opacity: 1;
     transform: none;
 }
+/* ===== Бургер (по умолчанию скрыт, чтобы ПК вид не менялся) ===== */
+.header-burger {
+    display: none;
+    width: 40px;
+    height: 40px;
+    border: 0;
+    background: none;
+    cursor: pointer;
+}
+
+.header-burger span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    margin: 4px auto;
+    border-radius: 2px;
+    transition: .25s;
+}
+
+/* цвета бургера зависят от состояния шапки (прозрачная/скролл) */
+.header:not(.header_scrolled):not(.scrolled):not(.menu-open) .header-burger span {
+    background: #fff;
+}
+
+.header.header_scrolled .header-burger span,
+.header.scrolled .header-burger span,
+.header.menu-open .header-burger span {
+    background: var(--ink, #0B2B4A);
+}
+
+/* анимация "крестик" */
+.header-burger.open span:nth-child(1) {
+    transform: translateY(6px) rotate(45deg);
+}
+
+.header-burger.open span:nth-child(2) {
+    opacity: 0;
+}
+
+.header-burger.open span:nth-child(3) {
+    transform: translateY(-6px) rotate(-45deg);
+}
+
+/* ===== Планшет: чуть плотнее интервалы ===== */
+@media (max-width: 992px) {
+    .header-list {
+        gap: 28px;
+    }
+
+    .header_logo_img {
+        height: 34px;
+    }
+}
+
+/* ===== Телефон: логотип + бургер в шапке, меню выпадает снизу ===== */
+@media (max-width: 768px) {
+
+    /* показать бургер */
+    .header-burger {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    /* контейнер шапки: логотип слева, бургер справа */
+    .header-container {
+        gap: 12px;
+    }
+
+    /* выпадающее меню — фиксировано под шапкой, чтобы не ломать герой */
+    .header-nav {
+        position: fixed;
+        top: var(--header-h, 64px);
+        /* у тебя уже есть переменная — используем её */
+        left: 0;
+        right: 0;
+        display: none;
+        /* скрыто по умолчанию */
+        background: rgba(11, 43, 82, .97);
+        -webkit-backdrop-filter: blur(6px);
+        backdrop-filter: blur(6px);
+        padding: 16px 0;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, .15);
+        z-index: 999;
+        /* ниже самой шапки */
+    }
+
+    .header-nav.open {
+        display: block;
+    }
+
+    /* пункты меню вертикально, читабельные */
+    .header-list {
+        flex-direction: column;
+        gap: 14px;
+        align-items: center;
+        margin: 0;
+        padding: 0;
+    }
+
+    .header-link {
+        font-family: inherit;
+        font-size: 18px;
+        font-weight: 600;
+        color: #fff !important;
+        /* на тёмном фоне меню */
+        text-decoration: none;
+        padding: 10px 14px;
+        border-radius: 10px;
+    }
+
+    .header-link:hover {
+        background: rgba(255, 255, 255, .08);
+    }
+
+    /* телефон и корзину на малых скрываем (как на твоём макете) */
+    .header-address,
+    .header-cart {
+        display: none !important;
+    }
+}
+/* блокируем прокрутку страницы, когда открыто меню на телефоне */
+.body-lock {
+    overflow: hidden;
+}
