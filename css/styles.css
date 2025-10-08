@@ -5423,3 +5423,190 @@ body.ym-modal-open {
 .sb_btn:active {
     transform: translateY(1px);
 }
+/* ======================= TABLET ≤1024px ======================= */
+@media (max-width:1024px) {
+
+    /* SPA-карточки: 2 колонки, картинки не гигантские */
+    .main-portfolio-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 24px 16px;
+    }
+
+    .main-portfolio-item {
+        width: calc((100% - 16px)/2);
+    }
+
+    .main-portfolio-item img,
+    .background-text img {
+        width: 100%;
+        height: 220px;
+        /* фиксируем высоту на планшете */
+        object-fit: cover;
+        /* обрезаем по краям, без растяжения */
+        border-radius: 12px;
+        display: block;
+    }
+
+    /* оверлей превращаем в статичный текст */
+    .portfolio-tap-text {
+        position: static;
+        background: none;
+        padding: 16px 0 0;
+        height: auto;
+        transform: none;
+        box-shadow: none;
+    }
+
+    /* кнопка "Réserver" — компактнее */
+    .reserve-btn,
+    .reserve-inline,
+    ._reserve-btn {
+        width: auto;
+        min-width: 180px;
+        display: inline-flex;
+        padding: 10px 14px;
+        font-size: 15px;
+        align-self: flex-start;
+    }
+}
+
+/* ======================= MOBILE ≤768px ======================= */
+@media (max-width:768px) {
+
+    /* SPA-карточки: 1 колонка, уменьшить отступы */
+    .main-portfolio-list {
+        gap: 20px;
+    }
+
+    .main-portfolio-item {
+        width: 100%;
+    }
+
+    .main-portfolio-item img,
+    .background-text img {
+        width: 100%;
+        height: 180px;
+        /* на телефоне ещё ниже */
+        object-fit: cover;
+        border-radius: 12px;
+    }
+
+    .main-portfolio-subtitle {
+        font-size: 18px;
+        margin: 8px 0;
+    }
+
+    .main-portfolio-text {
+        font-size: 14px;
+        line-height: 1.45;
+    }
+
+    /* кнопка "Réserver" — не на всю ширину и не громоздкая */
+    .reserve-btn,
+    .reserve-inline,
+    ._reserve-btn {
+        width: auto;
+        min-width: 170px;
+        padding: 10px 16px;
+        font-size: 15px;
+        border-radius: 10px;
+        margin-top: 8px;
+    }
+
+    /* ===== ГРУППОВЫЕ ФОРМУЛЫ (EVJF/Privatisation) ===== */
+    /* подгони под свои контейнеры: .group-formules / #evjf */
+    .group-formules,
+    #evjf {
+        max-width: 100%;
+        margin: 0 auto;
+    }
+
+    .group-formules .card,
+    #evjf .card {
+        padding: 14px;
+        border-radius: 16px;
+    }
+
+    .group-formules img,
+    #evjf img {
+        width: 100%;
+        height: 160px;
+        object-fit: cover;
+        border-radius: 12px;
+    }
+
+    /* ===== Jacuzzi privatif ===== */
+    /* подгони селектор, если у тебя .jacuzzi-privatif */
+    .jacuzzi,
+    .jacuzzi-privatif {
+        max-width: 100%;
+    }
+
+    .jacuzzi .card,
+    .jacuzzi-privatif .card {
+        padding: 14px;
+    }
+
+    .jacuzzi img,
+    .jacuzzi-privatif img {
+        width: 100%;
+        height: 160px;
+        object-fit: cover;
+        border-radius: 12px;
+    }
+
+    .jacuzzi .title,
+    .jacuzzi-privatif .title {
+        font-size: 18px;
+    }
+
+    /* заголовки секций короче и ближе к контенту */
+    section h2 {
+        font-size: 22px;
+        margin: 16px 0 10px;
+    }
+
+    /* страхуемся от фиксированных высот, заданных атрибутами */
+    img[width][height] {
+        height: auto !important;
+    }
+
+    /* ===== SimplyBook виджет в телефоне ===== */
+    .booking-widget {
+        position: relative;
+        overflow: hidden;
+        margin: 0 -8px;
+    }
+
+    .booking-widget iframe {
+        width: 100%;
+        border: 0;
+        display: block;
+        height: 1200px;
+    }
+
+    /* если внизу снова прилипает технический низ — закрываем фоном секции */
+    .booking-widget::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 48px;
+        background: #f1e1c1;
+        pointer-events: none;
+        z-index: 2;
+    }
+}
+
+/* ======================= VERY SMALL ≤360px ======================= */
+@media (max-width:360px) {
+
+    .reserve-btn,
+    .reserve-inline,
+    ._reserve-btn {
+        padding: 9px 12px;
+        font-size: 14px;
+    }
+}
