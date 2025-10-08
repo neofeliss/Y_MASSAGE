@@ -5610,3 +5610,143 @@ body.ym-modal-open {
         font-size: 14px;
     }
 }
+/* ===== МОБИЛЬНАЯ СЕТКА ДЛЯ КАРТОЧЕК НА САЙТЕ ===== */
+@media (max-width:768px) {
+
+    /* 1 колонка для всех карточек программ SPA */
+    .main-portfolio-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+
+    .main-portfolio-item {
+        width: 100%;
+    }
+
+    /* картинки одной высоты и без растяжений */
+    .main-portfolio-item img,
+    .background-text img {
+        width: 100%;
+        height: 180px;
+        /* одинаковая высота */
+        object-fit: cover;
+        /* обрезаем края, не тянем */
+        border-radius: 12px;
+        display: block;
+    }
+
+    /* текст-оверлей превращаем в обычный блок под фото */
+    .portfolio-tap-text {
+        position: static;
+        background: none;
+        padding: 12px 0 0;
+        height: auto;
+        transform: none;
+        box-shadow: none;
+    }
+
+    /* компактная кнопка Réserver, не на всю ширину */
+    .reserve-btn,
+    .reserve-inline,
+    ._reserve-btn {
+        width: auto;
+        min-width: 170px;
+        padding: 10px 16px;
+        font-size: 15px;
+        border-radius: 10px;
+        display: inline-flex;
+        justify-content: center;
+        align-self: flex-start;
+    }
+
+    /* Групповые формулы (если у секции есть такие классы/ID — оставь, иначе можно удалить) */
+    .group-formules,
+    #evjf,
+    .jacuzzi,
+    .jacuzzi-privatif {
+        max-width: 100%;
+        margin: 0 auto;
+    }
+
+    .group-formules img,
+    #evjf img,
+    .jacuzzi img,
+    .jacuzzi-privatif img {
+        width: 100%;
+        height: 180px;
+        object-fit: cover;
+        border-radius: 12px;
+    }
+
+    /* чуть компактнее заголовки секций */
+    section h2 {
+        font-size: 22px;
+        margin: 14px 0 10px;
+    }
+
+    /* на всякий случай убираем влияние html-атрибутов width/height */
+    img[width][height] {
+        height: auto !important;
+    }
+}
+/* ===== МОБИЛЬНАЯ СЕТКА ВНУТРИ ВИДЖЕТА SIMPLYBOOK ===== */
+@media (max-width:768px) {
+
+    /* Категории и список услуг: одна колонка */
+    #sb_main .sb-grid,
+    #sb_main .sb_list,
+    #sb_main .categories,
+    #sb_main .services,
+    #sb_main .service-list {
+        display: block !important;
+    }
+
+    /* ячейки сетки — на всю ширину */
+    #sb_main .sb-grid>*,
+    #sb_main .sb_list>*,
+    #sb_main .categories>*,
+    #sb_main .services>*,
+    #sb_main .service-list>* {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 0 14px 0 !important;
+    }
+
+    /* карточки — более компактные отступы */
+    #sb_main .sb-card,
+    #sb_main .sb_item,
+    #sb_main .service-item {
+        padding: 14px !important;
+        border-radius: 14px !important;
+    }
+
+    /* изображения в карточках — одинаковая высота */
+    #sb_main .sb-card img,
+    #sb_main .service-item img,
+    #sb_main .category-item img {
+        width: 100% !important;
+        height: 180px !important;
+        /* одинаковая высота */
+        object-fit: cover !important;
+        border-radius: 12px !important;
+        display: block !important;
+    }
+
+    /* кнопки Réserver/Sélectionner — не на всю ширину */
+    #sb_main .sb_btn,
+    #sb_main button[type="button"],
+    #sb_main .btn {
+        width: auto !important;
+        min-width: 170px !important;
+        padding: 10px 16px !important;
+        font-size: 15px !important;
+        border-radius: 10px !important;
+    }
+
+    /* уменьшаем межблочные отступы */
+    #sb_main .sb-block,
+    #sb_main .sb-section {
+        margin-bottom: 16px !important;
+    }
+}
