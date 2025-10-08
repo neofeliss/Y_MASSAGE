@@ -5108,118 +5108,318 @@ body.ym-modal-open {
     display: block;
 }
 
-/* Мобильная адаптация */
-@media (max-width: 900px) {
-    .res-title {
-        font-size: 1.6rem;
+
+/* =========  JACUZZI – АДАПТАЦИЯ  ========= */
+
+/* Планшеты ≤1024px */
+@media (max-width: 1024px) {
+    .jacuzzi-section {
+        padding: 40px 16px;
     }
 
-    .booking-widget iframe {
-        min-height: 900px;
+    .jacuzzi-section .section-title {
+        font-size: 1.8rem;
+        letter-spacing: 0.5px;
+        margin-bottom: 16px;
     }
 
-   /* ====== RESPONSIVE: TABLET & MOBILE ====== */
+    .jacuzzi-section .section-intro {
+        font-size: 1rem;
+        line-height: 1.5;
+        padding: 12px 16px;
+        border-radius: 8px;
+        display: inline-block;
+    }
 
-   /* планшет: две колонки и чуть «воздуха» */
-   @media (max-width: 1024px) {
-       .main-portfolio-list {
-           grid-template-columns: repeat(2, minmax(260px, 1fr));
-           gap: 20px;
-       }
+    .jacuzzi-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 16px;
+    }
 
-       .spa-head {
-           gap: 10px;
-       }
-   }
+    .jacuzzi-card {
+        padding: 18px;
+        border-radius: 10px;
+        box-shadow: 0 6px 16px rgba(0, 0, 0, .10);
+    }
 
-   /* мобильные: одна колонка, читабельный текст, крупные кнопки */
-   @media (max-width: 768px) {
+    .jacuzzi-card h3 {
+        font-size: 1.2rem;
+        margin-bottom: 6px;
+    }
 
-       /* сетка */
-       .main-portfolio-list {
-           grid-template-columns: 1fr;
-           gap: 18px;
-       }
+    .jacuzzi-card .duration,
+    .jacuzzi-card .price {
+        font-size: 0.95rem;
+    }
 
-       /* картинка — как на десктопе, но ниже даём место под текст */
-       .background-text {
-           padding-bottom: 0;
-           /* бейдж времени не давит вниз */
-       }
+    .jacuzzi-card .desc {
+        font-size: 0.95rem;
+        margin: 8px 0 16px;
+        line-height: 1.45;
+    }
 
-       /* бейдж «время» больше не поверх картинки — переносим под заголовок */
-       .background-text .main-portfolio-text {
-           position: static !important;
-           background: transparent !important;
-           margin: 6px 0 0 !important;
-           color: #444 !important;
-           font-weight: 600 !important;
-           font-size: 1rem !important;
-       }
+    .jacuzzi-section .btn-reserve {
+        padding: 10px 14px;
+        font-size: 0.95rem;
+        border-radius: 6px;
+    }
+}
 
-       /* ховер-оверлей на тач-экранах превращаем в обычный блок под фото */
-       .portfolio-tap-text {
-           position: static;
-           opacity: 1 !important;
-           background: rgba(255, 255, 255, .96);
-           padding: 12px 14px;
-           margin-top: 8px;
-           border-radius: 8px;
-           box-shadow: 0 4px 14px rgba(0, 0, 0, .06);
-       }
+/* Телефоны ≤600px */
+@media (max-width: 600px) {
+    .jacuzzi-section {
+        padding: 28px 12px;
+        text-align: center;
+    }
 
-       /* шапка карточки: складываем в колонку для читабельности */
-       .spa-head {
-           flex-direction: column;
-           align-items: flex-start;
-           margin-top: 10px;
-       }
+    .jacuzzi-section .section-title {
+        font-size: 1.4rem;
+        margin-bottom: 12px;
+    }
 
-       .spa-head h3 {
-           font-size: 1.05rem;
-           line-height: 1.3;
-       }
+    .jacuzzi-section .section-intro {
+        font-size: 0.95rem;
+        padding: 10px 12px;
+        border-radius: 6px;
+        display: block;
+        /* ширина по контейнеру */
+        margin: 0 auto 14px;
+        line-height: 1.45;
+    }
 
-       /* кнопка — крупная и на всю ширину для лёгкого тапа */
-       .reserve-inline,
-       .reserve-btn {
-           width: 100%;
-           display: inline-block;
-           text-align: center;
-           padding: 12px 14px;
-           font-weight: 600;
-           border-radius: 10px;
-       }
+    .jacuzzi-grid {
+        grid-template-columns: 1fr;
+        /* по одному в колонку */
+        gap: 12px;
+    }
 
-       /* убрать «появление по ховеру» — на мобилке всегда видно */
-       .reserve-inline {
-           opacity: 1 !important;
-           transform: none !important;
-           pointer-events: auto !important;
-       }
+    .jacuzzi-card {
+        padding: 16px;
+        box-shadow: 0 5px 14px rgba(0, 0, 0, .10);
+    }
 
-       /* изображения: безопасная высота, если оригиналы очень широкие */
-       .background-text img {
-           width: 100%;
-           height: auto;
-           max-height: 260px;
-           /* можно 280–300, если хочешь выше */
-           object-fit: cover;
-           border-radius: 10px;
-       }
-   }
+    .jacuzzi-card h3 {
+        font-size: 1.1rem;
+    }
 
-   /* очень маленькие экраны: чуть уменьшаем отступы и размеры */
-   @media (max-width: 420px) {
-       .portfolio-tap-text {
-           font-size: 0.95rem;
-       }
+    .jacuzzi-card .duration,
+    .jacuzzi-card .price {
+        font-size: 0.9rem;
+    }
 
-       .spa-head h3 {
-           font-size: 1rem;
-       }
+    .jacuzzi-card .desc {
+        font-size: 0.9rem;
+        margin: 8px 0 14px;
+        line-height: 1.45;
+    }
 
-       .reserve-btn {
-           padding: 11px 12px;
-       }
-   }
+    .jacuzzi-section .btn-reserve {
+        width: 100%;
+        /* удобная кнопка на мобиле */
+        padding: 12px 16px;
+        font-weight: 600;
+    }
+}
+@media (max-width:1024px) {
+
+    /* галерея/портфолио */
+    .main-portfolio-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 32px 20px;
+    }
+
+    .main-portfolio-item {
+        width: calc((100% - 20px)/2);
+        box-shadow: 0 1px 4px rgba(46, 47, 66, .12);
+    }
+
+    /* изображения в карточках */
+    .main-portfolio-item img,
+    .main-portfolio-image {
+        width: 100%;
+        height: auto;
+    }
+
+    /* оверлей-текст становится статичным (на тач нет hover) */
+    @media (hover:none) {
+        .portfolio-tap-text {
+            transform: none !important;
+        }
+    }
+
+    .portfolio-tap-text {
+        padding: 24px 20px;
+        height: auto;
+        box-shadow: none;
+    }
+
+    .main-portfolio-subtitle {
+        font-size: 18px;
+        line-height: 1.3;
+    }
+
+    .main-portfolio-text,
+    .portfolio-tap-text p {
+        font-size: 15px;
+    }
+
+    /* кнопки Réserver/Sélectionner чуть крупнее и без “прыжков” */
+    .reserve-btn,
+    ._reserve-btn,
+    .reserve-inline,
+    .sb_btn {
+        font-size: 14px;
+        padding: 10px 14px;
+        border-radius: 8px;
+    }
+
+    /* 2-я секция оборудования SPA — без анимации и на сером фоне */
+    #spa-equipements {
+        background: #f0f0f0 !important;
+        animation: none !important;
+    }
+}
+@media (max-width:768px) {
+
+    /* сетка */
+    .main-portfolio-list {
+        gap: 24px;
+    }
+
+    .main-portfolio-item {
+        width: 100%;
+    }
+
+    /* оверлей превращаем в обычный блок под картинкой */
+    .background-text {
+        overflow: visible;
+        position: relative;
+    }
+
+    .portfolio-tap-text {
+        position: static;
+        background: none;
+        padding: 16px 0 0;
+        box-shadow: none;
+        transform: none;
+    }
+
+    /* типографика поуже */
+    .main-portfolio-subtitle {
+        font-size: 17px;
+    }
+
+    .main-portfolio-text,
+    .portfolio-tap-text p {
+        font-size: 14px;
+    }
+
+    /* кнопка на всю ширину – удобно тапать */
+    .reserve-btn,
+    ._reserve-btn,
+    .reserve-inline,
+    .sb_btn {
+        display: inline-flex;
+        width: 100%;
+        justify-content: center;
+        padding: 12px 18px;
+        font-size: 15px;
+    }
+
+    /* приглушить тени на карточках */
+    .main-portfolio-item {
+        box-shadow: 0 1px 3px rgba(46, 47, 66, .1);
+    }
+
+    /* аккордеон тарифов – увеличим зоны клика */
+    .accordion-btn {
+        padding: 16px 18px;
+        font-size: 16px;
+    }
+
+    .accordion-panel {
+        padding: 14px 0 6px;
+    }
+}
+@media (max-width:360px) {
+
+    .container,
+    .yg-container {
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+
+    .reserve-btn,
+    ._reserve-btn,
+    .reserve-inline {
+        padding: 10px 12px;
+        font-size: 14px;
+    }
+}
+/* обёртка твоего виджета */
+.booking-widget {
+    position: relative;
+    overflow: hidden;
+}
+
+/* высоту iframe можно подправить при необходимости */
+.booking-widget iframe {
+    width: 100%;
+    border: 0;
+    display: block;
+    height: 1200px;
+}
+
+/* если внизу снова появится служебная строка — мягко перекрываем фоновым цветом секции */
+.booking-widget::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 48px;
+    background: #f1e1c1;
+    /* поставь свой фон секции */
+    pointer-events: none;
+    z-index: 2;
+}
+
+/* мобильные отступы вокруг блока бронирования */
+@media (max-width:768px) {
+    .booking-widget {
+        margin-left: -8px;
+        margin-right: -8px;
+    }
+}
+:root {
+    --ink: #2E2F42;
+    /* тёмно-синий */
+    --rose: #c80880;
+    /* розово-золотой акцент (если другой – подставь свой) */
+}
+
+/* единый стиль CTA */
+.reserve-btn,
+._reserve-btn,
+.reserve-inline,
+.sb_btn {
+    background: var(--rose);
+    color: #fff;
+    font-weight: 600;
+    transition: filter .25s, transform .05s;
+}
+
+.reserve-btn:hover,
+._reserve-btn:hover,
+.reserve-inline:hover,
+.sb_btn:hover {
+    filter: brightness(1.08);
+}
+
+.reserve-btn:active,
+._reserve-btn:active,
+.reserve-inline:active,
+.sb_btn:active {
+    transform: translateY(1px);
+}
