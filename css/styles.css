@@ -5749,4 +5749,426 @@ body.ym-modal-open {
     #sb_main .sb-section {
         margin-bottom: 16px !important;
     }
+}/* ====== FORMULES GROUPE (NEW) ====== */
+:root {
+    --gp-bg: #efe6d6;
+    /* бежево-золотистый фон секции */
+    --gp-card: #fff;
+    /* фон карточки */
+    --gp-ink: #0e2a47;
+    /* тёмно-синий текст */
+    --gp-accent: #0e2a47;
+    /* тёмно-синий для кнопок/заголовков */
+    --gp-muted: #6b6b6b;
+    --gp-radius: 14px;
+    --gp-shadow: 0 8px 22px rgba(0, 0, 0, .08);
+}
+
+.group-packages {
+    background: var(--gp-bg);
+    padding: clamp(28px, 4vw, 64px) 0;
+}
+
+.gp-container {
+    width: min(1240px, 92%);
+    /* немного шире секция */
+}
+
+.gp-title {
+    font-family: inherit;
+    color: var(--gp-ink);
+    text-align: center;
+    font-size: clamp(24px, 2.6vw, 42px);
+    letter-spacing: .06em;
+    margin: 0 0 22px;
+}
+
+.gp-grid {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: clamp(16px, 2.2vw, 28px);
+}
+
+/* планшет */
+@media (max-width: 1024px) {
+    .gp-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* телефон */
+@media (max-width: 680px) {
+    .gp-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.gp-card {
+    background: var(--gp-card);
+    border-radius: var(--gp-radius);
+    box-shadow: var(--gp-shadow);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.gp-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 28px rgba(0, 0, 0, .12);
+}
+
+/* Медиа: одинаковая высота картинок */
+
+/* === MEDIA: показывать всю картинку, без обрезки === */
+.gp-card__media {
+    position: relative;
+    width: 100%;
+    height: clamp(320px, 30vw, 460px);
+    /* ↑ было 200–320px — теперь крупнее на ПК */
+    padding: 6px;
+    background: #f4efe6;
+    border-bottom: 1px solid rgba(0, 0, 0, .06);
+    overflow: hidden;
+}
+/* планшет */
+@media (max-width: 1024px) {
+    .gp-card__media {
+        height: clamp(240px, 28vw, 340px);
+    }
+}
+
+/* телефон */
+@media (max-width: 680px) {
+    .gp-card__media {
+        height: 210px;
+    }
+}
+
+ .gp-card__media img {
+     width: 100%;
+     height: 100%;
+     object-fit: contain;
+     /* показываем всю картинку */
+     object-position: center;
+     display: block;
+ }
+
+.gp-badge {
+    position: absolute;
+    left: 12px;
+    bottom: 12px;
+    background: rgba(14, 42, 71, .9);
+    color: #fff;
+    font-size: 12px;
+    padding: 6px 10px;
+    border-radius: 999px;
+}
+
+/* Тело карточки */
+.gp-card__body {
+    padding: 18px 18px 16px;
+    color: var(--gp-ink);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    flex: 1;
+}
+
+.gp-card__name {
+    font-size: clamp(18px, 1.6vw, 22px);
+    margin: 0;
+    color: var(--gp-accent);
+    text-align: center;
+    letter-spacing: .02em;
+}
+
+.gp-card__desc {
+    margin: 0;
+    color: var(--gp-muted);
+    text-align: center;
+    line-height: 1.5;
+}
+
+/* Список преимуществ */
+.gp-list {
+    margin: 4px 0 0;
+    padding: 0 0 0 18px;
+    color: var(--gp-ink);
+    line-height: 1.5;
+}
+
+.gp-list li {
+    margin: 4px 0;
+}
+
+/* Футер карточки */
+.gp-card__footer {
+    margin-top: auto;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    justify-content: space-between;
+    padding-top: 6px;
+}
+
+.gp-price {
+    font-weight: 700;
+    color: var(--gp-accent);
+    font-size: 18px;
+}
+
+.gp-btn {
+    display: inline-block;
+    text-decoration: none;
+    padding: 10px 16px;
+    border-radius: 10px;
+    background: var(--gp-accent);
+    color: #fff;
+    font-weight: 600;
+    line-height: 1;
+    transition: transform .15s ease, opacity .15s ease;
+    white-space: nowrap;
+}
+
+.gp-btn:active {
+    transform: translateY(1px);
+}
+
+.gp-btn:hover {
+    opacity: .9;
+}
+
+/* небольшая тень вокруг секции на десктопе — опционально */
+@media (min-width: 1025px) {
+    .group-packages {
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, .4);
+    }
+}
+/* --- ВЫРАВНИВАНИЕ СЕТКИ ПО ЦЕНТРУ И РОВНЫЕ КОЛОНКИ --- */
+.gp-container {
+    width: min(1240px, 92%);
+    margin-inline: auto;
+}
+
+.gp-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(300px, 1fr));
+    /* равные 3 колонки */
+    gap: 24px;
+    justify-content: center;
+    /* центрируем всю сетку в контейнере */
+}
+
+@media (max-width:1024px) {
+    .gp-grid {
+        grid-template-columns: repeat(2, minmax(280px, 1fr));
+    }
+}
+
+@media (max-width:680px) {
+    .gp-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* одинаковая ширина/высота карточек */
+.gp-card {
+    width: 100%;
+    max-width: 360px;
+    /* чтобы колонки не «растягивались» */
+    margin-inline: auto;
+    /* центрирование каждой карточки в колонке */
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+/* одинаковая высота блока с изображением + показать всю картинку */
+.gp-card__media {
+    position: relative;
+    height: clamp(320px, 30vw, 440px);
+    /* ПК крупнее, планшет/моб ниже */
+    padding: 6px;
+    background: #f4efe6;
+    border-bottom: 1px solid rgba(0, 0, 0, .06);
+    overflow: hidden;
+}
+
+@media (max-width:1024px) {
+    .gp-card__media {
+        height: clamp(240px, 28vw, 340px);
+    }
+}
+
+@media (max-width:680px) {
+    .gp-card__media {
+        height: 210px;
+    }
+}
+
+.gp-card__media img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    /* не обрезаем */
+    object-position: center;
+    display: block;
+}
+
+/* выравнивание контента внутри карточки */
+.gp-card__body {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
+}
+
+.gp-card__footer {
+    margin-top: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+/* ===== JACUZZI (NEW CLASSES) ===== */
+:root {
+    --jcz-bg: #efe6d6;
+    /* фон секции: бежево-золотистый */
+    --jcz-card: #ffffff;
+    /* фон карточек */
+    --jcz-ink: #0e2a47;
+    /* тёмно-синий текст */
+    --jcz-muted: #6b6b6b;
+    --jcz-accent: #0e2a47;
+    /* кнопка/заголовки */
+    --jcz-radius: 14px;
+    --jcz-shadow: 0 8px 22px rgba(0, 0, 0, .08);
+}
+
+.spa-jcz-section {
+    background: var(--jcz-bg);
+    padding: clamp(28px, 4vw, 64px) 0;
+}
+
+.spa-jcz-wrap {
+    width: min(1240px, 92%);
+    margin-inline: auto;
+}
+
+.spa-jcz-title {
+    color: var(--jcz-ink);
+    text-align: center;
+    font-size: clamp(24px, 2.6vw, 42px);
+    letter-spacing: .06em;
+    margin: 0 0 16px;
+}
+
+.spa-jcz-intro {
+    margin: 0 auto 26px;
+    width: min(860px, 92%);
+    text-align: center;
+    color: #fff;
+    background: var(--jcz-accent);
+    padding: 14px 18px;
+    border-radius: 12px;
+    line-height: 1.45;
+}
+
+/* сетка */
+.spa-jcz-grid {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(230px, 1fr));
+    gap: 22px;
+    justify-content: center;
+    /* центр всей сетки */
+}
+
+/* планшет: 2 в ряд */
+@media (max-width: 1024px) {
+    .spa-jcz-grid {
+        grid-template-columns: repeat(2, minmax(260px, 1fr));
+    }
+}
+
+/* телефон: 1 в ряд */
+@media (max-width: 640px) {
+    .spa-jcz-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.spa-jcz-card {
+    background: var(--jcz-card);
+    border-radius: var(--jcz-radius);
+    box-shadow: var(--jcz-shadow);
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    color: var(--jcz-ink);
+    width: 100%;
+    max-width: 360px;
+    /* чтобы колонки не «прыгали» по ширине */
+    margin-inline: auto;
+    /* центр каждой карточки в колонке */
+    transition: transform .2s ease, box-shadow .2s ease;
+    min-height: 280px;
+    /* равная высота базово */
+}
+
+.spa-jcz-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 28px rgba(0, 0, 0, .12);
+}
+
+.spa-jcz-name {
+    margin: 2px 0 8px;
+    font-size: clamp(18px, 1.4vw, 20px);
+    color: var(--jcz-accent);
+}
+
+.spa-jcz-meta {
+    margin: 0;
+    color: var(--jcz-muted);
+}
+
+.spa-jcz-price {
+    margin: 2px 0 8px;
+    font-weight: 700;
+    color: var(--jcz-accent);
+}
+
+.spa-jcz-desc {
+    margin: 0 0 14px;
+    color: var(--jcz-ink);
+    line-height: 1.5;
+}
+
+/* кнопка */
+.spa-jcz-btn {
+    margin-top: auto;
+    display: inline-block;
+    padding: 10px 16px;
+    border-radius: 10px;
+    background: var(--jcz-accent);
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    line-height: 1;
+    white-space: nowrap;
+    transition: transform .15s ease, opacity .15s ease;
+}
+
+.spa-jcz-btn:hover {
+    opacity: .92;
+}
+
+.spa-jcz-btn:active {
+    transform: translateY(1px);
 }
