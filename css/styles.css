@@ -7058,3 +7058,42 @@ html {
     padding: 0 10px;
     overflow: visible;
 }
+/* Обёртка виджета */
+.booking-widget {
+    max-width: 100%;
+    padding: 0 12px;
+    overflow: visible;
+    display: flex;
+    justify-content: center;
+}
+
+/* База для ПК — вид не меняем */
+.booking-widget iframe {
+    width: 100%;
+    min-height: 1000px;
+    border: none;
+}
+
+/* Планшет */
+@media (max-width: 1024px) {
+    .booking-widget iframe {
+        min-height: 1200px;
+    }
+}
+
+/* Телефон */
+@media (max-width: 768px) {
+    .booking-widget iframe {
+        min-height: 1400px;
+        transform: scale(0.97);
+        transform-origin: top center;
+    }
+}
+
+/* Очень узкие экраны */
+@media (max-width: 380px) {
+    .booking-widget iframe {
+        min-height: 1550px;
+        transform: scale(0.94);
+    }
+}
