@@ -22,44 +22,35 @@
   
 
     
-   <header class="header">
-  <div class="container header-container">
-    <!-- Логотип -->
-    
-<a class="header-logo" href="./index.html">
-  <span class="header-logo__img-wrapper">
-    <img src="images/Y_MASSAGE_logo.png" alt="Logo" class="header-logo__img">
-  </span>
-  <span class="header-logo__text">Y Massage</span>
-</a>
-<button class="header-burger" aria-label="Ouvrir le menu" aria-controls="headerMenu" aria-expanded="false">
-  <span></span><span></span><span></span>
-</button>
+   <header class="ym-header" role="banner">
+  <div class="ym-shell">
+    <!-- ЛОГО -->
+    <a class="ym-logo" href="./index.html">
+      <span class="ym-logo__img">
+        <img src="images/Y_MASSAGE_logo.png" alt="Logo Y Massage" loading="eager">
+      </span>
+      <span class="ym-logo__text">Y Massage</span>
+    </a>
 
+    <!-- БУРГЕР -->
+    <button class="ym-burger" aria-label="Ouvrir le menu" aria-controls="ymMenu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
 
-    <!-- Меню -->
-    <nav class="header-nav">
-      <ul class="header-list">
-        <li><a href="#services" class="header-link">Services</a></li>
-        <li><a href="#tarifs" class="header-link">Tarifs</a></li>
-        <li><a href="#contacts" class="header-link">Contact</a></li>
+    <!-- МЕНЮ -->
+    <nav id="ymMenu" class="ym-nav" role="navigation">
+      <ul class="ym-menu">
+        <li><a href="#services" class="ym-link">Services</a></li>
+        <li><a href="#tarifs"    class="ym-link">Tarifs</a></li>
+        <li><a href="#contacts"  class="ym-link">Contact</a></li>
       </ul>
     </nav>
 
-    <!-- Контакты -->
-   <a href="tel:+330624359841" class="contact-pill phone">📞 06 24 35 98 41</a>
-
-    <!-- Cart icon in header -->
-<a href="#" class="header-cart" id="headerCartBtn" aria-label="Panier">
-  <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
-    <path d="M7 4h-2l-1 2h2l3.6 7.59-1.35 2.41A2 2 0 0 0 10 19h9v-2h-9l1.1-2h6.45a2 2 0 0 0 1.79-1.11l3.58-7.16A1 1 0 0 0 22 4h-15zM7 20a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm10 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"/>
-  </svg>
-  <span class="header-cart__count" id="headerCartCount">0</span>
-</a>
-
-
+    <!-- ТЕЛЕФОН -->
+    <a href="tel:+330624359841" class="ym-phone">📞 06 24 35 98 41</a>
   </div>
 </header>
+
     <main>
        
        
@@ -1569,6 +1560,35 @@ if (burger && nav) {
 }
 </script>
 
+<script>
+  // эффект при скролле
+  const ymHeader = document.querySelector('.ym-header');
+  const toggleScroll = () => {
+    ymHeader.classList.toggle('ym-scrolled', window.scrollY > 10);
+  };
+  toggleScroll();
+  window.addEventListener('scroll', toggleScroll);
+
+  // бургер-меню
+  const ymBurger = document.querySelector('.ym-burger');
+  const ymNav = document.getElementById('ymMenu');
+  if (ymBurger && ymNav) {
+    ymBurger.addEventListener('click', () => {
+      const open = ymBurger.classList.toggle('is-open');
+      ymNav.classList.toggle('is-open', open);
+      ymBurger.setAttribute('aria-expanded', open);
+      document.body.style.overflow = open ? 'hidden' : '';
+    });
+    ymNav.addEventListener('click', e => {
+      if (e.target.closest('.ym-link')) {
+        ymBurger.classList.remove('is-open');
+        ymNav.classList.remove('is-open');
+        ymBurger.setAttribute('aria-expanded', false);
+        document.body.style.overflow = '';
+      }
+    });
+  }
+</script>
 
 </body>
 </html>
