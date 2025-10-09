@@ -7356,3 +7356,21 @@ html {
         margin-bottom: 12px;
     }
 }
+/* ===== Фон секции "Découvrez Nos Offres" на телефонах ===== */
+@media (max-width: 1024px) {
+    .ym-features {
+        background: #f9f9f9;
+        /* тот же цвет, что на ПК */
+        background-attachment: fixed;
+        /* фон не дергается при прокрутке */
+        background-size: cover;
+        background-repeat: no-repeat;
+        padding: 56px 16px;
+        gap: 56px;
+    }
+
+    /* чтобы ни Instagram, ни Safari не обрезали фон */
+    body {
+        background-color: #f9f9f9;
+    }
+}
