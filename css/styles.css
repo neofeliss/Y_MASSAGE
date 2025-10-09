@@ -605,7 +605,45 @@ font-weight: 500;
     line-height: 1.7;
     color: #333;
 }
+/* ===== ym-features: фон как на ПК на мобиле/планшете ===== */
+.ym-features {
+    position: relative;
+    z-index: 0;
+}
 
+/* Псевдоэлемент тянет фон на всю ширину вьюпорта */
+@media (max-width: 1024px) {
+    .ym-features::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 50%;
+        right: 50%;
+        margin-left: -50vw;
+        /* растягиваем к краям экрана */
+        margin-right: -50vw;
+        background: #f9f9f9;
+        /* тот же фон, что на ПК */
+        z-index: -1;
+        /* под содержимым */
+    }
+
+    /* чуть меньше боковые поля внутри секции, чтобы текст не лип к краям */
+    .ym-features {
+        padding: 56px 16px;
+        gap: 56px;
+    }
+}
+
+/* ПК — ничего не меняем */
+@media (min-width: 1025px) {
+    .ym-features {
+        padding: 80px 10%;
+        gap: 80px;
+        background: #f9f9f9;
+    }
+}
 /* Кнопка (если есть) */
 .feature__btn,
 .ym-feature_btn {
