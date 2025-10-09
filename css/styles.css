@@ -7185,3 +7185,136 @@ html {
 .res-note {
     margin-bottom: 12px;
 }
+/* ===== Réserver un soin — заголовок и примечание ===== */
+
+/* базовая секция */
+.reservation-section {
+    padding: 48px 0;
+    /* ПК */
+}
+
+/* заголовок */
+.res-title {
+    /* аккуратное авто-масштабирование: от 22 до 36 px */
+    font-size: clamp(22px, 2.6vw, 36px);
+    line-height: 1.2;
+    text-align: center;
+    color: #0b2343;
+    /* твой тёмно-синий */
+    margin: 0 0 16px 0;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+}
+
+/* примечание (серо-бежевый бокс с тонкой окантовкой) */
+.res-note {
+    max-width: 980px;
+    /* ширина как у контента */
+    margin: 0 auto 24px auto;
+    padding: 10px 14px;
+    background: #f3f3f3;
+    /* светлая плашка */
+    border: 1px solid rgba(11, 35, 67, .08);
+    border-left: 3px solid #d4af37;
+    /* тонкий золотой акцент слева */
+    border-radius: 10px;
+    color: #2e2e2e;
+    /* читаемый адаптивный размер текста: 14–16 px */
+    font-size: clamp(14px, 1.6vw, 16px);
+    line-height: 1.5;
+}
+
+/* чтобы эмодзи не уезжало строку вверх на iOS */
+.res-note::first-line {
+    vertical-align: baseline;
+}
+
+/* ——— планшет ——— */
+@media (max-width: 1024px) {
+    .reservation-section {
+        padding: 40px 0;
+    }
+
+    .res-note {
+        max-width: 760px;
+        margin-bottom: 20px;
+        padding: 10px 12px;
+    }
+}
+
+/* ——— телефон ——— */
+@media (max-width: 768px) {
+    .reservation-section {
+        padding: 32px 0;
+    }
+
+    .res-title {
+        margin-bottom: 12px;
+    }
+
+    .res-note {
+        max-width: 100%;
+        margin: 0 12px 16px 12px;
+        /* боковые поля, чтобы не прилипало к краям */
+        padding: 10px 12px;
+        border-radius: 8px;
+    }
+}
+
+/* очень узкие экраны */
+@media (max-width: 380px) {
+    .res-note {
+        margin: 0 10px 14px 10px;
+    }
+}/* ===== Коррекция отступов блока бронирования ===== */
+.reservation-section {
+    padding-top: 40px;
+    padding-bottom: 60px;
+}
+
+/* заголовок */
+.res-title {
+    font-size: clamp(22px, 2.6vw, 36px);
+    text-align: center;
+    color: #0b2343;
+    margin-bottom: 16px;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+}
+
+/* примечание */
+.res-note {
+    max-width: 980px;
+    margin: 0 auto 32px auto;
+    /* добавляем больше воздуха снизу */
+    padding: 10px 14px;
+    background: #f9f9f9;
+    border-left: 3px solid #d4af37;
+    border-radius: 10px;
+    color: #2e2e2e;
+    font-size: clamp(14px, 1.6vw, 16px);
+    line-height: 1.5;
+    text-align: center;
+}
+
+/* планшет */
+@media (max-width: 1024px) {
+    .res-note {
+        margin-bottom: 28px;
+        padding: 10px 12px;
+    }
+}
+
+/* телефон */
+@media (max-width: 768px) {
+    .res-note {
+        margin: 0 12px 24px 12px;
+        padding: 10px 12px;
+        font-size: 15px;
+    }
+
+    .res-title {
+        font-size: 24px;
+        margin-bottom: 12px;
+    }
+}
