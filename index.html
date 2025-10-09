@@ -41,7 +41,8 @@
     <nav id="ymMenu" class="ym-nav" role="navigation">
       <ul class="ym-menu">
         <li><a href="#services" class="ym-link">Services</a></li>
-        <li><a href="#tarifs"    class="ym-link">Tarifs</a></li>
+        <a href="#reservation" class="ym-link">Tarifs</a>
+
         <li><a href="#contacts"  class="ym-link">Contact</a></li>
       </ul>
     </nav>
@@ -1588,6 +1589,36 @@ if (burger && nav) {
       }
     });
   }
+</script>
+<script src="https://widget.simplybook.it/v2/widget/widget.js" type="text/javascript"></script>
+<script type="text/javascript">
+  var widget = new SimplybookWidget({
+    widget_type: "iframe",
+    url: "https://ymassage.simplybook.it", // 👈 твоя ссылка
+    theme: "default",
+    theme_settings: {
+      timeline_hide_unavailable: "1",
+      hide_past_days: "1",
+      sb_base_color: "#0b2343",
+      booking_nav_bg_color: "#f8f5f2",
+      dark_font_color: "#0b2343",
+      light_font_color: "#ffffff",
+      btn_color_1: "#d4af37",
+      sb_company_label_color: "#0b2343",
+      sb_busy_bg: "#7c7b7b",
+      sb_available: "#ebd48e",
+
+      /* 💡 вот эти ключевые параметры делают адаптацию: */
+      responsive: "1",                     // активирует адаптивность
+      timeline_mobile_display: "mobile",   // мобильное отображение расписания
+      body_bg_color: "#ffffff"
+    },
+    timeline: "modern",
+    datepicker: "top_calendar",
+    app_config: {
+      clear_session: 0
+    }
+  });
 </script>
 
 </body>

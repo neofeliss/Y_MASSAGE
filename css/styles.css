@@ -7053,3 +7053,8 @@ button[class*="btn"]:active {
 html {
     scroll-padding-top: var(--ym-h);
 }
+.booking-widget {
+    max-width: 100%;
+    padding: 0 10px;
+    overflow: visible;
+}
