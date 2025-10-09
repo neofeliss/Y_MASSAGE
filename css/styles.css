@@ -7097,3 +7097,91 @@ html {
         transform: scale(0.94);
     }
 }
+/* ===== SimplyBook: мобильная подгонка высоты ===== */
+.booking-widget {
+    max-width: 100%;
+    padding: 0 12px;
+    overflow: visible;
+    display: flex;
+    justify-content: center;
+}
+
+.booking-widget iframe {
+    width: 100%;
+    border: 0;
+}
+
+/* ПК — без изменений */
+@media (min-width: 1025px) {
+    .booking-widget iframe {
+        min-height: 1000px;
+    }
+}
+
+/* Планшет */
+@media (max-width: 1024px) {
+    .booking-widget iframe {
+        min-height: 1150px;
+    }
+}
+
+/* iPhone / телефоны ~390–430px шириной */
+@media (max-width: 768px) {
+    .booking-widget iframe {
+        min-height: 1020px;
+        /* было 1400 — убираем пустоту */
+    }
+
+    .reservation-section {
+        padding-bottom: 20px;
+    }
+
+    /* чтобы карта не «поджималась» */
+}
+
+/* Очень узкие телефоны (SE и т.п.) */
+@media (max-width: 380px) {
+    .booking-widget iframe {
+        min-height: 1080px;
+    }
+}
+.booking-widget {
+    max-width: 100%;
+    padding: 0 12px;
+    display: flex;
+    justify-content: center;
+}
+
+.booking-widget iframe {
+    width: 100%;
+    border: 0;
+}
+
+@media (min-width:1025px) {
+    .booking-widget iframe {
+        min-height: 1000px;
+    }
+}
+
+@media (max-width:1024px) {
+    .booking-widget iframe {
+        min-height: 1150px;
+    }
+}
+
+@media (max-width:768px) {
+    .booking-widget iframe {
+        min-height: 1020px;
+    }
+}
+
+@media (max-width:380px) {
+    .booking-widget iframe {
+        min-height: 1080px;
+    }
+}
+
+/* чуть опустить виджет, чтобы баннер-заметка не наезжал */
+.res-note {
+    margin-bottom: 12px;
+}
