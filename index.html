@@ -1029,47 +1029,49 @@ Un geste simple qui fait toujours plaisir, à offrir pour un anniversaire, une f
   </div>
 </section>-->
 <!-- СЕКЦИЯ БРОНИРОВАНИЯ -->
+<!-- СЕКЦИЯ БРОНИРОВАНИЯ -->
 <section id="reservation" class="reservation-section">
   <div class="container">
     <h2 class="res-title">Réserver un soin</h2>
 
     <p class="res-note">
-      🌺 Les massages bien-être et les formules SPA sont réservés aux femmes.
+       Les massages bien-être et les Programmes SPA sont réservés aux femmes.
       Les hommes peuvent réserver le massage sportif, le sauna infrarouge, la fito-banya et le jacuzzi.
-      <br>💳 Le paiement en ligne est requis pour confirmer toute réservation.
+      <br> Le paiement en ligne est requis pour confirmer toute réservation.
     </p>
 
     <!-- ОБЁРТКА ДЛЯ ВИДЖЕТА -->
-    <div id="booking-widget" class="booking-widget">
-      <script src="https://widget.simplybook.it/v2/widget/widget.js" type="text/javascript"></script>
-      <script type="text/javascript">
-        var widget = new SimplybookWidget({
-          widget_type: "iframe",
-          url: "https://ymassage.simplybook.it",
-          theme: "default",
-          theme_settings: {
-            timeline_hide_unavailable: "1",
-            hide_past_days: "1",
-            as_slots_base_color: "#0b2343",
-            booking_nav_bg_color: "#f8f5f2",
-            dark_font_color: "#2e2e2e",
-            light_font_color: "#ffffff",
-            btn_color_1: "#d4af37",
-            sb_company_label_color: "#0b2343",
-            sb_busy_bg: "#c7bfb7",
-            sb_available: "#ebd8a6",
+    <div id="booking-widget" class="booking-widget"></div>
 
-            /* 🔑 Ключ к адаптивности */
-            responsive: "1",
-            timeline_mobile_display: "mobile",
-            body_bg_color: "#ffffff"
-          },
-          timeline: "modern",
-          datepicker: "top_calendar",
-          app_config: { clear_session: 0 }
-        });
-      </script>
-    </div>
+    <script src="https://widget.simplybook.it/v2/widget/widget.js" type="text/javascript"></script>
+    <script type="text/javascript">
+      var widget = new SimplybookWidget({
+        widget_type: "iframe",
+        url: "https://ymassage.simplybook.it",
+        theme: "default",
+        theme_settings: {
+          timeline_hide_unavailable: "1",
+          hide_past_days: "1",
+          as_slots_base_color: "#0b2343",
+          booking_nav_bg_color: "#f8f5f2",
+          dark_font_color: "#2e2e2e",
+          light_font_color: "#ffffff",
+          btn_color_1: "#d4af37",
+          sb_company_label_color: "#0b2343",
+          sb_busy_bg: "#c7bfb7",
+          sb_available: "#ebd8a6",
+          responsive: "1",
+          timeline_mobile_display: "mobile",
+          body_bg_color: "#ffffff"
+        },
+        timeline: "modern",
+        datepicker: "top_calendar",
+        app_config: { clear_session: 0 },
+
+        /* 💡 Эта строка говорит виджету вставить себя в div выше */
+        target_div_id: "booking-widget"
+      });
+    </script>
   </div>
 </section>
 
