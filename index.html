@@ -1558,37 +1558,17 @@ document.addEventListener('DOMContentLoaded', () => {
 })();
 </script>
 <script>
-  // эффект "scrolled" для прозрачной шапки
-  const header = document.querySelector('.header');
-  const onScroll = () => {
-    if (window.scrollY > 10) header.classList.add('scrolled');
-    else header.classList.remove('scrolled');
-  };
-  onScroll();
-  window.addEventListener('scroll', onScroll);
+const burger = document.querySelector('.header-burger');
+const nav = document.querySelector('.header-list');
 
-  // бургер-меню
-  const burger = document.querySelector('.header-burger');
-  const nav = document.querySelector('.header-nav');
-  if (burger && nav) {
-    burger.addEventListener('click', () => {
-      const open = burger.classList.toggle('active');
-      nav.classList.toggle('is-open', open);
-      burger.setAttribute('aria-expanded', open ? 'true' : 'false');
-      document.body.style.overflow = open ? 'hidden' : ''; // блокируем прокрутку подменю
-    });
-
-    // закрытие по клику на пункт
-    nav.addEventListener('click', (e) => {
-      if (e.target.closest('.header-link')) {
-        burger.classList.remove('active');
-        nav.classList.remove('is-open');
-        burger.setAttribute('aria-expanded', 'false');
-        document.body.style.overflow = '';
-      }
-    });
-  }
+if (burger && nav) {
+  burger.addEventListener('click', () => {
+    burger.classList.toggle('active');
+    nav.classList.toggle('is-open');
+  });
+}
 </script>
+
 
 </body>
 </html>

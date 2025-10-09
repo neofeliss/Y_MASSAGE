@@ -6755,3 +6755,126 @@ button[class*="btn"]:active {
         padding-top: var(--header-h);
     }
 }
+/* ================================
+   🔹 АДАПТАЦИЯ ДЛЯ ТЕЛЕФОНА И ПЛАНШЕТА
+   ================================ */
+
+/* всё поведение только при ширине <= 1024px */
+@media (max-width: 1024px) {
+
+    /* ограничиваем ширину контента */
+    html,
+    body {
+        max-width: 100%;
+        overflow-x: hidden;
+    }
+
+    /* делаем контейнер гибким */
+    .container {
+        width: 100%;
+        max-width: 100%;
+        margin-inline: auto;
+        padding-inline: 16px;
+        /* отступы по краям */
+        box-sizing: border-box;
+    }
+
+    /* изображения не выходят за границы */
+    img,
+    video {
+        max-width: 100%;
+        height: auto;
+        display: block;
+    }
+
+    /* адаптируем шапку */
+    .header-container {
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 12px;
+        padding: 10px 16px;
+    }
+
+    /* логотип чуть меньше, чтобы помещался */
+    .header-logo {
+        font-size: 22px;
+    }
+
+    /* меню в колонку */
+    .header-list {
+        flex-direction: column;
+        gap: 12px;
+        background: rgba(245, 239, 230, .95);
+        padding: 16px;
+        border-radius: 10px;
+        position: fixed;
+        top: 64px;
+        left: 0;
+        right: 0;
+        display: none;
+        /* скрыто до клика по бургеру */
+    }
+
+    .header-list.is-open {
+        display: flex;
+    }
+
+    /* бургер */
+    .header-burger {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 4px;
+        width: 28px;
+        height: 22px;
+        background: none;
+        border: none;
+        cursor: pointer;
+    }
+
+    .header-burger span {
+        width: 100%;
+        height: 3px;
+        background: var(--ink, #0E2A4A);
+        border-radius: 2px;
+        transition: transform .25s, opacity .25s;
+    }
+
+    .header-burger.active span:nth-child(1) {
+        transform: translateY(6px) rotate(45deg);
+    }
+
+    .header-burger.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .header-burger.active span:nth-child(3) {
+        transform: translateY(-6px) rotate(-45deg);
+    }
+
+    /* скрываем длинный номер телефона */
+    .contact-pill,
+    .header-address {
+        display: none;
+    }
+
+    /* тексты и отступы в блоках */
+    .section,
+    section {
+        padding-top: 60px;
+        padding-bottom: 60px;
+    }
+}
+
+/* телефон отдельно (ещё компактнее) */
+@media (max-width: 680px) {
+    .header-logo {
+        font-size: 20px;
+    }
+
+    .section,
+    section {
+        padding-top: 40px;
+        padding-bottom: 40px;
+    }
+}
