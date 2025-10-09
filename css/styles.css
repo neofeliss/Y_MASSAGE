@@ -6358,3 +6358,400 @@ body.ym-modal-open {
 .spa-cmp-time {
     color: var(--cmp-muted);
 }
+/* === КНОПКИ RÉSERVER — Y MASSAGE === */
+.spa-prg-btn {
+    display: inline-block;
+    padding: 11px 24px;
+    border-radius: 12px;
+    background: #0e2a47;
+    /* тёмно-синий */
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 15px;
+    letter-spacing: .03em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: all .25s ease;
+    border: 2px solid transparent;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, .15);
+}
+
+/* при наведении */
+.spa-prg-btn:hover {
+    background: linear-gradient(90deg, #b38b47 0%, #d2b98b 100%);
+    color: #0e2a47;
+    border-color: #b38b47;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 14px rgba(0, 0, 0, .18);
+}
+
+/* при нажатии */
+.spa-prg-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, .2);
+}
+/* ===== Кнопка Réserver для SPA ===== */
+.spa-cmp-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 18px 36px;
+    font-size: 18px;
+    font-weight: 600;
+    color: #fff;
+    background: #2E2F42;
+    /* тёмно-синий */
+    border: none;
+    border-radius: 14px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    font-family: 'Playfair Display', serif;
+    /* в твоём стиле */
+}
+
+.spa-cmp-btn:hover {
+    background: linear-gradient(45deg, #2E2F42, #cda676);
+    /* тёмно-синий + золотисто-бежевый */
+    transform: translateY(-2px);
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
+}
+
+.spa-cmp-btn:active {
+    transform: translateY(1px);
+}
+
+/* Адаптация под телефон */
+@media(max-width:768px) {
+    .spa-cmp-btn {
+        width: 100%;
+        padding: 16px 0;
+        font-size: 17px;
+        border-radius: 12px;
+    }
+}
+/* ===== Кнопка "Réserver maintenant" (Jacuzzi / SPA) ===== */
+.spa-jcz-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 38px;
+    font-size: 18px;
+    font-weight: 600;
+    color: #fff;
+    background: #2E2F42;
+    /* тёмно-синий */
+    border-radius: 14px;
+    text-decoration: none;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+    transition: all 0.3s ease;
+    font-family: 'Playfair Display', serif;
+    letter-spacing: 0.5px;
+}
+
+.spa-jcz-btn:hover {
+    background: linear-gradient(45deg, #2E2F42, #cda676);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
+}
+
+.spa-jcz-btn:active {
+    transform: translateY(1px);
+}
+
+/* Мобильная адаптация */
+@media(max-width:768px) {
+    .spa-jcz-btn {
+        width: 100%;
+        padding: 16px 0;
+        font-size: 17px;
+        border-radius: 12px;
+    }
+}
+/* ===== Кнопка EVJF / Groupes ===== */
+.btn-evjf {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 38px;
+    font-size: 18px;
+    font-weight: 600;
+    color: #fff;
+    background: #cda676;
+    /* золотисто-бежевый фон */
+    border-radius: 14px;
+    text-decoration: none;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+    transition: all 0.3s ease;
+    font-family: 'Playfair Display', serif;
+    letter-spacing: 0.5px;
+}
+
+.btn-evjf:hover {
+    background: linear-gradient(45deg, #cda676, #2E2F42);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
+}
+
+.btn-evjf:active {
+    transform: translateY(1px);
+}
+
+/* Мобильная адаптация */
+@media(max-width:768px) {
+    .btn-evjf {
+        width: 100%;
+        padding: 16px 0;
+        font-size: 17px;
+        border-radius: 12px;
+    }
+}
+html {
+    scroll-behavior: smooth;
+}
+/* ===== Подарочная кнопка (вариант "carte cadeau") ===== */
+.gift-cards .ym-feature__btn {
+    background: #cda676;
+    /* золотисто-бежевый */
+    color: #fff;
+    border: none;
+    border-radius: 14px;
+    padding: 18px 36px;
+    font-size: 18px;
+    font-weight: 600;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: all .3s ease;
+}
+
+.gift-cards .ym-feature__btn:hover {
+    background: linear-gradient(45deg, #cda676, #2E2F42);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
+}
+
+@media(max-width:768px) {
+    .gift-cards .ym-feature__btn {
+        width: 100%;
+        padding: 16px 0;
+        border-radius: 12px;
+        font-size: 17px;
+    }
+}
+html {
+    scroll-behavior: smooth;
+}
+/* ===== 🌸 STYLES DES BOUTONS Y MASSAGE ===== */
+
+a[class*="btn"],
+button[class*="btn"] {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 16px 36px;
+    font-family: "Playfair Display", serif;
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: 0.4px;
+    color: #fff;
+    background: linear-gradient(135deg, #2E2F42 0%, #1d2435 100%);
+    border: none;
+    border-radius: 14px;
+    text-decoration: none;
+    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.25);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+/* 🌿 Hover — мягкий золотистый переход */
+a[class*="btn"]:hover,
+button[class*="btn"]:hover {
+    background: linear-gradient(135deg, #2E2F42 0%, #cda676 100%);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.3);
+}
+
+/* ✨ Активное состояние (нажатие) */
+a[class*="btn"]:active,
+button[class*="btn"]:active {
+    transform: translateY(1px);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* 💫 Специальные цвета по контексту */
+.btn-evjf {
+    background: linear-gradient(135deg, #cda676, #a67b48);
+}
+
+.btn-evjf:hover {
+    background: linear-gradient(135deg, #a67b48, #2E2F42);
+}
+
+.spa-jcz-btn {
+    background: linear-gradient(135deg, #2E2F42, #4b5673);
+}
+
+.spa-jcz-btn:hover {
+    background: linear-gradient(135deg, #2E2F42, #cda676);
+}
+
+/* 🎁 Кнопки подарков */
+.gift-cards .ym-feature__btn {
+    background: linear-gradient(135deg, #cda676, #d8b77b);
+    color: #fff;
+}
+
+.gift-cards .ym-feature__btn:hover {
+    background: linear-gradient(135deg, #2E2F42, #cda676);
+}
+
+/* 📱 Мобильная адаптация */
+@media(max-width:768px) {
+
+    a[class*="btn"],
+    button[class*="btn"] {
+        width: 100%;
+        font-size: 17px;
+        border-radius: 12px;
+        padding: 14px 0;
+    }
+}
+/* ====== MOBILE/TABLET ONLY (ПК без изменений) ====== */
+
+/* планшет */
+@media (max-width: 1024px) {
+    .header-container {
+        padding: 10px 16px;
+        gap: 16px;
+    }
+
+    .header-logo {
+        font-size: 24px;
+    }
+
+    .header-list {
+        gap: 22px;
+    }
+}
+
+/* телефон */
+@media (max-width: 680px) {
+
+    /* контейнер: логотип слева, бургер справа */
+    .header-container {
+        padding: 10px 14px;
+        gap: 12px;
+    }
+
+    /* показать бургер */
+    .header-burger {
+        display: inline-flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 4px;
+        width: 30px;
+        height: 22px;
+        background: none;
+        border: 0;
+        padding: 0;
+        cursor: pointer;
+    }
+
+    .header-burger span {
+        display: block;
+        width: 100%;
+        height: 3px;
+        background: currentColor;
+        border-radius: 2px;
+        transition: transform .25s ease, opacity .25s ease;
+    }
+
+    /* скрыть обычное горизонтальное меню */
+    .header-nav {
+        position: fixed;
+        top: var(--header-h, 64px);
+        /* ниже шапки */
+        left: 0;
+        right: 0;
+        background: rgba(245, 239, 230, .98);
+        /* var(--beige) */
+        transform: translateY(-8px);
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity .25s ease, transform .25s ease, visibility 0s .25s;
+        box-shadow: 0 10px 24px rgba(0, 0, 0, .08);
+    }
+
+    /* вертикальный список в моб. меню */
+    .header-list {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .header-list li {
+        border-top: 1px solid rgba(0, 0, 0, .06);
+    }
+
+    .header-list li:last-child {
+        border-bottom: 1px solid rgba(0, 0, 0, .06);
+    }
+
+    .header-link {
+        display: block;
+        padding: 14px 18px;
+        font-size: 16px;
+    }
+
+    /* показать меню, когда активен бургер */
+    .header-nav.is-open {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+        transition: opacity .25s ease, transform .25s ease;
+    }
+
+    /* анимация иконки бургера */
+    .header-burger.active span:nth-child(1) {
+        transform: translateY(7px) rotate(45deg);
+    }
+
+    .header-burger.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .header-burger.active span:nth-child(3) {
+        transform: translateY(-7px) rotate(-45deg);
+    }
+
+    /* контакты в шапке можно скрыть на очень узких экранах (если есть) */
+    .header-address,
+    .contact-pill {
+        display: none;
+    }
+}
+
+/* улучшение кликабельности на таче */
+@media (hover:none) {
+    .header-link {
+        padding: 14px 18px;
+    }
+}
+
+/* чтобы контент не прятался под fixed-шапкой на мобайле */
+@media (max-width: 680px) {
+    :root {
+        --header-h: 64px;
+    }
+
+    body {
+        scroll-padding-top: var(--header-h);
+    }
+
+    .hero {
+        padding-top: var(--header-h);
+    }
+}
