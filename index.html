@@ -1044,10 +1044,28 @@ Un geste simple qui fait toujours plaisir, à offrir pour un anniversaire, une f
     <!-- ОБЁРТКА ДЛЯ ВИДЖЕТА -->
     <div id="booking-widget" class="booking-widget"></div>
 
-    <script src="https://widget.simplybook.it/v2/widget/widget.js" type="text/javascript"></script>
-    <script type="text/javascript">
-      // Рендерим именно в #booking-widget
-      var widget = new SimplybookWidget({
+    <script src="https://widget.simplybook.it/v2/widget/widget.js"></script>
+<script>
+  (function(){
+    const holder = document.getElementById('booking-widget');
+    const isTouch = window.matchMedia('(max-width: 1024px)').matches;
+
+    if (!holder) return;
+
+    if (isTouch) {
+      // Мобильная/планшетная версия — выводим кнопку (или можно авто-редирект)
+      holder.innerHTML = `
+        <a class="sb-open-btn"
+           href="https://ymassage.simplybook.it/v2/#book"
+           target="_blank" rel="noopener">
+          Открыть бронирование
+        </a>
+      `;
+      // Если хочешь вместо кнопки сразу открывать:
+      // location.href = "https://ymassage.simplybook.it/v2/#book";
+    } else {
+      // ПК — оставляем iframe-виджет
+      new SimplybookWidget({
         widget_type: "iframe",
         url: "https://ymassage.simplybook.it",
         theme: "default",
@@ -1069,13 +1087,12 @@ Un geste simple qui fait toujours plaisir, à offrir pour un anniversaire, une f
         timeline: "modern",
         datepicker: "top_calendar",
         app_config: { clear_session: 0 },
-
-        // 💡 эта строка заставляет форму вставиться именно в #booking-widget
         target_div_id: "booking-widget"
       });
-    </script>
+    }
+  })();
+</script>
 
-  </div>
 </section>
 
 
