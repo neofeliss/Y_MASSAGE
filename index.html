@@ -1611,6 +1611,11 @@ if (burger && nav) {
   }
 </script>
 
+<script>
+  function setRealVh(){ document.documentElement.style.setProperty('--vh', (window.innerHeight*0.01)+'px'); }
+  setRealVh(); window.addEventListener('resize', setRealVh); window.addEventListener('orientationchange', setRealVh);
+  document.addEventListener('visibilitychange', setRealVh);
+</script>
 
 </body>
 </html>
