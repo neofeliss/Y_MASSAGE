@@ -1616,48 +1616,6 @@ if (burger && nav) {
   setRealVh(); window.addEventListener('resize', setRealVh); window.addEventListener('orientationchange', setRealVh);
   document.addEventListener('visibilitychange', setRealVh);
 </script>
-<script>
-(function(){
-  // 1) Реальный 100vh на iOS
-  function setVhVar(){
-    const vh = window.innerHeight * 0.01;
-    document.documentElement.style.setProperty('--vh', `${vh}px`);
-  }
-
-  // 2) Вычитаем высоту заголовка и примечания (если они видимы)
-  function setResExtra(){
-    const t = document.querySelector('.res-title');
-    const n = document.querySelector('.res-note');
-    const marg = el => el ? (parseFloat(getComputedStyle(el).marginTop) + parseFloat(getComputedStyle(el).marginBottom)) : 0;
-    let extra = 0;
-    if (t) extra += t.offsetHeight + marg(t);
-    if (n) extra += n.offsetHeight + marg(n);
-    document.documentElement.style.setProperty('--res-extra', extra + 'px');
-  }
-
-  // 3) Применяем
-  function applyAll(){ setVhVar(); setResExtra(); }
-  applyAll();
-
-  // Обновляем при изменении размеров/ориентации и при возврате на вкладку
-  window.addEventListener('resize', applyAll);
-  window.addEventListener('orientationchange', applyAll);
-  document.addEventListener('visibilitychange', applyAll);
-
-  // 4) Когда SimplyBook вставит iframe — убеждаемся, что он растянут по ширине
-  const holder = document.getElementById('booking-widget');
-  if (holder){
-    const obs = new MutationObserver(() => {
-      const ifr = holder.querySelector('iframe');
-      if (ifr){
-        ifr.style.width = '100%';
-        ifr.style.display = 'block';
-      }
-    });
-    obs.observe(holder, { childList:true, subtree:true });
-  }
-})();
-</script>
 
 </body>
 </html>
