@@ -7887,3 +7887,12 @@ html {
         filter: contrast(1.18) brightness(1.06);
     }
 }
+/* === Mobile: черный текст в секции FEATURES === */
+@media (max-width: 768px) {
+
+    .ym-feature__title,
+    .ym-feature__text {
+        color: #000000 !important;
+        /* черный */
+    }
+}
