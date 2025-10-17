@@ -659,7 +659,9 @@ Un geste simple qui fait toujours plaisir, à offrir pour un anniversaire, une f
 <section id="reservation" class="reservation-section">
   <div class="container">
 
-    <!-- Заголовок и примечание -->
+   
+   <section id="reservation" class="reservation-section">
+  <div class="container">
     <h2 class="res-title">RÉSERVER UN SOIN</h2>
     <p class="res-note">
       🌺 Les massages bien-être et les Programmes SPA sont réservés aux femmes.
@@ -667,42 +669,100 @@ Un geste simple qui fait toujours plaisir, à offrir pour un anniversaire, une f
       <br>💳 Le paiement en ligne est requis pour confirmer toute réservation.
     </p>
 
-    <!-- ОБЁРТКА ДЛЯ ВИДЖЕТА -->
     <div id="booking-widget" class="booking-widget"></div>
 
-    <script src="https://widget.simplybook.it/v2/widget/widget.js" type="text/javascript"></script>
-    <script type="text/javascript">
-      // Рендерим именно в #booking-widget
-      var widget = new SimplybookWidget({
-        widget_type: "iframe",
-        url: "https://ymassage.simplybook.it",
-        theme: "default",
-        theme_settings: {
-          timeline_hide_unavailable: "1",
-          hide_past_days: "1",
-          as_slots_base_color: "#0b2343",
-          booking_nav_bg_color: "#f8f5f2",
-          dark_font_color: "#2e2e2e",
-          light_font_color: "#ffffff",
-          btn_color_1: "#d4af37",
-          sb_company_label_color: "#0b2343",
-          sb_busy_bg: "#c7bfb7",
-          sb_available: "#ebd8a6",
-          responsive: "1",
-          timeline_mobile_display: "mobile",
-          body_bg_color: "#ffffff"
-        },
-        timeline: "modern",
-        datepicker: "top_calendar",
-        app_config: { clear_session: 0 },
+    <!-- SimplyBook -->
+    <script src="https://widget.simplybook.it/v2/widget/widget.js"></script>
+    <script>
+    (function () {
+      const host = document.getElementById('booking-widget');
+      if (!host) return;
 
-        // 💡 эта строка заставляет форму вставиться именно в #booking-widget
-        target_div_id: "booking-widget"
+      const BP = 768;                            // breakpoint для мобилы
+      let currentMode = null;                    // 'list' (моб) / 'block' (ПК)
+      const modeForWidth = () => (innerWidth <= BP ? 'list' : 'block');
+
+      function clearOld() {
+        host.querySelectorAll('iframe').forEach(n => n.remove());
+        const sib = host.nextElementSibling;
+        if (sib && sib.tagName === 'IFRAME') sib.remove();
+      }
+      function moveInside() {
+        const sib = host.nextElementSibling;
+        if (sib && sib.tagName === 'IFRAME') host.appendChild(sib);
+      }
+
+      function init(mode) {
+        currentMode = mode;
+        clearOld();
+
+        new SimplybookWidget({
+          widget_type: "iframe",
+          url: "https://ymassage.simplybook.it",
+          theme: "classic",                          // Classic (Classique)
+          theme_settings: {
+            /* поведение */
+            display_item_mode: mode,                 // ПК: block, моб: list
+            responsive: "1",
+            timeline_mobile_display: "mobile",
+            timeline_modern_display: "as_slots",
+            timeline_show_end_time: "1",
+            timeline_hide_unavailable: "1",
+            hide_past_days: "0",
+
+            /* убрать лишнее сверху */
+            hide_company_label: "1",
+            show_sidebar: "0",
+            show_timezone: "0",
+            hide_img_mode: "0",                      // показывать изображения
+
+            /* фирменные цвета Y Massage */
+            sb_base_color: "#f8f5f2",
+            btn_color_1: "#d4af37",
+            link_color: "#0b2343",
+            body_bg_color: "#ffffff",
+            dark_font_color: "#0b2343",              // основной текст (тёмно-синий)
+            light_font_color: "#3b6ea5",             // активные шаги/подписи (голубой)
+            sb_company_label_color: "#0b2343",
+            sb_busy: "#c7bfb7",
+            sb_available: "#d4af37"
+          },
+          timeline: "modern",
+          datepicker: "top_calendar",
+          app_config: { clear_session: 0 },
+          target_div_id: "booking-widget"
+        });
+
+        setTimeout(moveInside, 300);
+      }
+
+      // первая инициализация
+      init(modeForWidth());
+
+      // переинициализация при переходе через порог
+      let t;
+      addEventListener('resize', () => {
+        clearTimeout(t);
+        t = setTimeout(() => {
+          const need = modeForWidth();
+          if (need !== currentMode) init(need);
+        }, 200);
       });
+    })();
     </script>
-
   </div>
 </section>
+
+
+
+
+
+
+  
+
+
+ 
+
 
 
 <!-- ========== END SECTION ========== -->
@@ -831,67 +891,8 @@ Un geste simple qui fait toujours plaisir, à offrir pour un anniversaire, une f
 </script>
 
 
-<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-  // Инициализация ТОЛЬКО один раз
-  emailjs.init({ publicKey: 'aqrhOxZ6Ff0JM7PZP' });  // ← твой Public Key
 
-  const form = document.getElementById('ym-booking-form');
-  const msg  = document.getElementById('ym-modal-msg');
 
-  if (form) {
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-
-      emailjs.sendForm('service_n7wjnjb', 'template_0pyxm1v', form)
-        .then(() => {
-          msg.textContent = '✅ Message envoyé !';
-          form.reset();
-        })
-        .catch(err => {
-          console.error('EmailJS error:', err);
-          msg.textContent = "❌ Erreur d’envoi : " + (err?.text || err);
-        });
-    });
-  }
-});
-</script>
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-  const modal = document.getElementById('ym-modal');
-  const msg   = document.getElementById('ym-modal-msg');
-
-  function openModal(){
-    if (!modal) return;
-    modal.classList.add('is-open');
-    document.body.classList.add('ym-modal-open');
-    if (msg) msg.textContent = '';
-  }
-  function closeModal(){
-    if (!modal) return;
-    modal.classList.remove('is-open');
-    document.body.classList.remove('ym-modal-open');
-  }
-
-  // === ОТКРЫТИЕ: делегирование на весь документ ===
-  document.addEventListener('click', (e) => {
-    const trigger = e.target.closest('.js-open-modal');
-    if (trigger) {
-      e.preventDefault();
-      openModal();
-    }
-    if (e.target.classList?.contains('js-close')) {
-      closeModal();
-    }
-  });
-
-  // ESC для закрытия
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && modal?.classList.contains('is-open')) closeModal();
-  });
-});
-</script>
 <script>
 document.addEventListener('DOMContentLoaded', () => {
   const elements = document.querySelectorAll('.ym-reveal, .reveal');
@@ -968,27 +969,7 @@ document.addEventListener('DOMContentLoaded', () => {
   features.forEach(f=> io.observe(f));
 });
 </script>
- <!-- ========= Y Massage Modal ========= -->
-<div id="ym-modal" class="ym-modal" aria-hidden="true" role="dialog" aria-modal="true">
-  <div class="ym-modal__backdrop js-close" tabindex="-1"></div>
-
-  <div class="ym-modal__content" role="document">
-    <button class="ym-modal__close js-close" type="button" aria-label="Fermer">×</button>
-
-    <h2 class="ym-modal__title">Contactez-nous</h2>
-
-    <form id="ym-booking-form" class="ym-modal__form">
-      <input type="text"  name="user_name"  placeholder="Votre prénom" required>
-      <input type="email" name="user_email" placeholder="Votre e-mail" required>
-      <input type="tel"   name="user_phone" placeholder="Téléphone" required>
-      <textarea name="message" placeholder="Votre message"></textarea>
-      <button type="submit" class="ym-modal__btn">Envoyer</button>
-    </form>
-
-    <p id="ym-modal-msg" class="ym-modal__msg" aria-live="polite"></p>
-  </div>
-</div>
-<!-- ========= /Y Massage Modal ========= -->
+ 
 
 <script>
 (function () {

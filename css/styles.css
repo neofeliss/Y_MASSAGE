@@ -7403,3 +7403,487 @@ html {
         border-radius: 10px;
     }
 }
+/* === АДАПТАЦИЯ СЕКЦИИ РЕЗЕРВАЦИИ ПОД ТЕЛЕФОН === */
+
+/* Общая секция на мобильных — во весь экран */
+@media (max-width: 768px) {
+    #reservation {
+        padding: 0;
+        margin: 0;
+        background: #fff;
+    }
+
+    #reservation .container {
+        width: 100vw;
+        margin: 0;
+        padding: 0;
+        max-width: 100vw;
+    }
+
+    /* Заголовок и текст — немного внутреннего отступа */
+    .res-title,
+    .res-note {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    /* Сам iframe SimplyBook (или контейнер) во весь экран */
+    .booking-widget,
+    .booking-widget+iframe {
+        display: block !important;
+        width: 100vw !important;
+        height: 100vh !important;
+        min-height: 100vh !important;
+        border: 0 !important;
+        border-radius: 0 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        box-shadow: none !important;
+    }
+
+    /* Чтобы всё выглядело как самостоятельная страница */
+    body,
+    html {
+        overflow-x: hidden;
+    }
+}
+
+/* Для планшетов можно задать чуть меньше */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .booking-widget+iframe {
+        min-height: 1000px;
+    }
+}
+/* Секция бронирования — поджать поля сверху/снизу */
+#reservation {
+    padding-top: 8px;
+    padding-bottom: 12px;
+}
+
+#reservation .res-note {
+    margin-bottom: 8px;
+}
+
+/* Чуть подтягиваем сам iframe к заметке, если он рендерится соседом */
+#reservation .booking-widget+iframe {
+    margin-top: -12px;
+}
+
+/* На телефоне — во весь экран (как просила ранее) */
+@media (max-width: 768px) {
+    #reservation .container {
+        width: 100vw;
+        margin: 0;
+        padding: 0;
+    }
+
+    #reservation .booking-widget,
+    #reservation .booking-widget+iframe {
+        width: 100vw !important;
+        height: 100vh !important;
+        min-height: 100vh !important;
+        border: 0 !important;
+        border-radius: 0 !important;
+        margin: 0 !important;
+        box-shadow: none !important;
+    }
+}
+/* Кнопка "назад" на мобиле */
+#ym-back-btn {
+    position: fixed;
+    left: 12px;
+    bottom: 12px;
+    z-index: 9999;
+    padding: 10px 14px;
+    border: 0;
+    border-radius: 999px;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    background: #d4af37;
+    color: #0b2343;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, .18);
+}
+
+@media (min-width:769px) {
+    #ym-back-btn {
+        display: none;
+    }
+}
+/* подтягиваем виджет к заголовку, убираем пустое место */
+#reservation .booking-widget+iframe {
+    margin-top: -8px;
+    width: 100% !important;
+    border: 0;
+}
+
+/* на телефоне — на всю ширину; на десктопе всё остаётся как было */
+@media (max-width: 768px) {
+    #reservation .container {
+        width: 100vw;
+        margin: 0;
+        padding: 0;
+    }
+
+    #reservation .booking-widget,
+    #reservation .booking-widget+iframe {
+        width: 100vw !important;
+        border-radius: 0 !important;
+        box-shadow: none !important;
+    }
+}
+/* === Уменьшаем высоту и отступы зоны бронирования === */
+
+/* общий контейнер секции */
+#reservation {
+    padding-top: 10px;
+    padding-bottom: 15px;
+}
+
+/* сжимаем расстояние между текстом и самим виджетом */
+#reservation .res-note {
+    margin-bottom: 8px !important;
+}
+
+/* сам контейнер виджета */
+#reservation .booking-widget {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    padding: 0 !important;
+}
+
+/* iframe самого SimplyBook */
+#reservation .booking-widget+iframe {
+    margin-top: -10px !important;
+    /* сдвигаем выше */
+    margin-bottom: 0 !important;
+    min-height: 700px !important;
+    /* стандарт для десктопа */
+    border-radius: 12px !important;
+}
+
+/* для телефонов – во весь экран, без лишних зазоров */
+@media (max-width: 768px) {
+    #reservation {
+        padding: 0;
+        margin: 0;
+    }
+
+    #reservation .res-note {
+        margin-bottom: 6px !important;
+        padding: 0 10px;
+    }
+
+    #reservation .booking-widget+iframe {
+        margin-top: -15px !important;
+        min-height: 100vh !important;
+        border-radius: 0 !important;
+    }
+}
+/* === OPTIMISATION VISUELLE — Réservation SimplyBook === */
+
+/* Общая секция бронирования */
+#reservation {
+    padding-top: 25px;
+    /* раньше было больше — теперь меньше */
+    padding-bottom: 40px;
+    background: #f8f5f2;
+    /* чтобы блок сливался с остальными разделами */
+}
+
+/* Сжимаем расстояние между примечанием и iframe */
+#reservation .res-note {
+    margin-bottom: 12px !important;
+    text-align: center;
+}
+
+/* Контейнер виджета — убираем лишние отступы */
+#reservation .booking-widget {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* Сам iframe виджета (SimplyBook) */
+#reservation .booking-widget+iframe {
+    display: block !important;
+    margin: 0 auto !important;
+    margin-top: -8px !important;
+    /* немного поднимаем вверх */
+    margin-bottom: 0 !important;
+    width: 100% !important;
+    max-width: 1100px;
+    /* ограничиваем ширину, чтобы по центру */
+    min-height: 680px !important;
+    /* меньше белого пространства */
+    border: 0;
+    border-radius: 12px;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+    background: #fff;
+}
+
+/* --- Мобильная версия --- */
+@media (max-width: 768px) {
+    #reservation {
+        padding: 0;
+        margin: 0;
+        background: #fff;
+    }
+
+    #reservation .res-note {
+        margin-bottom: 8px !important;
+        padding: 0 10px;
+        font-size: 15px;
+        line-height: 1.4;
+    }
+
+    #reservation .booking-widget+iframe {
+        margin-top: -15px !important;
+        border-radius: 0 !important;
+        min-height: 100vh !important;
+        width: 100vw !important;
+        box-shadow: none !important;
+    }
+}
+/* --- РЕЗЕРВАЦИЯ: чтобы не обрезало фразу над виджетом --- */
+
+/* Больше воздуха под примечанием */
+#reservation .res-note {
+    margin-bottom: 16px !important;
+    line-height: 1.45;
+}
+
+/* Убираем агрессивную подтяжку iframe на десктопе */
+@media (min-width: 1025px) {
+    #reservation .booking-widget+iframe {
+        margin-top: -6px !important;
+        /* было -32 / -15 — делаем мягче */
+        min-height: 660px !important;
+        /* можно 640–700 по вкусу */
+    }
+}
+
+/* Планшет — без перекрытия текста */
+@media (min-width: 769px) and (max-width: 1024px) {
+    #reservation .booking-widget+iframe {
+        margin-top: -8px !important;
+    }
+}
+
+/* Мобильная версия — полноэкранно, но не заезжаем на текст */
+@media (max-width: 768px) {
+    #reservation .res-note {
+        margin-bottom: 10px !important;
+    }
+
+    #reservation .booking-widget+iframe {
+        margin-top: -10px !important;
+        /* лёгкая «подтяжка», текст виден */
+        min-height: 100vh !important;
+    }
+}
+
+/* На всякий — не скрывать содержимое секции ничем */
+#reservation,
+#reservation .container {
+    overflow: visible !important;
+}
+
+/* Если переходишь по якорю #reservation и шапка перекрывает заголовок */
+#reservation {
+    scroll-margin-top: 80px;
+}
+/* === Y Massage • Reservation: визуально убираем лишний верх в iframe === */
+#reservation .booking-widget {
+    position: relative;
+    overflow: hidden;
+    /* прячем то, что вылезет за край */
+}
+
+/* универсальный обрезатель: на ПК убираем больше, на мобиле меньше */
+#reservation {
+    --sb-crop: 80px;
+}
+
+/* сколько “срезать” сверху на ПК */
+@media (max-width: 1024px) {
+    #reservation {
+        --sb-crop: 48px;
+    }
+}
+
+@media (max-width: 768px) {
+    #reservation {
+        --sb-crop: 12px;
+    }
+}
+
+/* на телефоне почти не режем */
+
+/* сдвигаем iframe вверх на величину “среза” и компенсируем высоту */
+#reservation .booking-widget>iframe,
+#reservation .booking-widget+iframe {
+    display: block !important;
+    width: 100% !important;
+    border: 0 !important;
+    transform: translateY(calc(-1 * var(--sb-crop)));
+    height: calc(100% + var(--sb-crop)) !important;
+    min-height: calc(700px + var(--sb-crop)) !important;
+    /* можно 620–760 под монитор */
+    border-radius: 12px;
+    background: #fff;
+}
+
+/* если на мобиле у тебя полноэкранный режим — не оставляем скругления/тени */
+@media (max-width: 768px) {
+
+    #reservation .booking-widget>iframe,
+    #reservation .booking-widget+iframe {
+        border-radius: 0;
+        box-shadow: none;
+        min-height: calc(100vh + var(--sb-crop)) !important;
+    }
+}
+/* Компактнее отступы вокруг виджета */
+#reservation {
+    padding-top: 22px;
+    padding-bottom: 34px;
+}
+
+#reservation .res-note {
+    margin-bottom: 14px !important;
+}
+
+/* Контейнер и сам iframe */
+#reservation .booking-widget {
+    position: relative;
+    overflow: hidden;
+}
+
+#reservation .booking-widget>iframe,
+#reservation .booking-widget+iframe {
+    display: block !important;
+    width: 100% !important;
+    border: 0 !important;
+    margin: 0 auto !important;
+    margin-top: -12px !important;
+    /* аккуратно подтягиваем вверх */
+    min-height: 660px !important;
+    /* при желании 620–700 */
+    border-radius: 12px;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, .08);
+    background: #fff;
+}
+
+/* Планшет — мягче */
+@media (max-width:1024px) {
+
+    #reservation .booking-widget>iframe,
+    #reservation .booking-widget+iframe {
+        margin-top: -8px !important;
+    }
+}
+
+/* Телефон: во всю ширину/высоту, список в одну колонку */
+@media (max-width:768px) {
+    #reservation {
+        padding: 0;
+    }
+
+    #reservation .container {
+        width: 100vw;
+        margin: 0;
+        padding: 0;
+    }
+
+    #reservation .res-note {
+        margin: 8px 0 10px !important;
+        padding: 0 12px;
+    }
+
+    #reservation .booking-widget>iframe,
+    #reservation .booking-widget+iframe {
+        width: 100vw !important;
+        min-height: 100vh !important;
+        border-radius: 0 !important;
+        box-shadow: none !important;
+        margin-top: -10px !important;
+    }
+}
+/* ===== Reservation • Classic — компактные отступы и читабельность ===== */
+#reservation {
+    padding-top: 22px;
+    padding-bottom: 34px;
+}
+
+#reservation .res-note {
+    margin-bottom: 14px !important;
+    line-height: 1.45;
+}
+
+#reservation .booking-widget {
+    position: relative;
+    overflow: hidden;
+}
+
+/* сам iframe (будь то внутри .booking-widget или соседом) */
+#reservation .booking-widget>iframe,
+#reservation .booking-widget+iframe {
+    display: block !important;
+    width: 100% !important;
+    border: 0 !important;
+    margin: 0 auto !important;
+    margin-top: -12px !important;
+    /* аккуратно подтягиваем вверх */
+    min-height: 660px !important;
+    /* 620–700 подбери по вкусу */
+    border-radius: 12px;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, .08);
+    background: #fff;
+}
+
+/* планшет — чуть мягче */
+@media (max-width: 1024px) {
+
+    #reservation .booking-widget>iframe,
+    #reservation .booking-widget+iframe {
+        margin-top: -8px !important;
+    }
+}
+
+/* телефон — во всю ширину/высоту, список в столбик */
+@media (max-width: 768px) {
+    #reservation {
+        padding: 0;
+    }
+
+    #reservation .container {
+        width: 100vw;
+        margin: 0;
+        padding: 0;
+    }
+
+    #reservation .res-note {
+        margin: 8px 0 10px !important;
+        padding: 0 12px;
+    }
+
+    #reservation .booking-widget>iframe,
+    #reservation .booking-widget+iframe {
+        width: 100vw !important;
+        min-height: 100vh !important;
+        border-radius: 0 !important;
+        box-shadow: none !important;
+        margin-top: -10px !important;
+    }
+}
+
+/* лёгкое усиление контраста текста внутри iframe (визуально) */
+#reservation iframe {
+    filter: contrast(1.12) brightness(1.03);
+}
+
+@media (max-width:768px) {
+    #reservation iframe {
+        filter: contrast(1.18) brightness(1.06);
+    }
+}
