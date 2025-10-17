@@ -7374,3 +7374,32 @@ html {
         background-color: #f9f9f9;
     }
 }
+.booking-widget iframe {
+    width: 100% !important;
+    height: 100% !important;
+    border: 0 !important;
+    display: block;
+    border-radius: 16px;
+    background: #fff;
+}
+
+@media (max-width: 1024px) {
+    .booking-widget {
+        min-height: 980px;
+        border-radius: 14px;
+    }
+}
+
+@media (max-width: 768px) {
+    .booking-widget {
+        min-height: 1200px;
+        border-radius: 12px;
+    }
+}
+
+@media (max-width: 420px) {
+    .booking-widget {
+        min-height: 1400px;
+        border-radius: 10px;
+    }
+}
