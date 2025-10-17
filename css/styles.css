@@ -641,7 +641,7 @@ font-weight: 500;
     .ym-features {
         padding: 80px 10%;
         gap: 80px;
-        background: #f9f9f9;
+        background: #000000;
     }
 }
 /* Кнопка (если есть) */
@@ -2910,7 +2910,7 @@ section.feature .feature__title {
 section.feature .feature__text {
     font-size: 1.3rem !important;
     line-height: 1.8;
-    color: #f0f0f0;
+    color: #000000;
 }
 /* ===== Y Massage: Features ===== */
 .ym-features {
