@@ -7896,3 +7896,9 @@ html {
         /* черный */
     }
 }
+@media (max-width: 768px) {
+    .ym-reveal {
+        opacity: 1 !important;
+        transform: none !important;
+    }
+}
