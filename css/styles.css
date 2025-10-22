@@ -8111,4 +8111,262 @@ html {
         animation: none;
         transition: none;
     }
+}/* ====== YMX Features (new namespace) ====== */
+.ymx-features {
+    --ymx-bg: #f9f9f9;
+    /* общий светлый фон секции */
+    --ymx-text: #222;
+    /* основной текст */
+    --ymx-muted: #333;
+    /* абзацы */
+    --ymx-card-radius: 14px;
+    --ymx-shadow: 0 10px 28px rgba(0, 0, 0, .14);
+    --ymx-gold: #c9a14a;
+
+    position: relative;
+    z-index: 0;
+    background: var(--ymx-bg);
+    padding: clamp(40px, 7vw, 88px) clamp(16px, 6vw, 10%);
+}
+
+.ymx-section-title {
+    margin: 0 0 clamp(28px, 5vw, 48px);
+    text-align: center;
+    font-size: clamp(24px, 4.2vw, 36px);
+    line-height: 1.2;
+    letter-spacing: .02em;
+    color: #111;
+}
+
+/* Один ряд */
+.ymx-feature {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: clamp(16px, 4vw, 28px);
+    align-items: center;
+    margin-bottom: clamp(36px, 7vw, 80px);
+}
+
+/* Медиа */
+.ymx-feature__media img {
+    display: block;
+    width: 100%;
+    height: clamp(220px, 42vw, 360px);
+    object-fit: cover;
+    border-radius: var(--ymx-card-radius);
+    box-shadow: var(--ymx-shadow);
+}
+
+/* Контент */
+.ymx-feature__title {
+    margin: 0 0 10px;
+    font-size: clamp(22px, 3.4vw, 32px);
+    line-height: 1.2;
+    letter-spacing: .02em;
+}
+
+.ymx-feature__text {
+    margin: 0;
+    font-size: clamp(15px, 2vw, 18px);
+    line-height: 1.7;
+    color: var(--ymx-muted);
+}
+
+/* Кнопка */
+.ymx-button {
+    display: inline-block;
+    margin-top: 16px;
+    padding: 10px 18px;
+    border-radius: 10px;
+    background: #e8d6b0;
+    color: #222;
+    text-decoration: none;
+    font-weight: 600;
+    transition: transform .15s ease, filter .2s ease;
+}
+
+.ymx-button:hover {
+    transform: translateY(-1px);
+    filter: brightness(1.02);
+}
+
+.ymx-button:focus-visible {
+    outline: 2px solid var(--ymx-gold);
+    outline-offset: 2px;
+}
+
+/* ====== Desktop layout: «шахматка» ====== */
+@media (min-width: 900px) {
+    .ymx-feature {
+        grid-template-columns: 1fr 1fr;
+        gap: clamp(20px, 4vw, 50px);
+    }
+
+    /* Чётные блоки — меняем порядок: фото справа, текст слева */
+    .ymx-feature:nth-child(even) .ymx-feature__media {
+        order: 2;
+    }
+
+    .ymx-feature:nth-child(even) .ymx-feature__content {
+        order: 1;
+    }
+}
+
+/* ====== Reveal animations (respect reduced motion) ====== */
+[data-reveal] {
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity .6s ease, transform .6s ease;
+}
+
+[data-reveal].is-in {
+    opacity: 1;
+    transform: none;
+}
+
+[data-reveal="left"] {
+    transform: translateX(-24px);
+}
+
+[data-reveal="right"] {
+    transform: translateX(24px);
+}
+
+[data-reveal="left"].is-in,
+[data-reveal="right"].is-in {
+    transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    [data-reveal] {
+        opacity: 1;
+        transform: none !important;
+        transition: none !important;
+    }
+}/* FIX: не прятать контейнеры фичей */
+.ymx-feature[data-reveal] {
+    opacity: 1 !important;
+    transform: none !important;
+}
+
+/* Прятать только внутренние элементы */
+.ymx-feature__media[data-reveal],
+.ymx-feature__content[data-reveal] {
+    opacity: 0;
+    transform: translateY(12px);
+}
+
+.ymx-feature__media[data-reveal="left"] {
+    transform: translateX(-24px);
+}
+
+.ymx-feature__media[data-reveal="right"] {
+    transform: translateX(24px);
+}
+
+.ymx-feature__content[data-reveal="left"] {
+    transform: translateX(-24px);
+}
+
+.ymx-feature__content[data-reveal="right"] {
+    transform: translateX(24px);
+}
+
+.ymx-feature__media.is-in,
+.ymx-feature__content.is-in {
+    opacity: 1;
+    transform: none;
+}
+/* ==== улучшенный вид секции YMX Features ==== */
+
+/* фон секции — мягкий серо-бежевый, как раньше */
+.ymx-features {
+    --ymx-bg: #f4f4f4;
+    /* прежний серый */
+    background: var(--ymx-bg);
+}
+
+/* текст: чуть темнее и крупнее */
+.ymx-feature__title {
+    color: #111;
+    font-size: clamp(24px, 3.8vw, 36px);
+    margin-bottom: 14px;
+}
+
+.ymx-feature__text {
+    font-size: clamp(17px, 2.2vw, 20px);
+    /* 🔥 крупнее описание */
+    line-height: 1.8;
+    color: #2a2a2a;
+    /* темнее серый */
+}
+
+/* кнопка — чуть теплее оттенок */
+.ymx-button {
+    background: #e6d0a0;
+    color: #222;
+    font-size: clamp(15px, 1.8vw, 17px);
+    padding: 12px 22px;
+    border-radius: 12px;
+}
+
+/* небольшое свечение при наведении */
+.ymx-button:hover {
+    filter: drop-shadow(0 0 6px rgba(201, 161, 74, .35));
+}
+
+/* на планшетах и телефонах — увеличить внутренние отступы секции,
+   чтобы фон «дышал» */
+@media (max-width: 900px) {
+    .ymx-features {
+        padding: 64px 20px;
+    }
+}
+/* ==== Тёмно-серый фон и улучшенная типографика секции ==== */
+.ymx-features {
+    --ymx-bg: #e3e3e3;
+    /* теперь фон темнее, благородный серый */
+    background: linear-gradient(180deg, #dcdcdc 0%, #e3e3e3 40%, #d8d8d8 100%);
+    color: #1a1a1a;
+}
+
+/* Заголовок и текст */
+.ymx-feature__title {
+    color: #0d0d0d;
+    font-size: clamp(25px, 3.6vw, 36px);
+    margin-bottom: 14px;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+}
+
+.ymx-feature__text {
+    font-size: clamp(18px, 2.3vw, 21px);
+    /* 🔥 крупнее и комфортнее */
+    line-height: 1.85;
+    color: #202020;
+    opacity: 0.95;
+}
+
+/* Кнопка — золотой акцент с лёгким блеском */
+.ymx-button {
+    background: linear-gradient(90deg, #d8b978, #c9a14a);
+    color: #111;
+    font-size: clamp(16px, 1.8vw, 18px);
+    padding: 12px 26px;
+    border-radius: 12px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, .1);
+    transition: all 0.25s ease;
+}
+
+.ymx-button:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.08) drop-shadow(0 0 6px rgba(201, 161, 74, .35));
+}
+
+/* На телефонах — больше воздуха */
+@media (max-width: 900px) {
+    .ymx-features {
+        padding: 64px 20px;
+        background: linear-gradient(180deg, #dcdcdc 0%, #e1e1e1 100%);
+    }
 }

@@ -70,8 +70,84 @@
     <button type="button" class="main-button">Prendre rendez-vous</button>-->
   </div>
 </section>
+<!-- ========= Y Massage — Features / Section 2 (responsive, new classes) ========= -->
+<section class="ymx-features" id="ym-features" aria-labelledby="ymx-features-title">
+  <h2 id="services" class="ymx-section-title" aria-level="2" role="heading">
+    Découvrez Nos Offres
+  </h2>
+
+  <!-- 1. Massage & SPA -->
+  <article class="ymx-feature" data-reveal>
+    <div class="ymx-feature__media" data-reveal="left">
+      <img src="images/massage.jpg" alt="Massage & SPA" loading="lazy" decoding="async">
+    </div>
+    <div class="ymx-feature__content" data-reveal="right">
+      <h3 class="ymx-feature__title">Massage &amp; SPA</h3>
+      <p class="ymx-feature__text">
+        Offrez-vous une véritable pause de bien-être grâce à nos soins inspirés de traditions du monde entier.
+        Chaque massage favorise la détente profonde, aide à relâcher les tensions accumulées et redonne au corps sa vitalité.
+        Nous proposons différentes techniques selon vos envies&nbsp;: relaxant, énergétique, anti-cellulite, drainage, sportif,
+        chiromassage, massage pour enfants et bien d’autres.
+      </p>
+      <a href="#spa" class="ymx-button">Voir les tarifs</a>
+    </div>
+  </article>
+
+  <!-- 2. Sauna & Hydratation (перевёрнутый порядок на десктопе) -->
+  <article class="ymx-feature" data-reveal>
+    <div class="ymx-feature__media" data-reveal="right">
+      <img src="images/sauna.jpg" alt="Sauna &amp; hydratation aux herbes" loading="lazy" decoding="async">
+    </div>
+    <div class="ymx-feature__content" data-reveal="left">
+      <h3 class="ymx-feature__title">Sauna &amp; Hydratation</h3>
+      <p class="ymx-feature__text">
+        Découvrez l’art des rituels de chaleur et d’eau, pensés pour régénérer le corps et apaiser l’esprit.
+        Plongez dans notre jacuzzi, où les bulles délicates dénouent les tensions et procurent une relaxation profonde.
+        Nos séances en sauna infrarouge diffusent une chaleur douce et bienfaisante qui favorise l’élimination des toxines,
+        stimule la circulation et apporte une agréable sensation de légèreté.
+        Nous vous proposons également la phytosauna (fitobanya), une cabine traditionnelle à vapeur d’herbes...
+      </p>
+      <a href="#spa-equipements" class="ymx-button">Voir les tarifs</a>
+    </div>
+  </article>
+
+  <!-- 3. Moments Bien-Être à Partager -->
+  <article class="ymx-feature" data-reveal>
+    <div class="ymx-feature__media" data-reveal="left">
+      <img src="images/persone.jpg" alt="Soins du visage" loading="lazy" decoding="async">
+    </div>
+    <div class="ymx-feature__content" data-reveal="right">
+      <h3 class="ymx-feature__title">Moments Bien-Être à Partager</h3>
+      <p class="ymx-feature__text">
+        Nos espaces sont pensés pour être vécus seul(e) ou accompagné(e) de vos proches.
+        Partagez un moment unique en découvrant nos différents rituels : essayez ensemble nos programmes SPA, explorez les bienfaits de nos saunas, ou profitez de la détente incomparable de notre jacuzzi.
+        Venez vivre une expérience de relaxation en duo, en famille ou entre amis, dans une atmosphère chaleureuse et apaisante.
+        Parce que le bien-être prend encore plus de sens lorsqu’il est partagé.
+      </p>
+      <a href="#formules-groupe" class="ymx-button">Voir les Formules Groupe</a>
+    </div>
+  </article>
+
+  <!-- 4. Cartes Cadeaux -->
+  <article class="ymx-feature" data-reveal>
+    <div class="ymx-feature__media" data-reveal="right">
+      <img src="images/magazan.jpg" alt="Boutique bien-être" loading="lazy" decoding="async">
+    </div>
+    <div class="ymx-feature__content" data-reveal="left">
+      <h3 class="ymx-feature__title">Cartes Cadeaux &amp; Surprises Bien-Être</h3>
+      <p class="ymx-feature__text">
+        Offrez plus qu’un cadeau : offrez un moment de détente et de bonheur.
+        Nos cartes cadeaux permettent de choisir librement parmi toutes les prestations du centre : massages, programmes SPA, sauna, jacuzzi, phytosauna et autres rituels de bien-être.
+        C’est une façon élégante de surprendre vos proches et de leur offrir une expérience inoubliable.
+        Un geste simple qui fait toujours plaisir, à offrir pour un anniversaire, une fête ou simplement pour dire « je pense à toi ».
+      </p>
+      <a href="#reservation" class="ymx-button">Offrir une Carte Cadeau</a>
+    </div>
+  </article>
+</section>
+
       <!-- Section2 -->
-      <!-- ========== FEATURES (Y Massage) ========== -->
+      <!-- ========== FEATURES (Y Massage) ========== 
 <section class="ym-features" id="ym-features">
 
  <h2 id="services" class="ym-section-title ym-reveal">Découvrez Nos Offres</h2>
@@ -90,11 +166,10 @@
         chiromassage,  massage pour enfants et bien d’autres.
       </p>
       <a href="#spa" class="btn-tarif">Voir les tarifs</a>
-      <!-- <a href="#tarifs" class="ym-feature__btn">Voir les tarifs</a> -->
-    </div>
+      
   </article>
 
-  <!-- 2. Sauna — фото справа, текст слева -->
+  
   <article class="ym-feature ym-feature--right ym-feature_sauna">
   <div class="ym-feature_media ym-reveal ym-from-right">
     <img src="images/sauna.jpg" alt="Sauna & hydratation aux herbes" loading="lazy">
@@ -108,12 +183,12 @@
       stimule la circulation et apporte une agréable sensation de légèreté.
       Nous vous proposons également la phytosauna (fitobanya), une cabine traditionnelle à vapeur d’herbes...
     </p>
-    <!-- Кнопка, ведущая к тарифам -->
+   
     <a href="#spa-equipements" class="ym-feature__btn">Voir les tarifs</a>
   </div>
 </article>
 
-  <!-- 3. Для группы — фото слева, текст справа -->
+
   <article class="ym-feature group-sessions">
     <div class="ym-feature__media ym-reveal ym-from-left">
       <img src="images/persone.jpg" alt="Soins du visage" loading="lazy">
@@ -133,7 +208,7 @@ Parce que le bien-être prend encore plus de sens lorsqu’il est partagé.
     </div>
   </article>
 
-  <!-- 4. Boutique — фото справа, текст слева -->
+
   <article class="ym-feature ym-feature--right gift-cards">
     <div class="ym-feature__media ym-reveal ym-from-right">
       <img src="images/magazan.jpg" alt="Boutique bien-être" loading="lazy">
@@ -149,11 +224,10 @@ C’est une façon élégante de surprendre vos proches et de leur offrir une ex
 Un geste simple qui fait toujours plaisir, à offrir pour un anniversaire, une fête ou simplement pour dire « je pense à toi ».
       </p>
       <a href="#reservation" class="ym-feature__btn">Offrir une Carte Cadeau</a>
-      <!-- <a href="#tarifs" class="ym-feature__btn">Découvrir</a> -->
-    </div>
+      
   </article>
 
-</section>
+</section>-->
 <!-- ========== /FEATURES ========== -->
       <section class="gallery-section" aria-label="Galerie du salon">
   <h2 class="gallery-title">Galerie</h2>
@@ -1165,6 +1239,40 @@ if (burger && nav) {
       }
     });
   }
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const section = document.getElementById('ym-features');
+  if (!section) return;
+
+  // Reveal для всех data-reveal внутри секции
+  const items = section.querySelectorAll('[data-reveal]');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+
+      const target = entry.target;
+      // Если это карточка .ymx-feature — делаем ступенчатое появление: медиа -> контент
+      const feature = target.closest('.ymx-feature');
+
+      if (feature && (target === feature)) {
+        const media = feature.querySelector('.ymx-feature__media');
+        const content = feature.querySelector('.ymx-feature__content');
+        if (media)   setTimeout(() => media.classList.add('is-in'), 50);
+        if (content) setTimeout(() => content.classList.add('is-in'), 200);
+        io.unobserve(feature);
+      } else {
+        // Обычное появление
+        target.classList.add('is-in');
+        io.unobserve(target);
+      }
+    });
+  }, { threshold: 0.2 });
+
+  // Наблюдаем за всеми целями (и за самими feature, и за их внутренностями)
+  section.querySelectorAll('.ymx-feature').forEach(f => io.observe(f));
+  items.forEach(el => io.observe(el));
+});
 </script>
 
 </body>
