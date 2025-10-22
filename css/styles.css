@@ -8370,3 +8370,320 @@ html {
         background: linear-gradient(180deg, #dcdcdc 0%, #e1e1e1 100%);
     }
 }
+/* ============ YMX HEADER (responsive, transparent on scroll) ============ */
+:root {
+    --ymx-h: 88px;
+    /* высота шапки на десктопе */
+    --ymx-ink: #0E2A4A;
+    --ymx-accent: #CBB79C;
+}
+
+/* Основа */
+.ymx-header {
+    position: fixed;
+    inset: 0 0 auto 0;
+    z-index: 1000;
+    background: transparent;
+    transition: background .4s ease, box-shadow .4s ease, backdrop-filter .4s ease, -webkit-backdrop-filter .4s ease;
+}
+
+.ymx-shell {
+    width: min(1240px, 94vw);
+    margin-inline: auto;
+    height: var(--ymx-h);
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    padding: 0 40px;
+}
+
+/* Лого */
+.ymx-logo {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    text-decoration: none;
+    color: #fff;
+    position: relative;
+}
+
+.ymx-logo__img {
+    width: 140px;
+    height: 140px;
+    margin-right: -68px;
+    transform: translateY(6px);
+}
+
+.ymx-logo__img img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
+
+.ymx-logo__text {
+    font-family: "Playfair Display", serif;
+    font-weight: 700;
+    font-size: 40px;
+    letter-spacing: .02em;
+    color: #fff;
+    transition: all .4s ease;
+}
+
+/* «Золотой» градиент при ховере */
+.ymx-logo:hover .ymx-logo__text {
+    background: linear-gradient(90deg, #cfa974 0%, #7a5a33 45%, #000 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 12px rgba(207, 169, 116, .5);
+    transform: scale(1.02);
+}
+
+/* Навигация */
+.ymx-nav {
+    margin-left: auto;
+}
+
+.ymx-menu {
+    display: flex;
+    gap: 46px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.ymx-link {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 22px;
+    letter-spacing: .03em;
+    position: relative;
+    transition: color .25s ease;
+}
+
+.ymx-link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    height: 2px;
+    width: 0;
+    background: var(--ymx-accent);
+    transition: width .25s;
+}
+
+.ymx-link:hover {
+    color: var(--ymx-accent);
+}
+
+.ymx-link:hover::after {
+    width: 100%;
+}
+
+/* Телефон (desktop only) */
+.ymx-phone {
+    margin-left: 30px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 20px;
+    color: #fff;
+    background: rgba(14, 42, 74, .25);
+    padding: 10px 22px;
+    border-radius: 26px;
+    transition: all .25s;
+}
+
+.ymx-phone:hover {
+    background: rgba(255, 255, 255, .15);
+    color: #fff;
+}
+
+/* Бургер — скрыт на desktop */
+.ymx-burger {
+    display: none;
+}
+
+/* Эффект при скролле — как на ПК */
+.ymx-header.is-scrolled {
+    background: rgba(0, 0, 0, .7);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, .25);
+}
+
+.ymx-header.is-scrolled .ymx-link,
+.ymx-header.is-scrolled .ymx-logo,
+.ymx-header.is-scrolled .ymx-phone {
+    color: #fff;
+}
+
+.ymx-header.is-scrolled .ymx-phone {
+    background: rgba(255, 255, 255, .1);
+    border: 1px solid rgba(255, 255, 255, .2);
+}
+
+/* ================== Адаптив ================== */
+
+/* Планшеты ≤ 1024px */
+@media (max-width:1024px) {
+    :root {
+        --ymx-h: 78px;
+    }
+
+    .ymx-shell {
+        gap: 18px;
+    }
+
+    .ymx-logo__img {
+        width: 100px;
+        height: 100px;
+        margin-right: -48px;
+        transform: translateY(4px);
+    }
+
+    .ymx-logo__text {
+        font-size: 32px;
+    }
+
+    .ymx-menu {
+        gap: 28px;
+    }
+
+    .ymx-link {
+        font-size: 20px;
+    }
+
+    .ymx-phone {
+        display: none;
+    }
+
+    /* как в твоём варианте */
+}
+
+/* Телефоны ≤ 768px */
+@media (max-width:768px) {
+    :root {
+        --ymx-h: 68px;
+    }
+
+    .ymx-shell {
+        padding: 0 18px;
+        gap: 16px;
+    }
+
+    .ymx-logo__img {
+        width: 64px;
+        height: 64px;
+        margin-right: -22px;
+        transform: none;
+    }
+
+    .ymx-logo__text {
+        font-size: 26px;
+    }
+
+    /* Бургер показываем */
+    .ymx-burger {
+        margin-left: auto;
+        display: inline-flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 38px;
+        height: 32px;
+        border: 0;
+        background: none;
+        cursor: pointer;
+        color: #fff;
+    }
+
+    .ymx-burger span {
+        display: block;
+        width: 26px;
+        height: 3px;
+        margin: 4px auto;
+        background: currentColor;
+        border-radius: 2px;
+        transition: transform .25s, opacity .25s;
+    }
+
+    /* Мобильное меню: фикс панель под шапкой */
+    .ymx-nav {
+        position: fixed;
+        top: var(--ymx-h);
+        left: 0;
+        right: 0;
+        display: none;
+        background: rgba(0, 0, 0, .9);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        padding: 18px 0;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, .15);
+        z-index: 999;
+    }
+
+    .ymx-menu {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .ymx-link {
+        font-size: 22px;
+        padding: 12px 16px;
+        border-radius: 10px;
+    }
+
+    .ymx-link:hover {
+        background: rgba(255, 255, 255, .08);
+        color: #fff;
+    }
+
+    /* Открытое меню */
+    .ymx-nav.is-open {
+        display: block;
+    }
+
+    /* Анимация бургера */
+    .ymx-burger.is-open span:nth-child(1) {
+        transform: translateY(6px) rotate(45deg);
+    }
+
+    .ymx-burger.is-open span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .ymx-burger.is-open span:nth-child(3) {
+        transform: translateY(-6px) rotate(-45deg);
+    }
+
+    /* В скролле — белые полоски бургера тоже видны */
+    .ymx-header.is-scrolled .ymx-burger span {
+        background: #fff;
+    }
+}
+
+/* Очень узкие экраны ≤ 380px: ещё компактнее логотип */
+@media (max-width:380px) {
+    .ymx-logo__img {
+        width: 54px;
+        height: 54px;
+        margin-right: -14px;
+    }
+
+    .ymx-logo__text {
+        font-size: 24px;
+    }
+}
+
+/* Нотч / безопасная зона iOS */
+@supports (padding: max(0px)) {
+    .ymx-header {
+        padding-top: env(safe-area-inset-top);
+    }
+}
+
+/* Якоря не прячутся под фикс-шапку */
+html {
+    scroll-padding-top: var(--ymx-h);
+}

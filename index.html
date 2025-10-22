@@ -20,11 +20,40 @@
 
   <body>
   
+<!-- ============ Y Massage — Header (responsive, new classes) ============ -->
+<header class="ymx-header" role="banner">
+  <div class="ymx-shell">
+    <!-- Лого -->
+    <a class="ymx-logo" href="./index.html">
+      <span class="ymx-logo__img">
+        <img src="images/Y_MASSAGE_logo.png" alt="Logo Y Massage" loading="eager" decoding="async">
+      </span>
+      <span class="ymx-logo__text">Y Massage</span>
+    </a>
 
-    
+    <!-- Бургер -->
+    <button class="ymx-burger" aria-label="Ouvrir le menu" aria-controls="ymxMenu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+
+    <!-- Меню -->
+    <nav id="ymxMenu" class="ymx-nav" role="navigation" aria-label="Navigation principale">
+      <ul class="ymx-menu">
+        <li><a href="#services" class="ymx-link">Services</a></li>
+        <li><a href="#reservation" class="ymx-link">Tarifs</a></li>
+        <li><a href="#contacts" class="ymx-link">Contact</a></li>
+      </ul>
+    </nav>
+
+    <!-- Телефон (десктоп) -->
+    <a href="tel:+330624359841" class="ymx-phone">📞 06 24 35 98 41</a>
+  </div>
+</header>
+
+     <!-- 
    <header class="ym-header" role="banner">
   <div class="ym-shell">
-    <!-- ЛОГО -->
+   
     <a class="ym-logo" href="./index.html">
       <span class="ym-logo__img">
         <img src="images/Y_MASSAGE_logo.png" alt="Logo Y Massage" loading="eager">
@@ -32,12 +61,12 @@
       <span class="ym-logo__text">Y Massage</span>
     </a>
 
-    <!-- БУРГЕР -->
+    
     <button class="ym-burger" aria-label="Ouvrir le menu" aria-controls="ymMenu" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
 
-    <!-- МЕНЮ -->
+    
     <nav id="ymMenu" class="ym-nav" role="navigation">
       <ul class="ym-menu">
         <li><a href="#services" class="ym-link">Services</a></li>
@@ -47,10 +76,10 @@
       </ul>
     </nav>
 
-    <!-- ТЕЛЕФОН -->
+ 
     <a href="tel:+330624359841" class="ym-phone">📞 06 24 35 98 41</a>
   </div>
-</header>
+</header>-->
 
     <main>
        
@@ -1272,6 +1301,52 @@ document.addEventListener('DOMContentLoaded', () => {
   // Наблюдаем за всеми целями (и за самими feature, и за их внутренностями)
   section.querySelectorAll('.ymx-feature').forEach(f => io.observe(f));
   items.forEach(el => io.observe(el));
+});
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const header  = document.querySelector('.ymx-header');
+  const burger  = document.querySelector('.ymx-burger');
+  const nav     = document.getElementById('ymxMenu');
+
+  // Скролл-эффект: прозрачный → полупрозрачно-серый + блюр
+  const setScrolled = () => {
+    if (!header) return;
+    header.classList.toggle('is-scrolled', window.scrollY > 10);
+  };
+  setScrolled();
+  window.addEventListener('scroll', setScrolled, { passive: true });
+
+  // Бургер-меню
+  if (burger && nav){
+    const toggle = () => {
+      const open = burger.classList.toggle('is-open');
+      nav.classList.toggle('is-open', open);
+      burger.setAttribute('aria-expanded', String(open));
+      document.body.style.overflow = open ? 'hidden' : ''; // блокируем скролл при открытом меню
+    };
+    burger.addEventListener('click', toggle);
+
+    // Закрытие при клике по ссылке
+    nav.addEventListener('click', e => {
+      if (e.target.closest('.ymx-link')){
+        burger.classList.remove('is-open');
+        nav.classList.remove('is-open');
+        burger.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+      }
+    });
+
+    // Закрыть при ресайзе на десктоп
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 768 && nav.classList.contains('is-open')){
+        burger.classList.remove('is-open');
+        nav.classList.remove('is-open');
+        burger.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+      }
+    });
+  }
 });
 </script>
 
