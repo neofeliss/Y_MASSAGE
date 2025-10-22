@@ -7902,3 +7902,213 @@ html {
         transform: none !important;
     }
 }
+/* ================= Y MASSAGE — FOOTER (NEW CLASSES) ================= */
+.ym-footer {
+    /* локальные переменные с фолбэками — не зависят от остального сайта */
+    --ym-footer-bg1: #0d0f14;
+    --ym-footer-bg2: #171a21;
+    --ym-edge: rgba(255, 255, 255, 0.06);
+    --ym-text: #ffffff;
+    --ym-muted: #cfd3de;
+    --ym-gold: #c9a14a;
+    --ym-gold-strong: #e3b858;
+
+    position: relative;
+    isolation: isolate;
+    /* создаёт новый контекст наложения */
+    padding: clamp(40px, 6vw, 72px) 16px clamp(50px, 7vw, 84px);
+    background: linear-gradient(180deg, var(--ym-footer-bg1), var(--ym-footer-bg2));
+    border-top: 1px solid var(--ym-edge);
+    color: var(--ym-text);
+    text-align: center;
+    overflow: visible;
+    animation: ym-footer-fade .6s ease both;
+}
+
+/* мягкая виньетка/текстура */
+.ym-footer::before {
+    content: "";
+    position: absolute;
+    z-index: 0;
+    inset: -30% -15% auto -15%;
+    height: 160%;
+    background: radial-gradient(60% 50% at 50% 0%, rgba(255, 255, 255, .07), transparent 60%);
+    pointer-events: none;
+}
+
+/* внутренний контейнер */
+.ym-footer__inner {
+    position: relative;
+    z-index: 1;
+    max-width: 1040px;
+    margin-inline: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: clamp(10px, 2.8vw, 16px);
+}
+
+/* бренд */
+.ym-footer__brand {
+    margin: 0;
+    font-weight: 700;
+    font-size: clamp(26px, 4.8vw, 36px);
+    line-height: 1.15;
+    color: #fff;
+    letter-spacing: .4px;
+    text-decoration: none;
+    transition: color .25s ease, text-shadow .25s ease, transform .2s ease;
+    will-change: transform;
+}
+
+.ym-footer__brand-y {
+    color: var(--ym-gold);
+    transition: color .25s ease, text-shadow .25s ease;
+}
+
+.ym-footer:hover .ym-footer__brand-y {
+    color: var(--ym-gold-strong);
+    text-shadow: 0 0 14px rgba(201, 161, 74, .35);
+}
+
+/* слоган */
+.ym-footer__tagline {
+    margin: 6px 0 0 0;
+    font-size: clamp(14px, 2.6vw, 16px);
+    line-height: 1.6;
+    color: var(--ym-muted);
+    opacity: .95;
+    padding-inline: 6px;
+}
+
+/* соцсети */
+.ym-footer__social {
+    display: inline-flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: clamp(12px, 2.6vw, 22px);
+    margin-top: clamp(8px, 2vw, 12px);
+}
+
+.ym-social__link {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 600;
+    font-size: clamp(16px, 2.8vw, 18px);
+    color: #e7e9ee;
+    text-decoration: none;
+    padding: 10px 14px;
+    border-radius: 999px;
+    background: transparent;
+    transition: color .25s ease, background-color .25s ease, filter .25s ease, transform .15s ease;
+}
+
+.ym-social__icon {
+    width: clamp(20px, 3.6vw, 24px);
+    height: clamp(20px, 3.6vw, 24px);
+    fill: currentColor;
+    opacity: .95;
+    transition: opacity .25s ease;
+}
+
+.ym-social__link:hover {
+    color: var(--ym-gold-strong);
+    background: rgba(201, 161, 74, .08);
+    filter: drop-shadow(0 0 8px rgba(201, 161, 74, .35));
+    transform: translateY(-1px);
+}
+
+.ym-social__link:focus-visible {
+    outline: 2px solid var(--ym-gold);
+    outline-offset: 2px;
+    background: rgba(201, 161, 74, .10);
+}
+
+/* копирайт */
+.ym-footer__copy {
+    margin: clamp(6px, 2vw, 10px) 0 0 0;
+    font-size: clamp(13px, 2.4vw, 14px);
+    color: var(--ym-muted);
+}
+
+/* логотип внизу */
+.ym-footer__logo {
+    margin-top: clamp(12px, 3vw, 16px);
+    opacity: .95;
+    transition: opacity .25s ease, transform .2s ease;
+}
+
+.ym-footer__logo img {
+    max-width: min(200px, 60vw);
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+/* hover эффекты */
+.ym-footer__logo:hover {
+    opacity: 1;
+    transform: translateY(-1px);
+}
+
+.ym-footer__brand:focus-visible {
+    outline: 2px solid var(--ym-gold);
+    outline-offset: 3px;
+}
+
+/* ====== адаптивные уточнения ====== */
+
+/* ≥480px — чуть крупнее шрифты, побольше отступы */
+@media (min-width: 480px) {
+    .ym-social__link {
+        padding: 10px 16px;
+    }
+}
+
+/* ≥768px — планшеты: компактнее вертикальные зазоры */
+@media (min-width: 768px) {
+    .ym-footer__inner {
+        gap: 14px;
+    }
+
+    .ym-footer__tagline {
+        max-width: 760px;
+    }
+}
+
+/* ≥1024px — маленькие десктопы и выше */
+@media (min-width: 1024px) {
+    .ym-footer {
+        padding: 64px 16px 92px;
+    }
+
+    .ym-footer__inner {
+        gap: 16px;
+    }
+}
+
+/* анимация появления + respect user preference */
+@keyframes ym-footer-fade {
+    from {
+        opacity: 0;
+        transform: translateY(6px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .ym-footer,
+    .ym-social__link,
+    .ym-footer__brand,
+    .ym-footer__logo {
+        animation: none;
+        transition: none;
+    }
+}

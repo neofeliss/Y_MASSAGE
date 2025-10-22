@@ -796,21 +796,21 @@ Un geste simple qui fait toujours plaisir, à offrir pour un anniversaire, une f
  
 </section>
     </main>
-<footer class="footer-dark-bg">
+ <!-- <footer class="footer-dark-bg">
   <div class="container footer-block" style="flex-direction: column; align-items: center; text-align: center;">
     
-    <!-- ЛОГО -->
+ >
     <h3 class="footer-logo">
       <span class="brand-y">Y</span>Massage
     </h3>
 
-    <!-- СЛОГАН -->
+   
     <p class="footer-dark-bg-text">
       «L’amour-propre est la source de tout autre amour», Pierre Corneille.
     </p>
 
     <div class="footer-social">
-  <!-- Instagram -->
+ 
   <a href="https://instagram.com/y_massage_y" target="_blank" class="social-link" aria-label="Instagram">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
       <path fill="currentColor" d="M224,202.66A53.34,53.34,0,1,0,277.34,256,53.38,53.38,0,0,0,224,202.66Zm124.71-41a54,54,0,0,0-30.18-30.18C293.79,124,224,124,224,124s-69.79,0-94.53,7.47a54,54,0,0,0-30.18,30.18C92,153.21,92,224,92,224s0,69.79,7.47,94.53a54,54,0,0,0,30.18,30.18C154.21,356,224,356,224,356s69.79,0,94.53-7.47a54,54,0,0,0,30.18-30.18C356,293.79,356,224,356,224S356,154.21,348.71,161.71ZM224,338a114,114,0,1,1,114-114A114.13,114.13,0,0,1,224,338Zm118.4-214.6a26.67,26.67,0,1,1-26.67-26.67A26.66,26.66,0,0,1,342.4,123.4Z"/>
@@ -818,7 +818,7 @@ Un geste simple qui fait toujours plaisir, à offrir pour un anniversaire, une f
     Instagram
   </a>
 
-  <!-- Facebook -->
+  
   <a href="https://www.facebook.com/profile.php?id=61581379137766" target="_blank" class="social-link" aria-label="Facebook">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
       <path fill="currentColor" d="M279.14 288l14.22-92.66h-88.91V127.41c0-25.35 12.42-50.06 52.24-50.06H293V6.26S277.43 0 262.39 0c-73.25 0-121.15 44.38-121.15 124.72v70.62H86.41V288h54.83v224h107.73V288z"/>
@@ -827,11 +827,51 @@ Un geste simple qui fait toujours plaisir, à offrir pour un anniversaire, une f
   </a>
 </div>
 
-    <!-- КОПИРАЙТ -->
     <p class="footer-copy">© 2025 YMassage. Tous droits réservés.</p>
-<!-- ЛОГО В ФУТЕРЕ -->
+
     <div class="footer-logo">
       <img src="images/Y_MASSAGE_logo.png" alt="Logo YMassage">
+    </div>
+  </div>
+</footer> -->
+<!-- ================= Y MASSAGE — RESPONSIVE FOOTER ================= -->
+<footer class="ym-footer" role="contentinfo">
+  <div class="ym-footer__inner">
+    <!-- Brand -->
+    <a class="ym-footer__brand" href="/" aria-label="Accueil YMassage">
+      <span class="ym-footer__brand-y">Y</span>Massage
+    </a>
+
+    <!-- Tagline -->
+    <p class="ym-footer__tagline">
+      «L’amour-propre est la source de tout autre amour», Pierre Corneille.
+    </p>
+
+    <!-- Social -->
+    <nav class="ym-footer__social" aria-label="Réseaux sociaux">
+      <!-- Instagram -->
+      <a class="ym-social__link" href="https://instagram.com/y_massage_y" target="_blank" rel="noopener" aria-label="Instagram YMassage">
+        <svg class="ym-social__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" aria-hidden="true" focusable="false">
+          <path d="M224,202.66A53.34,53.34,0,1,0,277.34,256,53.38,53.38,0,0,0,224,202.66Zm124.71-41a54,54,0,0,0-30.18-30.18C293.79,124,224,124,224,124s-69.79,0-94.53,7.47a54,54,0,0,0-30.18,30.18C92,153.21,92,224,92,224s0,69.79,7.47,94.53a54,54,0,0,0,30.18,30.18C154.21,356,224,356,224,356s69.79,0,94.53-7.47a54,54,0,0,0,30.18-30.18C356,293.79,356,224,356,224S356,154.21,348.71,161.71ZM224,338a114,114,0,1,1,114-114A114.13,114.13,0,0,1,224,338Zm118.4-214.6a26.67,26.67,0,1,1-26.67-26.67A26.66,26.66,0,0,1,342.4,123.4Z"/>
+        </svg>
+        <span class="ym-social__label">Instagram</span>
+      </a>
+
+      <!-- Facebook -->
+      <a class="ym-social__link" href="https://www.facebook.com/profile.php?id=61581379137766" target="_blank" rel="noopener" aria-label="Facebook YMassage">
+        <svg class="ym-social__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" aria-hidden="true" focusable="false">
+          <path d="M279.14 288l14.22-92.66h-88.91V127.41c0-25.35 12.42-50.06 52.24-50.06H293V6.26S277.43 0 262.39 0c-73.25 0-121.15 44.38-121.15 124.72v70.62H86.41V288h54.83v224h107.73V288z"/>
+        </svg>
+        <span class="ym-social__label">Facebook</span>
+      </a>
+    </nav>
+
+    <!-- Copyright -->
+    <p class="ym-footer__copy">© 2025 YMassage. Tous droits réservés.</p>
+
+    <!-- Logo image -->
+    <div class="ym-footer__logo">
+      <img src="images/Y_MASSAGE_logo.png" alt="Logo YMassage" loading="lazy" decoding="async">
     </div>
   </div>
 </footer>
