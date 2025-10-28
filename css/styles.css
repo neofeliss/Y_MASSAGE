@@ -9331,3 +9331,10 @@ body {
 .ym-offer--promo-couple .ym-offer__promo-text {
     color: #a32626;
 }
+@media (max-width:768px) {
+    .ymx-header.is-scrolled {
+        background: rgba(0, 0, 0, .7) !important;
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+    }
+}
