@@ -9372,3 +9372,89 @@ html {
     margin-top: 5cm;
     /* ✅ верхний отступ */
 }
+.ym-ethics-block {
+    background-color: #0a1e3f;
+    /* тёмно-синий */
+    padding: 40px 20px;
+    border-bottom: 3px solid #d4af37;
+    /* золотая линия */
+}
+
+/* --- ФОН ЗАТЕМНЕНИЯ --- */
+.ym-modal {
+    display: flex;
+    position: fixed;
+    z-index: 99999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.55);
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+/* --- САМО ОКНО --- */
+.ym-modal-content {
+    background-color: rgba(255, 255, 255, 0.88);
+    /* прозрачный белый */
+    color: #000000;
+    /* чёрный текст */
+    padding: 35px 30px;
+    border-radius: 14px;
+    max-width: 650px;
+    width: 100%;
+    border: 2px solid #d4af37;
+    /* золото */
+    text-align: center;
+    position: relative;
+    backdrop-filter: blur(6px);
+    /* красивое размытие */
+}
+
+/* --- ЗАГОЛОВОК --- */
+.ym-modal-content h2 {
+    color: #071733 !important;
+    /* глубокий тёмно-синий */
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    font-weight: 700 !important;
+}
+
+/* --- ВЫДЕЛЕННЫЕ ФРАЗЫ --- */
+.ym-modal-content strong {
+    color: #030d1f !important;
+    /* ещё темнее */
+    font-weight: 800 !important;
+    /* очень жирный */
+}
+
+/* --- КРЕСТИК ЗАКРЫТИЯ --- */
+.ym-close {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    color: #000000;
+    /* чёрный */
+    font-size: 30px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.ym-close:hover {
+    color: #d4af37;
+    /* золото */
+}
+
+/* --- МОБИЛЬНАЯ АДАПТАЦИЯ --- */
+@media (max-width: 480px) {
+    .ym-modal-content {
+        padding: 25px 18px;
+    }
+
+    .ym-modal-content h2 {
+        font-size: 1.4rem;
+    }
+}
