@@ -9458,3 +9458,61 @@ html {
         font-size: 1.4rem;
     }
 }
+.ymx-buttons {
+    display: flex;
+    gap: 12px;
+    margin-top: 15px;
+}
+
+.ymx-btn-contact {
+    padding: 12px 20px;
+    border: 2px solid #d4af37;
+    border-radius: 30px;
+    color: #ffffff;
+    font-weight: 600;
+    text-decoration: none;
+    background: rgba(212, 175, 55, 0.15);
+    transition: all 0.3s ease;
+}
+
+.ymx-btn-contact:hover {
+    background: #d4af37;
+    color: #000;
+}
+.ymx-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 15px;
+}
+
+.ymx-btn-reserver,
+.ymx-btn-contact {
+    padding: 12px 22px;
+    border-radius: 30px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.ymx-btn-reserver {
+    background: #d4af37;
+    color: #000;
+    border: 2px solid #d4af37;
+}
+
+.ymx-btn-reserver:hover {
+    background: transparent;
+    color: #fff;
+}
+
+.ymx-btn-contact {
+    background: transparent;
+    border: 2px solid #d4af37;
+    color: #fff;
+}
+
+.ymx-btn-contact:hover {
+    background: #d4af37;
+    color: #000;
+}

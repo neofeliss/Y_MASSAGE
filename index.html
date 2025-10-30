@@ -100,7 +100,7 @@
     <h1 class="main-text">Espace Bien-être <span class="sub-text">Chez Yuliia</span></h1>
    <!-- <a href="/reserver#reservation" class="btn-reserve">Réserver maintenant</a> 
     <button type="button" class="main-button">Prendre rendez-vous</button>-->
-   <a href="#offres-speciales" class="ym-promo-btn">Voir les offres promotionnelles</a>
+   <a href="#formules-duo" class="ym-promo-btn">Voir les offres promotionnelles</a>
 
 
   </div>
@@ -313,32 +313,32 @@ Un geste simple qui fait toujours plaisir, à offrir pour un anniversaire, une f
 </section>
  
 <!-- ==================== Y MASSAGE — FORMULES DUO PROMOS ==================== -->
-<section id="offres-speciales" id="formules-duo" class="ym-duo">
+<section id="formules-duo" class="ym-duo" data-section="offres-speciales" aria-labelledby="duo-title">
   <div class="ym-duo__wrap">
 
     <!-- 🎁 Gift banner -->
-    <div class="ym-gift-banner" aria-label="Idée cadeau Noël / Anniversaire">
+    <div class="ym-gift-banner" role="note" aria-label="Idée cadeau Noël / Anniversaire">
       🎁 Idée cadeau parfaite pour Noël ou un anniversaire — cartes cadeaux disponibles
     </div>
 
     <header class="ym-duo__head">
-      <h2 class="ym-duo__title">Formules Duo & Bien-Être</h2>
+      <h2 id="duo-title" class="ym-duo__title">Formules Duo &amp; Bien-Être</h2>
       <p class="ym-duo__subtitle">
-        <strong>Salon entièrement privatisé</strong> pour vous pendant toute la séance • Espace cosy & détente
+        <strong>Salon entièrement privatisé</strong> pour vous pendant toute la séance • Espace cosy &amp; détente
       </p>
     </header>
 
     <div class="ym-duo__grid">
-
-      <!-- ===== FORMULE ENTRE COPINES ===== -->
-      <article id="formule-entre-copines" class="ym-offer ym-offer--promo-filles">
+       <!-- ===== FORMULE ENTRE COPINES ===== -->
+      <article id="formule-entre-copines" class="ym-offer ym-offer--promo-filles" aria-labelledby="copines-title">
         <div class="ym-offer__shell">
+
           <div class="ym-offer__badge ym-offer__badge--filles">
             💖 Offre spéciale bien-être • Jacuzzi privatisé • Salon réservé rien que pour vous
           </div>
 
           <div class="ym-offer__content">
-            <h3 class="ym-offer__title">Formule « Entre Copines »</h3>
+            <h3 id="copines-title" class="ym-offer__title">Formule « Entre Copines »</h3>
             <p class="ym-offer__subtitle">Détente, Beauté & Enveloppement</p>
 
             <ul class="ym-offer__list">
@@ -352,26 +352,36 @@ Un geste simple qui fait toujours plaisir, à offrir pour un anniversaire, une f
 
             <div class="ym-offer__meta">2h • pour 2 personnes</div>
 
-            <!-- 💸 Prix -->
+            <!-- Prix -->
             <div class="ym-offer__prices">
-              <span class="ym-price ym-price--old">220&nbsp;€</span>
-              <span class="ym-price ym-price--new">160&nbsp;€</span>
+              <span class="ym-price ym-price--old">220 €</span>
+              <span class="ym-price ym-price--new">160 €</span>
               <span class="ym-price__note">promo</span>
             </div>
+
             <p class="ym-offer__validity">Offre valable jusqu’au 31 décembre 2025</p>
 
             <p class="ym-offer__promo-text">
               🌸 Offre limitée — détente, beauté et complicité féminine dans un espace entièrement privatisé.
             </p>
 
-            <div class="ym-offer__cta">
-              <a class="ym-btn ym-btn--primary" 
-   href="https://ymassage.simplybook.it/v2/#book/service/52" 
-   target="_blank" 
-   rel="noopener noreferrer">
-  Réserver maintenant
-</a>
+            <div class="ym-offer__cta ymx-buttons">
 
+              <!-- ✅ Прямая ссылка на service 52 -->
+              <a class="ym-btn ym-btn--primary ymx-btn-reserver"
+                 href="https://ymassage.simplybook.it/v2/#book/service/52"
+                 target="_blank"
+                 rel="noopener noreferrer">
+                 Réserver ici
+              </a>
+
+              <a href="sms:+33624359841" class="ym-btn ym-btn--ghost ymx-btn-contact">
+                Réserver par message
+              </a>
+
+              <a href="tel:+33624359841" class="ym-btn ym-btn--link">
+                Ou appeler 
+              </a>
             </div>
           </div>
 
@@ -379,63 +389,78 @@ Un geste simple qui fait toujours plaisir, à offrir pour un anniversaire, une f
             <img src="images/ym-offer-duo.jfif" alt="Y Massage – Formule Entre Copines" loading="lazy">
             <figcaption class="ym-offer__tag">Espace privatisé</figcaption>
           </figure>
+
         </div>
       </article>
 
-      <!-- ===== FORMULE ROMANTIQUE DUO ===== -->
-      <article id="formule-romantique-duo" class="ym-offer ym-offer--promo-couple">
-        <div class="ym-offer__shell">
-          <div class="ym-offer__badge ym-offer__badge--couple">
-            🌹 Offre spéciale romantique • Jacuzzi privatisé • Salon réservé rien que pour vous
-          </div>
+     <!-- ===== FORMULE ROMANTIQUE DUO ===== -->
+<article id="formule-romantique-duo" class="ym-offer ym-offer--promo-couple" aria-labelledby="romantique-title">
+  <div class="ym-offer__shell">
 
-          <div class="ym-offer__content">
-            <h3 class="ym-offer__title">Formule « Romantique Duo »</h3>
-            <p class="ym-offer__subtitle">Évasion à deux • Ambiance intimiste</p>
-
-            <ul class="ym-offer__list">
-               <li>Fitobanya (sauna aux herbes) — 20 min</li>
-              <li>Sauna infrarouge — 20 min</li>
-              <li><strong>Jacuzzi privatif — accès illimité pendant toute la séance</strong></li>
-              <li>Massage relaxant à deux — 40 min</li>
-              <li>Pause tisane & moment cosy</li>
-            </ul>
-
-            <div class="ym-offer__meta">2h • pour 2 personnes</div>
-
-            <!-- 💸 Prix -->
-            <div class="ym-offer__prices">
-              <span class="ym-price ym-price--old">200&nbsp;€</span>
-              <span class="ym-price ym-price--new">150&nbsp;€</span>
-              <span class="ym-price__note">promo</span>
-            </div>
-            <p class="ym-offer__validity">Offre valable jusqu’au 31 décembre 2025</p>
-
-            <p class="ym-offer__promo-text">
-              ✨ Offre en édition limitée — parfaite pour couples, anniversaires ou surprises romantiques.
-            </p>
-
-            <div class="ym-offer__cta">
-              <a class="ym-btn ym-btn--primary" 
-   href="https://ymassage.simplybook.it/v2/#book/service/53" 
-   target="_blank" 
-   rel="noopener noreferrer">
-  Réserver maintenant
-</a>
-
-            
-            </div>
-          </div>
-
-          <figure class="ym-offer__visual" role="img" aria-label="Spa romantique — jacuzzi privatif et massage pour deux">
-            <img src="images/ym-offer-romantique.jfif" alt="Y Massage – Formule Romantique Duo" loading="lazy">
-            <figcaption class="ym-offer__tag">Ambiance cosy</figcaption>
-          </figure>
-        </div>
-      </article>
+    <div class="ym-offer__badge ym-offer__badge--couple">
+      🌹 Offre spéciale romantique • Jacuzzi privatisé • Salon réservé rien que pour vous
     </div>
+
+    <div class="ym-offer__content">
+      <h3 id="romantique-title" class="ym-offer__title">Formule « Romantique Duo »</h3>
+      <p class="ym-offer__subtitle">Évasion à deux • Ambiance intimiste</p>
+
+      <ul class="ym-offer__list">
+        <li>Fitobanya (sauna aux herbes) — 20 min</li>
+        <li>Sauna infrarouge — 20 min</li>
+        <li><strong>Jacuzzi privatif — accès illimité pendant toute la séance</strong></li>
+        <li>Massage relaxant à deux — 40 min</li>
+        <li>Pause tisane & moment cosy</li>
+      </ul>
+
+      <div class="ym-offer__meta">2h • pour 2 personnes</div>
+
+      <!-- Prix -->
+      <div class="ym-offer__prices">
+        <span class="ym-price ym-price--old">200 €</span>
+        <span class="ym-price ym-price--new">150 €</span>
+        <span class="ym-price__note">promo</span>
+      </div>
+
+      <p class="ym-offer__validity">Offre valable jusqu’au 31 décembre 2025</p>
+
+      <p class="ym-offer__promo-text">
+        ✨ Offre en édition limitée — parfaite pour couples, anniversaires ou surprises romantiques.
+      </p>
+
+      <div class="ym-offer__cta ymx-buttons">
+
+        <!-- ✅ Прямая ссылка на service 53 -->
+        <a class="ym-btn ym-btn--primary ymx-btn-reserver"
+           href="https://ymassage.simplybook.it/v2/#book/service/53"
+           target="_blank"
+           rel="noopener noreferrer">
+           Réserver ici
+        </a>
+
+        <!-- ✅ SMS -->
+        <a href="sms:+33624359841" class="ym-btn ym-btn--ghost ymx-btn-contact">
+          Réserver par message
+        </a>
+
+        <!-- ✅ Téléphone (новое) -->
+        <a href="tel:+33624359841" class="ym-btn ym-btn--link">
+          Ou appeler
+        </a>
+
+      </div>
+    </div>
+
+    <figure class="ym-offer__visual" role="img" aria-label="Spa romantique — jacuzzi privatif et massage pour deux">
+      <img src="images/ym-offer-romantique.jfif" alt="Y Massage – Formule Romantique Duo" loading="lazy">
+      <figcaption class="ym-offer__tag">Ambiance cosy</figcaption>
+    </figure>
+
   </div>
+</article>
+
 </section>
+
 
       <!-- section 4 -->
       <!-- ===== PROGRAMMES SPA (cards with hover curtain) ===== -->
