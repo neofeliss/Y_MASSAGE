@@ -9571,3 +9571,152 @@ html {
         justify-content: center;
     }
 }
+/* ==================== Y MASSAGE — TARIFS MASSAGES BIEN-ÊTRE ==================== */
+/* Всё строго в неймспейсе .ym-prices-bienetre */
+.ym-prices-bienetre {
+    background: #f8f5f2;
+    padding: 48px 0;
+}
+
+.ym-prices-bienetre__wrap {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.ym-prices-bienetre__head {
+    margin-bottom: 18px;
+}
+
+.ym-prices-bienetre__title {
+    color: #0b2343;
+    font-size: 32px;
+    line-height: 1.2;
+    margin: 0 0 6px;
+}
+
+.ym-prices-bienetre__note {
+    color: #405064;
+    margin: 0;
+    font-size: 15px;
+}
+
+/* Сетка */
+.ym-prices-bienetre__grid {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 14px;
+}
+
+@media (min-width:768px) {
+    .ym-prices-bienetre__grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+/* Карточка цены */
+.ym-bienetre-price {
+    background: #fff;
+    border: 1px solid rgba(11, 35, 67, .12);
+    border-radius: 12px;
+    padding: 16px 18px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, .04);
+    transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+}
+
+.ym-bienetre-price:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 26px rgba(0, 0, 0, .08);
+    border-color: rgba(221, 175, 55, .45);
+    /* золото */
+}
+
+/* Левая часть */
+.ym-bienetre-price__left {
+    min-width: 0;
+}
+
+.ym-bienetre-price__name {
+    color: #0b2343;
+    font-size: 18px;
+    margin: 0 0 6px;
+    line-height: 1.25;
+}
+
+.ym-bienetre-price__dur {
+    color: #7a8aa0;
+    font-size: 14px;
+    letter-spacing: .02em;
+}
+
+/* Правая часть */
+.ym-bienetre-price__right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.ym-bienetre-price__val {
+    color: #0b2343;
+    font-weight: 700;
+    font-size: 18px;
+    white-space: nowrap;
+}
+
+/* Кнопка */
+.ym-bienetre-price__btn {
+    display: inline-block;
+    padding: 8px 14px;
+    border: 2px solid #0b2343;
+    color: #0b2343;
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 8px;
+    transition: background .18s ease, border-color .18s ease, color .18s ease, box-shadow .18s ease;
+}
+
+.ym-bienetre-price__btn:hover,
+.ym-bienetre-price__btn:focus {
+    background: #ddaf37;
+    color: #0b2343;
+    border-color: #ddaf37;
+    box-shadow: 0 6px 16px rgba(221, 175, 55, .35);
+    outline: 0;
+}
+
+.ym-bienetre-price__btn:active {
+    transform: translateY(1px);
+}
+
+/* Мобайл */
+@media (max-width:480px) {
+    .ym-bienetre-price {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .ym-bienetre-price__right {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .ym-prices-bienetre__title {
+        font-size: 26px;
+    }
+}
+
+/* Доступность + уважение к reduce-motion */
+@media (prefers-reduced-motion:reduce) {
+
+    .ym-bienetre-price,
+    .ym-bienetre-price__btn {
+        transition: none;
+    }
+}
