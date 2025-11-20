@@ -9961,3 +9961,90 @@ html {
         padding: 2.3rem 2.3rem 2.5rem;
     }
 }
+.ym-duo-section {
+    padding: 60px 20px;
+    background: #f9f7f4;
+}
+
+.ym-section-title {
+    text-align: center;
+    font-size: 34px;
+    color: #2c3550;
+    margin-bottom: 40px;
+    font-weight: 600;
+}
+
+.ym-section-title span {
+    font-size: 20px;
+    display: block;
+    opacity: 0.7;
+}
+
+.ym-duo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+    gap: 30px;
+}
+
+.ym-duo-card {
+    background: #ffffff;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    transition: 0.3s;
+}
+
+.ym-duo-card:hover {
+    transform: translateY(-5px);
+}
+
+.ym-duo-img {
+    height: 220px;
+    background-size: cover;
+    background-position: center;
+}
+
+.ym-duo-content {
+    padding: 25px;
+}
+
+.ym-duo-content h3 {
+    margin: 0 0 10px;
+    font-size: 24px;
+    color: #2c3550;
+}
+
+.ym-price {
+    font-weight: bold;
+    font-size: 22px;
+    color: #b48b5a;
+    margin-bottom: 10px;
+}
+
+.ym-text {
+    color: #555;
+    line-height: 1.5;
+    margin-bottom: 15px;
+}
+
+.ym-available {
+    font-size: 14px;
+    margin-bottom: 20px;
+    color: #2c3550;
+    font-weight: 600;
+}
+
+.ym-btn {
+    display: inline-block;
+    padding: 12px 25px;
+    background: #2c3550;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+.ym-btn:hover {
+    background: #182037;
+}
