@@ -3648,7 +3648,16 @@ section.feature .feature__text {
 
 .yg-section-title {
     font-size: clamp(24px, 3.2vw, 34px);
-    margin: 0 0 28px;
+    margin: 0 0 10px;
+}
+
+.yg-section-note {
+    font-size: clamp(13px, 1.4vw, 15px);
+    color: var(--yg-blue);
+    /* если тёмный фон */
+    /* color: #666;  если светлый фон */
+    font-style: italic;
+    margin-bottom: 28px;
 }
 
 .yg-grid {
