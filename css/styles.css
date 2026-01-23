@@ -10232,3 +10232,26 @@ html {
         font-size: 30px;
     }
 }
+.btn-anchor {
+    display: inline-block;
+    padding: 14px 32px;
+    background: linear-gradient(135deg, #c9a96a, #e6c88b);
+    color: #1b2b4a;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 30px;
+    transition: all .3s ease;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.btn-anchor:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.25);
+}
+html {
+    scroll-behavior: smooth;
+}
+.btn-anchor {
+    display: inline-block;
+    margin-top: 45px;
+}
